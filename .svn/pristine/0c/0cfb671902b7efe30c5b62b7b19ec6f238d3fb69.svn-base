@@ -1,0 +1,43 @@
+package com.voda.ideaOrc;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.PageFactory;
+
+public class VILIdeaORCObj {
+	
+public VILIdeaORCObj(WebDriver driver) {
+		
+		PageFactory.initElements(driver,this);
+	}
+	
+	@FindBy(how=How.XPATH, using="//*[@id='mobile']")
+	public WebElement MobileNo;
+	
+	@FindBy(how=How.XPATH, using="//*[@id=\"rechargeamount\" and @class =\"form-control\"]")
+	public WebElement AmountBill;
+	
+	@FindBy(how=How.XPATH, using="//*[contains(@class, \"btn payBtn px-4 mt-2\")]")
+	public WebElement Pay_Now;
+	
+	@FindBy(how=How.XPATH, using="//div[@class=\"fetchData\"]")
+	public WebElement Fetch_lastRechage;
+	
+	@FindBy(how=How.XPATH, using="//body/div[1]/div/div[2]/div/div[3]/div[2]/div[2]/div[1]/div/h1")
+	public WebElement Lets_doRechage;
+	
+	@FindBy(how=How.XPATH, using="//img[contains(@class, \"img-fluid abc\") and contains(@src ,\"/content/dam/vodafoneideadigital/onlinerecharge/banner.png\")]")
+	public WebElement Banner_doRechage;
+	
+	@FindBy(how=How.XPATH, using="//div[contains(@class, \"invalid-feedback\") and contains(@style ,\"display: block;\")]")
+	public WebElement LesTha_Error;
+	
+	@FindBy(how=How.XPATH, using="//div[contains(@class, \"invalid-feedback\") and contains(@style ,\"display: block;\")]")
+	public WebElement LebelFieldBoder;
+	
+	@FindBy(how=How.XPATH, using="//span[contains(@class, \"desktop-heading\")]")
+	public WebElement ideaPostpaid_toastmsg;
+	
+}

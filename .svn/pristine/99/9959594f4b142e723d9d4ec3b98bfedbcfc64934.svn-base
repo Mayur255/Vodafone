@@ -1,0 +1,81 @@
+Pay_BillURL : https://testcare.ideacellular.com/wps/portal/account/express-paybill
+
+HomePage_Bill : https://testcare.ideacellular.com
+
+Idea_ORC :https://beta.vodafoneidea.com/shop/prepaid/easy-online-recharge.jsp
+
+Voda_HomeBill : https://www.vodafone.in/
+
+PrepaidCart :https://testcare.ideacellular.com
+
+PrepaidLMS : https://testcare.ideacellular.com/prepaid/take-a-new-connection
+
+PrepaidBuyNow_URL : https://testaem2.ideacellular.com/wps/portal/account/online-recharge
+
+BuyNow_Pack : https://testcare.ideacellular.com/wps/portal/account/online-recharge
+
+BuyPacl_Url : https://testaem2.ideacellular.com/customer/postpaid/overview
+
+PostpaidLms_url : https://testaem2.ideacellular.com/postpaid/take-a-new-connection
+
+PostpaidBuyPlan : https://testcare.ideacellular.com/customer/postpaid/overview
+
+PrepaidIR_Url: https://testcare.ideacellular.com/postpaid/international-roaming
+
+PostpaidIR_Url: https://testcare.ideacellular.com/postpaid/international-roaming
+
+VodaFone_Pack: https://beta.vodafoneidea.com/shop/prepaid/best-prepaid-plans.jsp
+
+                        //////BillPay///////
+                        
+#VodaFone_Pay_Bill : https://testvil1.vodafoneidea.com/content/vodafoneideadigital/in/en/homepage/postpaidbillpay.html 
+#VodaFone_Pay_Bill : http://172.30.235.8:4507/content/vodafoneideadigital/in/en/homepage/postpaidbillpay.html
+#VodaFone_Pay_Bill :https://testvil1.vodafoneidea.com/postpaid/quick-online-bill-payment
+VodaFone_Pay_Bill  :https://beta.vodafoneidea.com/postpaid/quick-online-bill-payment
+
+COCPNo:9921010153
+VodafoneCocpN:9072608445
+LessThan:805840028
+prepaidIdeaNO :8058400284
+prepaidVoda :7720011111
+NonIdeaNo:8355870118
+NuStartinZero:0967745566
+AlfabetSpecial:%$#&^*(@
+IdeaPostpaidNo:8059050512
+vodaPostpaidNo:9619218213
+AmountTenDigit:1235667865
+inActiveNo:9072608171
+inActiveVFNo:9072608202
+dicimalNo:1000000000.59
+amount:15
+newAmount:120
+OTPFirst :7834
+OTPOnce :8799
+OTPTwice:2
+OTPThrice:4
+OTPForth:5
+Tran_Password :nb1221
+                     ////////OnLinerechage////// 
+                     
+ VodaFone_ORC :https://beta.vodafoneidea.com/shop/prepaid/easy-online-recharge.jsp
+  VodaFone_ORC1 :http://172.30.235.69:4503/content/vodafoneideadigital/in/en/vil-homepage/recharge/online-recharge.html
+ mless_Thanten :77868865 
+ Vodafone_prePaidNo:7769941028  
+ vodaNo:7406637912 
+ integerAmount:78666   
+ fiveDigitAmount:89998   
+ amount_rs:1
+ NonIdea_NonVF:5667777667 
+ amount_rs1: 12 
+ amount_rs2: 99999 
+ 
+ #Vodafone_HomePage:https://testvil1.vodafoneidea.com
+ Vodafone_HomePage:https://beta.vodafoneidea.com
+ 
+ vodafone_pre :9637889276 
+ VodaPrepaid_rechage :9742711711
+ vodafone_cocp: 9168320485
+                     
+
+
+

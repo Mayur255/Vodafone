@@ -1,0 +1,3231 @@
+
+<!DOCTYPE html>
+<html>
+
+
+<head>
+	<meta charset='utf-8' /> 
+	<meta name='description' content='' />
+	<meta name='robots' content='noodp, noydir' />
+	<meta name='viewport' content='width=device-width, initial-scale=1' />
+	<meta id="timeStampFormat" name="timeStampFormat" content='MMM d, yyyy hh:mm:ss a'/>
+	
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+		<link href='https://cdn.rawgit.com/anshooarora/extentreports-java/b4a58fcfd1e137bd9287244035a7c80d3d73b3af/dist/css/extent.css' type='text/css' rel='stylesheet' />
+	
+	<title>ExtentReports</title>
+
+	<style type='text/css'>
+	</style>
+</head>
+
+	<body class='extent standard default hide-overflow bdd-report'>
+		<div id='theme-selector' alt='Click to toggle theme. To enable by default, use theme configuration.' title='Click to toggle theme. To enable by default, use theme configuration.'>
+			<span><i class='material-icons'>desktop_windows</i></span>
+		</div>
+
+<nav>
+	<div class="nav-wrapper">
+		<a href="#!" class="brand-logo blue darken-3">Extent</a>
+
+		<!-- slideout menu -->
+		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
+			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
+						<li class='waves-effect'><a href='#!' view='category-view' onclick="configureView(1)"><i class='material-icons'>label_outline</i></a></li>
+			<li class='waves-effect'><a href='#!' view='exception-view' onclick="configureView(2)"><i class='material-icons'>bug_report</i></a></li>
+			<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></i></a></li>
+		</ul>
+
+		<!-- report name -->
+		<span class='report-name'>ExtentReports</span>
+		
+		<!-- report headline -->
+		<span class='report-headline'></span>
+
+		<!-- nav-right -->
+		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
+			<li>
+                <a href='#!'>
+                    <span class='label suite-start-time blue darken-3'>Jul 27, 2020 10:18:33 AM</span>
+				</a>
+			</li>
+			<li>
+                <a href='#!'>
+                    <span class='label blue darken-3'>3.1.2</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+
+		<!-- container -->
+		<div class='container'>
+
+<div id='test-view' class='view'>
+				
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- test toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button tests-toggle' data-activates='tests-toggle' data-constrainwidth='true' data-beloworigin='true' data-hover='true' href='#'>
+					<i class='material-icons'>warning</i> Status
+				</a>
+				<ul id='tests-toggle' class='dropdown-content'>
+											<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+						<li status='fail'><a href='#!'>Fail <i class='material-icons red-text'>cancel</i></a></li>
+						<li status='skip'><a href='#!'>Skip <i class='material-icons cyan-text'>redo</i></a></li>
+					<li class='divider'></li>
+					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
+				</ul>
+			</div>
+			<!-- test toggle -->
+
+			<!-- category toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button category-toggle' data-activates='category-toggle' data-constrainwidth='false' data-beloworigin='true' data-hover='true' href='#'>
+					<i class='material-icons'>local_offer</i> Category
+				</a>
+				<ul id='category-toggle' class='dropdown-content'>
+					<li><a href='#'>@VF_Packs</a></li>
+					<li><a href='#'>@Prepaid_Pack_Chrome</a></li>
+					<li><a href='#'>@VF_CategorySpecific</a></li>
+					<li><a href='#'>@CategoryPage</a></li>
+					<li><a href='#'>@Check_PostpaidPlans</a></li>
+					<li><a href='#'>@Plans_Automation</a></li>
+					<li><a href='#'>@VodafoneIdeaorc</a></li>
+					<li><a href='#'>@Vodafone_ORC_Chrome</a></li>
+					<li><a href='#'>@VodaFone_HomePage</a></li>
+					<li><a href='#'>@HomePage_Chrome</a></li>
+					<li class='divider'></li>
+					<li class='clear'><a href='#!' clear='true'>Clear Filters</a></li>
+				</ul>
+			</div>
+			<!-- category toggle -->
+
+			<!-- clear filters -->
+			<div class='chip transparent hide'>
+				<a class='' id='clear-filters' alt='Clear Filters' title='Clear Filters'>
+					<i class='material-icons'>close</i> Clear
+				</a>
+			</div>
+			<!-- clear filters -->
+
+			<!-- enable dashboard -->
+			<div id='toggle-test-view-charts' class='chip transparent'>
+				<a class='pink-text' id='enable-dashboard' alt='Enable Dashboard' title='Enable Dashboard'>
+					<i class='material-icons'>track_changes</i> Dashboard
+				</a>
+			</div>
+			<!-- enable dashboard -->
+
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+
+<div id='test-view-charts' class='subview-full'>
+	<div id='charts-row' class='row nm-v nm-h'>
+		<div class='col s12 m4 l4 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Features</div>
+				<div class='chart-box'>
+					<canvas id='parent-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='0%'><span class='strong'>0</span> feature(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='80%'>4</span> feature(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='20%'>1</span> others
+				</div>
+			</div>
+		</div>
+		
+		<div class='col s12 m4 l4 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Scenarios</div>
+				<div class='chart-box'>
+					<canvas id='child-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='0%'><span class='strong'>0</span> scenario(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='80%'>4</span> scenario(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='20%'>1</span> others
+				</div>
+			</div>
+		</div>
+		
+		<div class='col s12 m4 l4 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Steps</div>
+				<div class='chart-box'>
+					<canvas id='grandchild-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='39.929%'><span class='strong'>113</span> step(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='1.413%'>4</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='58.657%'>166</span> others
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Features</h5>
+			<ul id='test-collection' class='test-collection'>
+				
+				
+				<li class='test displayed active has-leaf fail' status='fail' bdd='true' test-id='1'>
+					<div class='test-heading'>
+						<span class='test-name'>VF_packs</span>
+						<span class='test-time'>Jul 27, 2020 10:18:33 AM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='scenario node' test-id='2' status='fail'>
+	<div class='category-list'>
+		<span class='category label white-text'>@Prepaid_Pack_Chrome</span>
+	</div>
+	<span class='duration right label'>0h 1m 27s+830ms</span>
+	<div class='desc'>
+		<b>Scenario</b>
+		<span class="desc-text">VF_Pack</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='3' class='node given pass' status='pass'>
+			
+			<b>Given</b>
+			
+			<span class="bdd-step-name">Given Launch the browser</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='4' class='node when pass' status='pass'>
+			
+			<b>When</b>
+			
+			<span class="bdd-step-name">When Enter URL</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='5' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Prepaid Pack page should open properly</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='6' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Page >> Circle should display</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='7' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Page >> By default Mumbai circle should display</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='8' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Page >> Pack categories should display</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='9' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Pack categories >> Unlimited, Value Packs, Add Ons should display</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='10' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Pack details >> Pack Mrp should display</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='11' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Pack details >> Validity should display</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='12' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then If Talktime details available >> It should display for Unlimited category pack</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='13' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then If Data details available >> It should display for Unlimited category pack</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='14' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Select Internet category >> Only Data and Validity fields should display</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='15' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Select Talktime category >> Only Talktime and Validity fields should display</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='16' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then On page load >> Imortant Things to Know should display collapsed</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='17' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Click Arrow for Important Things to Know >> Page should autoscroll</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='18' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify page >> Imp Things to Know section should expand</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='19' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Click Arrow for Important Things to Know >> Page should collapse</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='20' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Click Know More for any pack >> Popup should open</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='21' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Click Esc >> Popup should close</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='22' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Click Know More for any pack >> Popup should open</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='23' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Click Cross on popup >> Popup should close</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='24' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Click Know More for any pack >> Popup should open</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='25' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Know More details >> Pack Mrp should display</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='26' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Know More details >> Below Mrp Pack Includes text should display</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='27' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Know More details >> Unlimited, Data and SMS details should display if available</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='28' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Know More details >> Unlimited, Data and SMS details should be in same line</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='29' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Know More details >> Your Benefits data should display if available</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='30' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Know More details >> Buy Pack should display</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='31' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Click Buy Pack >> Seleced Pack page should display</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='32' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Selected Pack page >> Pack Mrp displayed on landing page for respective Pack should display</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='33' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Selected Pack page >> Below Mobile Number Details section should display</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='34' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Mobile Number details section >> Focus should be on Mobile Number field</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='35' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Mobile Number details section >> Confirm should be disabled</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='36' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Selected Pack page >> Go Back link should display</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='37' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Click Go Back >> Pack landing page should display</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='38' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Enter mobile number less than ten digits - Error message should display in Red</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='39' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Enter Mobile Number label and field border should display in Red</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='40' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Enter Mobile Number label and field border should display in Red</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='41' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Enter Idea Prepaid Number - Error message should display in Red</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='42' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Enter Mobile Number label and field border should display in Red</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='43' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Enter Idea Postpaid Number - Error message should display in Red</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='44' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Enter Mobile Number label and field border should display in Red</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='45' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Try to enter Mobile Number starting with 0 to 4 >> It should not allow</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='46' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Enter alphabets/Special characters in Mobile Number field- it should not allow</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='47' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then For DL circle >> Enter DL Circle VF number >> Confirm should be enabled</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='48' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Click Confirm >> VF Payment Gateway should display</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='49' class='node then fail' status='fail'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Select Wallet >> Click Pay button for Paytm >> Paytm page should display</span>
+				<div class='pre'><textarea>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/div[2]/div/div[3]/div/div[2]/div[3]/div/div/div/div[2]/div/div/div[3]/div/div/div/div/div/div[1]/div[2]/div/div/div/div[2]/div[2]"}
+  (Session info: chrome=84.0.4147.89)
+  (Driver info: chromedriver=2.35.528161 (5b82f2d2aae0ca24b877009200ced9065a772e73),platform=Windows NT 10.0.18363 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.11.0', revision: 'e59cfb3', time: '2018-03-11T20:26:55.152Z'
+System info: host: 'DESKTOP-N2CJ3IK', ip: '9.102.17.102', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_162'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.35.528161 (5b82f2d2aae0ca..., userDataDir: C:\WINDOWS\TEMP\scoped_dir1...}, cssSelectorsEnabled: true, databaseEnabled: false, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 84.0.4147.89, webStorageEnabled: true}
+Session ID: 6a6d26f9567358a3f05a2aa752fe5dfa
+*** Element info: {Using=xpath, value=/html/body/div[2]/div/div[3]/div/div[2]/div[3]/div/div/div/div[2]/div/div/div[3]/div/div/div/div/div/div[1]/div[2]/div/div/div/div[2]/div[2]}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:214)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:166)
+	at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:80)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:44)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:319)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:421)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:311)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at com.sun.proxy.$Proxy18.click(Unknown Source)
+	at com.online_Pack.VF_Pack_StepDef.select_Wallet_Click_Pay_button_for_Paytm_Paytm_page_should_display(VF_Pack_StepDef.java:1304)
+	at ?.Then Select Wallet >> Click Pay button for Paytm >> Paytm page should display(src/test/resources/VF_Pack/VF_packs.feature:69)
+</textarea></div>
+			
+		</li>
+		<li test-id='50' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Click on Go Back >> Oops page should display</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='51' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Oops page >> Oops page with payment failure text should display</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='52' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Failure Page >> Mobile Number field should display provided VF Number</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='53' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Failure Page >> Transaction Id should display</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='54' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Failure Page >> Date & Time should display</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='55' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Failure Page >> Download Receipt link should display</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='56' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Failure Page >> Reason for Failure section should display</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='57' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Failure Page >> Try Again button should display</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='58' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Failure Page >> Need Help link in orange color should display</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='59' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Failure Page >> SetUp Auto Pay section should display</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='60' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Failure Page >> Red Together section should display</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+	</ul>
+</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf fail' status='fail' bdd='true' test-id='61'>
+					<div class='test-heading'>
+						<span class='test-name'>CategorySpecificPage</span>
+						<span class='test-time'>Jul 27, 2020 10:20:03 AM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='scenario node' test-id='62' status='fail'>
+	<div class='category-list'>
+		<span class='category label white-text'>@CategoryPage</span>
+	</div>
+	<span class='duration right label'>0h 0m 52s+504ms</span>
+	<div class='desc'>
+		<b>Scenario</b>
+		<span class="desc-text">Vfone_Pack</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='63' class='node given pass' status='pass'>
+			
+			<b>Given</b>
+			
+			<span class="bdd-step-name">Given Unlimited Packs page should open properly</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='64' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Page >> Circle should display</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='65' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Page >> By default Maharashtra & Goa circle should display</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='66' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Page >> Pack category as Unlimited should display</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='67' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Pack details >> Pack Mrp should display</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='68' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Pack details >> Validity should display</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='69' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then If Talktime details available >> It should display for Unlimited category pack</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='70' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then If Data details available >> It should display for Unlimited category pack</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='71' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then SMS Details should not display in pack details section for Unlimited category pack</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='72' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Click Know More for any pack >> Popup should open</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='73' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Click Esc >> Popup should close</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='74' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Click Know More for any pack >> Popup should be open</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='75' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Click Cross on popup >> Popup should close</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='76' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Click Know More for any pack >> Popup should be open</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='77' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Know More details >> Pack Mrp should display</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='78' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Know More details >> Below Mrp Pack Includes text should display</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='79' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Know More details >> Unlimited, Data and SMS details should display if available</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='80' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Know More details >> Unlimited, Data and SMS details should be in same line</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='81' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Know More details >> Your Benefits data should display if available</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='82' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Know More details >> Buy Pack should display</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='83' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Click Buy Pack >> Seleced Pack page should display</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='84' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Selected Pack page >> Pack Mrp displayed on landing page for respective Pack should display</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='85' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Selected Pack page >> Below Mobile Number Details section should display</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='86' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Mobile Number details section >> Focus should be on Mobile Number field</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='87' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Mobile Number details section >> Confirm should be disabled</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='88' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Selected Pack page >> Go Back link should display</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='89' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Click Go Back >> Pack landing page should display</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='90' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Page >> Prepaid Mobile Plans & Packs Section should display</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='91' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Enter mobile number less than ten digits - Error message should display in Red</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='92' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Enter Mobile Number label and field border should display in Red</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='93' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Enter Mobile Number label and field border should display in Red</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='94' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Enter Idea Prepaid Number - Error message should display in Red</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='95' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Enter Mobile Number label and field border should display in Red</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='96' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Enter Idea Postpaid Number - Error message should display in Red</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='97' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Enter Mobile Number label and field border should display in Red</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='98' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Try to enter Mobile Number starting with 0 to 4 >> It should not allow</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='99' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Enter alphabets/Special characters in Mobile Number field- it should not allow</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='100' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then For DL circle >> Enter DL Circle VF number >> Confirm should be enabled</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='101' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Click Confirm >> VF Payment Gateway should display</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='102' class='node then fail' status='fail'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Select Wallet >> Click Pay button for Paytm >> Paytm page should display</span>
+				<div class='pre'><textarea>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/div[2]/div/div[3]/div/div[2]/div[3]/div/div/div/div[2]/div/div/div[3]/div/div/div/div/div/div[1]/div[2]/div/div/div/div[2]/div[2]"}
+  (Session info: chrome=84.0.4147.89)
+  (Driver info: chromedriver=2.35.528161 (5b82f2d2aae0ca24b877009200ced9065a772e73),platform=Windows NT 10.0.18363 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.11.0', revision: 'e59cfb3', time: '2018-03-11T20:26:55.152Z'
+System info: host: 'DESKTOP-N2CJ3IK', ip: '9.102.17.102', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_162'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.35.528161 (5b82f2d2aae0ca..., userDataDir: C:\WINDOWS\TEMP\scoped_dir3...}, cssSelectorsEnabled: true, databaseEnabled: false, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 84.0.4147.89, webStorageEnabled: true}
+Session ID: 1faccf6d9e7c63235459861cd6ff3a12
+*** Element info: {Using=xpath, value=/html/body/div[2]/div/div[3]/div/div[2]/div[3]/div/div/div/div[2]/div/div/div[3]/div/div/div/div/div/div[1]/div[2]/div/div/div/div[2]/div[2]}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:214)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:166)
+	at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:80)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:44)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:319)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:421)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:311)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at com.sun.proxy.$Proxy18.click(Unknown Source)
+	at com.pack_category.CategorySpecificPageStep.select_Wallet_Click_Pay_button_for_Paytm_Paytm_page_should_display(CategorySpecificPageStep.java:1086)
+	at ?.Then Select Wallet >> Click Pay button for Paytm >> Paytm page should display(src/test/resources/Pack_categories/CategorySpecific.feature:48)
+</textarea></div>
+			
+		</li>
+		<li test-id='103' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Click on Go Back >> Oops page should display</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='104' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Oops page >> Oops page with payment failure text should display</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='105' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Failure Page >> Mobile Number field should display provided VF Number</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='106' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Failure Page >> Transaction Id should display</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='107' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Failure Page >> Date & Time should display</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='108' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Failure Page >> Download Receipt link should display</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='109' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Failure Page >> Reason for Failure section should display</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='110' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Failure Page >> Try Again button should display</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='111' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Failure Page >> Need Help link in orange color should display</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='112' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Failure Page >> SetUp Auto Pay section should display</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='113' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Failure Page >> Red Together section should display</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+	</ul>
+</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf fail' status='fail' bdd='true' test-id='114'>
+					<div class='test-heading'>
+						<span class='test-name'>PostPaid_Plans</span>
+						<span class='test-time'>Jul 27, 2020 10:20:56 AM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='scenariooutline node' test-id='115' status='fail'>
+	<span class='duration right label'>0h 0m 32s+817ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">PlansAutomation</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='116' class='node scenario fail' status='fail'>
+			<div class='category-list'>
+				<span class='category label white-text'>@Plans_Automation</span>
+				<span class='category label white-text'>@Check_PostpaidPlans</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">PlansAutomation</span>
+			
+				<ul class='steps'>
+					<li test-id='117' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given Postpaid Plan page should open properly</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='118' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Verify Page >> For Me & My Family section should display</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='119' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Verify Page >> For Me section should display</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='120' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Verify For Me & My Family Section >> Max 3 plans should display</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='121' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Verify For Me & My Family Section >> Plan Mrp should display</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='122' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Verify For Me & My Family Section >> No of connection count should display</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='123' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Verify For Me & My Family Section >> Data rollover details should display</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='124' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Verify For Me & My Family Section >> If Nontelco benefits are available then max four should display in Plans section</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='125' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Verify For Me & My Family Section >> If Nontelco benefits are Not available then respective section should display blank</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='126' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Verify For Me & My Family Section >> Know More link should display for all plans</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='127' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Verify For Me & My Family Section >> Buy Plan should display for all plans</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='128' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Verify For Me Section >> Max 3 plans should display</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='129' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Verify For Me Section >> Plan Mrp should display</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='130' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Verify For Me Section >> No of connection count should display - It should be always 1</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='131' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Verify For Me Section >> Data rollover details should display</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='132' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Verify For Me Section >> If Nontelco benefits are available then max four should display in Plans section</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='133' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Verify For Me Section >> If Nontelco benefits are Not available then respective section should display blank</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='134' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Verify For Me Section >> Know More link should display for all plans</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='135' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Verify For Me Section >> Buy Plan should display for all plans</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='136' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Postpaid Plan Verify For Me Section >> One RedX plan should display Plan Card</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='137' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Verify Page >> Imp Things to Know Section should display</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='138' class='node then fail' status='fail'><b>Then</b>
+						<span class="bdd-step-name">Then Click Buy Plan for Plan from Me Section >> Selected Plan page should display</span>
+							<div class='pre'><textarea>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//div[@class='edit goBackEdit']"}
+  (Session info: chrome=84.0.4147.89)
+  (Driver info: chromedriver=2.35.528161 (5b82f2d2aae0ca24b877009200ced9065a772e73),platform=Windows NT 10.0.18363 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.11.0', revision: 'e59cfb3', time: '2018-03-11T20:26:55.152Z'
+System info: host: 'DESKTOP-N2CJ3IK', ip: '9.102.17.102', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_162'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.35.528161 (5b82f2d2aae0ca..., userDataDir: C:\WINDOWS\TEMP\scoped_dir2...}, cssSelectorsEnabled: true, databaseEnabled: false, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 84.0.4147.89, webStorageEnabled: true}
+Session ID: 5a09a1ca85599470e7f488bdb35c996e
+*** Element info: {Using=xpath, value=//div[@class='edit goBackEdit']}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:214)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:166)
+	at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:80)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:44)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:319)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:421)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:311)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at com.sun.proxy.$Proxy18.isDisplayed(Unknown Source)
+	at com.PostPaidPlans.PostPaidPlansStep.click_Buy_Plan_for_Plan_from_Me_Section_Selected_Plan_page_should_display(PostPaidPlansStep.java:727)
+	at ?.Then Click Buy Plan for Plan from Me Section >> Selected Plan page should display(src/test/resources/PostPaidPlanVoda/PostPaidPlanVodafone.Feature:35)
+</textarea></div>
+					</li>
+					<li test-id='139' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Verify Selected Plan page >> Edit should display next to Selected Plan	Buy Plan</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='140' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Click Buy Plan >> Verify Selected Plan page >> Plan Mrp displayed on landing page for respective plan should display</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='141' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Verify Selected Plan page >> For 1 Connection should display below Mrp	Buy Plan</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='142' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Verify Selected Plan page >> if non telco benefits are available then max 4 should display</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='143' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Verify Selected Plan page >> Below Mobile Number Details section should display	Buy Plan</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='144' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Verify Mobile Number details section >> Focus should be on Mobile Number field	Buy Plan</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='145' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Verify Mobile Number details section >> Get OTP should be disabled</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='146' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Verify Page >> Imp Things to Know Section should display</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='147' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Click Buy Plan for Plan from Me & My Family Section >> Page should redirect to Buy New Postpaid Connection page	Buy Plan</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='148' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Click Know More for Plan from Me & My Family section - Click Buy Plan >> Page should redirect to Buy New Postpaid Connection page</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='149' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then On page load >> Imortant Things to Know should display collapsed</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='150' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Click Arrow for Important Things to Know >> Page should autoscroll</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='151' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Verify page >> Focus should go on Imp Things to know section</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='152' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Verify page >> Imp Things to Know section should expand	Imp Things To Know</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='153' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Click Arrow for Important Things to Know >> Page should collapse</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='154' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Click Buy Plan for Plan from Me Section >> Selected Plan page should display</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='155' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Enter mobile number less than ten digits - Error message should display in Red</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='156' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Enter mobile number less than ten digits - Enter Mobile Number label and field border should display in Red</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='157' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Enter Idea Postpaid number - Error message should display in Red</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='158' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Enter Idea Postpaid number - Enter Mobile Number label and field border should display in Red</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='159' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Enter NonIdea/NonVF Number - Error message should display in Red</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='160' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Enter NonIdea/NonVF Number - Enter Mobile Number label and field border should display in Red</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='161' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Enter VF Prepaid number - Error message should display in Red</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='162' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Enter VF Prepaid number - Enter Mobile Number label and field border should display in Red</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='163' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Enter Idea Prepaid number - Error message should display in Red</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='164' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Enter Idea Prepaid number - Enter Mobile Number label and field border should display in Red</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='165' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Try to enter Mobile Number starting with 0 to 4 >> It should not allow</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='166' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Enter alphabets/Special characters in Mobile Number field- it should not allow</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='167' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Enter VF Postpaid Number >> Get OTP should be enabled</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='168' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Click Get OTP for VF Postpaid Number >> Plan Activation popup should open</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='169' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Click on Resend link>> check Four resent count should be displayed</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='170' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Enter invalid OTP twice and Click Confirm >> Proper error message should display in Red</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='171' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Enter invalid OTP thrice and Click Confirm >> Proper error message should display in Red</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='172' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Enter invalid OTP fourth time and Click Confirm >> Proper error message should display in Red</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='173' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Click on Resend link>> check Three resent count should be displayed</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='174' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Enter invalid OTP twice and Click Confirm >> Proper error message should display in Red</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='175' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Enter invalid OTP thrice and Click Confirm >> Proper error message should display in Red</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='176' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Enter invalid OTP fourth time and Click Confirm >> Proper error message should display in Red</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='177' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Click on Resend link>> check Two resent count should be displayed</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='178' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Enter invalid OTP twice and Click Confirm >> Proper error message should display in Red</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='179' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Enter invalid OTP thrice and Click Confirm >> Proper error message should display in Red</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='180' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Enter invalid OTP fourth time and Click Confirm >> Proper error message should display in Red</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='181' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Click on Resend link>> check One resent count should be displayed</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='182' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Enter invalid OTP twice and Click Confirm >> Proper error message should display in Red</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='183' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Enter invalid OTP thrice and Click Confirm >> Proper error message should display in Red</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='184' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Enter invalid OTP fourth time and Click Confirm >> Proper error message should display in Red</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='185' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Click on Resend link>> check resent count should be displayed</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='186' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Reset link should be disable</span>
+							<div class='pre'>skipped</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf fail' status='fail' bdd='true' test-id='187'>
+					<div class='test-heading'>
+						<span class='test-name'>VodafoneBillPay</span>
+						<span class='test-time'>Jul 27, 2020 10:21:30 AM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='scenario node' test-id='188' status='fail'>
+	<div class='category-list'>
+		<span class='category label white-text'>@Vodafone_ORC_Chrome</span>
+	</div>
+	<span class='duration right label'>0h 3m 13s+193ms</span>
+	<div class='desc'>
+		<b>Scenario</b>
+		<span class="desc-text">VFIdea_ORC</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='189' class='node given pass' status='pass'>
+			
+			<b>Given</b>
+			
+			<span class="bdd-step-name">Given Recharge page should open properly</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='190' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify mobilenumber field is enabled on page load</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='191' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Amount field should not allow to enter data on page load</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='192' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify text Lets Do a Recharge should display on page load</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='193' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify banner should display on page load</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='194' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Enter mobile number less than ten digits - Error message should display in Red</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='195' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Mobile Number label and field border should display in Red</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='196' class='node then fail' status='fail'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Enter Postpaid Number of Idea - Error message should display</span>
+				<div class='pre'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id='mobile']"}
+  (Session info: chrome=84.0.4147.89)
+  (Driver info: chromedriver=2.35.528161 (5b82f2d2aae0ca24b877009200ced9065a772e73),platform=Windows NT 10.0.18363 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.11.0', revision: 'e59cfb3', time: '2018-03-11T20:26:55.152Z'
+System info: host: 'DESKTOP-N2CJ3IK', ip: '9.102.17.102', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_162'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.35.528161 (5b82f2d2aae0ca..., userDataDir: C:\WINDOWS\TEMP\scoped_dir7...}, cssSelectorsEnabled: true, databaseEnabled: false, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 84.0.4147.89, webStorageEnabled: true}
+Session ID: 324447c4fb2753b497b13af675002127
+*** Element info: {Using=xpath, value=//*[@id='mobile']}
+	at sun.reflect.GeneratedConstructorAccessor21.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:214)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:166)
+	at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:80)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:44)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:319)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:421)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:311)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at com.sun.proxy.$Proxy18.clear(Unknown Source)
+	at com.voda.ideaOrc.VodaIdeaORCStep.enter_Postpaid_Number_of_Idea_Error_message_should_display(VodaIdeaORCStep.java:414)
+	at ?.Then Enter Postpaid Number of Idea - Error message should display(src/test/resources/VFIdeaORC/VF_ideaORC.feature:16)
+</pre></div>
+			
+		</li>
+		<li test-id='197' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Mobile Number label and field border should display in Red</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='198' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Enter Postpaid Number of VF- Error message should display</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='199' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Mobile Number label and field border should display in Red</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='200' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Enter NonIdea/NonVF number- Error Message should display</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='201' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Mobile Number label and field border should display in Red</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='202' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Enter Idea Prepaid Number >> Error Message should display</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='203' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Mobile Number label and field border should display in Red</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='204' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Enter VF Prepaid Number >> Amount field should be enabled</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='205' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Enter VF Prepaid Number >>  Packs categories section should display</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='206' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Using Cross icon remove Mobile Number >> Amount, Fetch last recharge should be disabled</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='207' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Using Cross icon remove Mobile Number >> Packs section should not display</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='208' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Go to Recharge page >>Enter the Vodafone prepaidpaid number>> Enter amount in integer - It should allow only Five digits</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='209' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then On page load >> Important Things to Know should display collapsed</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='210' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Click Arrow for Important Things to Know >> Page should autoscroll</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='211' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify page >> Focus should go on Imp Things to know section</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='212' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify page >> Imp Things to Know section should expand</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='213' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Click Arrow for Important Things to Know >> Page should collapse</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='214' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Enter VF Prepaid Number >> Enter amount = 1 >> Packs with Mrp starting as 1 should display</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='215' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Enter VF Prepaid Number >> Enter amount = 1 >> Pack categories should not display</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='216' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Now enter amount = 12 >> Packs with Mrp starting as 12 should display</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='217' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Enter amount = 99999 >> Error message should display in Red</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='218' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Enter amount = 99999 >> Enter Recharge Amount label and field border should display in Red</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='219' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Enter amount = 99999 >> Packs categories section should display</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='220' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Packs categories >> First category should be For You</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='221' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Enter number >> Focus should be on For You category</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='222' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Enter number >> Select Unlimited >> Packs details should display</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='223' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Pack details >> Pack Mrp should display</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='224' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Pack details >> Validity should display</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='225' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then If Talktime details available >> It should display for Unlimited category pack</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='226' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then If Data details available >> It should display for Unlimited category pack</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='227' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Select Internet category >> Only Data and Validity fields should display</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='228' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Select Talktime category >> Only Talktime and Validity fields should display</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='229' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then For Recommended Category >> Know More link should not display for any pack</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='230' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Click Know More for any pack >> Popup should open</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='231' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Click Esc >> Popup should close</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='232' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Click Know More for any pack >> Popup should open</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='233' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Click Cross on popup >> Popup should close</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='234' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Click Know More for any pack >> Popup should open</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='235' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then For Unlimited Category >> Click Know More for pack for ex: 35 >> Talktime, Data and SMS values should display</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='236' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Click Esc >> Popup should close</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='237' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Enter VF Prepaid Number - Click Buy Pack for any Mrp >> VF Payment Gateway screen should display</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='238' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Select Wallet >> Click Pay button for Paytm >> Paytm page should display</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='239' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Click on Go Back >> Oops page should display</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='240' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Oops page >> Oops page with payment failure text should display</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='241' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Failure Page >> Mobile Number field should display provided VF Number</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='242' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Failure Page >> Amount field should Not display</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='243' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Failure Page >> Transaction Id should display</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='244' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Failure Page >> Date & Time should display</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='245' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Failure Page >> Download Receipt link should display</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='246' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Failure Page >> Reason for Failure section should display</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='247' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Failure Page >> Try Again button should display</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='248' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Failure Page >> Need Help link in orange color should display</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='249' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Failure Page >> SetUp Auto Pay section should display</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='250' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Failure Page >> Red Together section should display</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='251' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Failure Page >> Imp Things to know should display</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='252' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Click Try Again >> Recharge landing page should display</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+	</ul>
+</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf skip' status='skip' bdd='true' test-id='253'>
+					<div class='test-heading'>
+						<span class='test-name'>Vodafone Home Page featurefile</span>
+						<span class='test-time'>Jul 27, 2020 10:24:44 AM</span>
+						<span class='test-status right skip'>skip</span>
+					</div>
+					<div class='test-content hide'>
+<div class='scenario node' test-id='254' status='skip'>
+	<div class='category-list'>
+		<span class='category label white-text'>@HomePage_Chrome</span>
+	</div>
+	<span class='duration right label'>0h 0m 0s+100ms</span>
+	<div class='desc'>
+		<b>Scenario</b>
+		<span class="desc-text">Voda fone Homepage</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='255' class='node given skip' status='skip'>
+			
+			<b>Given</b>
+			
+			<span class="bdd-step-name">Given Load Vodafone Site >> Home Page should display</span>
+				<div class='pre'>undefined</div>
+			
+		</li>
+		<li test-id='256' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Home Page >> Header should display</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='257' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Home Page >> Footer should display</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='258' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Home Page >> Below Header -  Banner should display</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='259' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Home Page >> Mobile number field should display</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='260' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Home Page >> Arrow (>) button should be disabled as number is not provided</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='261' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Try to enter Mobile Number starting with 0 to 4 >> It should not allow1</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='262' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Enter alphabets/Special characters in Mobile Number field- it should not allow1</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='263' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Click on Pay Bill button</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='264' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Enter VF Postpaid Number >> Arrow (>) button should be black</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='265' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Billpay page >> Mobile number should be autopopulated with number entered on Homepage</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='266' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Billpay page >> Amount field should be enabled</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='267' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Billpay page >> Fetch your bill link should be enabled</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='268' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Click on Recharge button</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='269' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Enter VF Prepaid Number >> Arrow (>) button should be enabled</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='270' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Recharge page >> Pack should display for respective number</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='271' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Home Page >> Quicklinks should display below Mobile number field</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='272' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Home Page >> Banners should display below Quicklinks</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='273' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Home Page >> Loaded Benefits on VodafoneIdea section should display</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='274' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Home Page >> Trending Now should display</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='275' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Top banner pixel.</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='276' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Top second banner pixel.</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='277' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Top thrid banner pixel.</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='278' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Top fourth banner pixel.</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='279' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Top fifth banner pixel.</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='280' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Buy postpaid sim icon pixel.</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='281' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Buy prepaid sim icon pixel.</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='282' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify IR icon pixel.</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='283' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Vodafone play icon pixel.</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='284' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Help and support_icon pixel.</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='285' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify four banner icon one pixel.</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='286' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify four banner icon two pixel.</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='287' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify four banner icon three pixel.</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='288' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify four banner icon four pixel.</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='289' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Vodafone exclusive banner image one pixel.</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='290' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Vodafone exclusive banner image two pixel.</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='291' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Vodafone exclusive banner image three pixel.</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='292' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Vodafone exclusive banner image four pixel.</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='293' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify Vodafone exclusive banner image five pixel.</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+		<li test-id='294' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then Verify the displayed Meta description, Meta viewport, Meta template</span>
+				<div class='pre'>skipped</div>
+			
+		</li>
+	</ul>
+</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- subview left -->
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='test-name'></h5>
+
+			<div id='step-filters' class="right">
+				<span class="blue-text" status="info" alt="info" title="info"><i class="material-icons">info_outline</i></span>
+				<span class="green-text" status="pass" alt="pass" title="pass"><i class="material-icons">check_circle</i></span>
+				<span class="red-text" status="fail" alt="fail" title="fail"><i class="material-icons">cancel</i></span>
+				<span class="red-text text-darken-4" status="fatal" alt="fatal" title="fatal"><i class="material-icons">cancel</i></span>
+				<span class="pink-text text-lighten-1" status="error" alt="error" title="error"><i class="material-icons">error</i></span>
+				<span class="orange-text" alt="warning" status="warning" title="warning"><i class="material-icons">warning</i></span>
+				<span class="teal-text" status="skip" alt="skip" title="skip"><i class="material-icons">redo</i></span>
+				<span status="clear" alt="Clear filters" title="Clear filters"><i class="material-icons">clear</i></span>
+			</div>
+		</div>
+	</div>
+	<!-- subview right -->
+
+</div>
+<!-- test view -->
+<div id='category-view' class='view hide'>
+
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+				
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Categories</h3>
+			<ul id='category-collection' class='category-collection'>
+				
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@VF_Packs</span>
+						<span class='category-status right'>
+							<span class='label fail'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							
+							<span class='label red lighten-1 white-text'>Failed: 1</span>
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jul 27, 2020 10:18:33 AM</td>
+										<td class='linked' test-id='1'>VF_packs</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@Prepaid_Pack_Chrome</span>
+						<span class='category-status right'>
+							<span class='label fail'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							
+							<span class='label red lighten-1 white-text'>Failed: 1</span>
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jul 27, 2020 10:18:33 AM</td>
+										<td class='linked' test-id='2'>VF_packs.VF_Pack</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@VF_CategorySpecific</span>
+						<span class='category-status right'>
+							<span class='label fail'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							
+							<span class='label red lighten-1 white-text'>Failed: 1</span>
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jul 27, 2020 10:20:03 AM</td>
+										<td class='linked' test-id='61'>CategorySpecificPage</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@CategoryPage</span>
+						<span class='category-status right'>
+							<span class='label fail'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							
+							<span class='label red lighten-1 white-text'>Failed: 1</span>
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jul 27, 2020 10:20:03 AM</td>
+										<td class='linked' test-id='62'>CategorySpecificPage.Vfone_Pack</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@Check_PostpaidPlans</span>
+						<span class='category-status right'>
+							<span class='label fail'>2</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							
+							<span class='label red lighten-1 white-text'>Failed: 2</span>
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jul 27, 2020 10:20:56 AM</td>
+										<td class='linked' test-id='114'>PostPaid_Plans</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+									<tr>
+										<td>Jul 27, 2020 10:20:56 AM</td>
+										<td class='linked' test-id='116'>PostPaid_Plans.PlansAutomation.PlansAutomation</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@Plans_Automation</span>
+						<span class='category-status right'>
+							<span class='label fail'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							
+							<span class='label red lighten-1 white-text'>Failed: 1</span>
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jul 27, 2020 10:20:56 AM</td>
+										<td class='linked' test-id='116'>PostPaid_Plans.PlansAutomation.PlansAutomation</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@VodafoneIdeaorc</span>
+						<span class='category-status right'>
+							<span class='label fail'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							
+							<span class='label red lighten-1 white-text'>Failed: 1</span>
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jul 27, 2020 10:21:30 AM</td>
+										<td class='linked' test-id='187'>VodafoneBillPay</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@Vodafone_ORC_Chrome</span>
+						<span class='category-status right'>
+							<span class='label fail'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							
+							<span class='label red lighten-1 white-text'>Failed: 1</span>
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jul 27, 2020 10:21:30 AM</td>
+										<td class='linked' test-id='188'>VodafoneBillPay.VFIdea_ORC</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@VodaFone_HomePage</span>
+						<span class='category-status right'>
+							<span class='label others'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							
+							
+							<span class='label yellow darken-2 white-text'>Others: 1</span>
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jul 27, 2020 10:24:44 AM</td>
+										<td class='linked' test-id='253'>Vodafone Home Page featurefile</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@HomePage_Chrome</span>
+						<span class='category-status right'>
+							<span class='label others'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							
+							
+							<span class='label yellow darken-2 white-text'>Others: 1</span>
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jul 27, 2020 10:24:44 AM</td>
+										<td class='linked' test-id='254'>Vodafone Home Page featurefile.Voda fone Homepage</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+
+			</ul>
+		</div>
+	</div>
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='category-name'></h5>
+		</div>
+	</div>
+</div>
+<!-- category view -->
+<div id='exception-view' class='view hide'>
+
+    <section id='controls'>
+        <div class='controls grey lighten-4'>
+            <!-- search -->
+            <div class='chip transparent' alt='Search Tests' title='Search Tests'>
+                <a href="#" class='search-div'>
+                    <i class='material-icons'>search</i> Search
+                </a>
+
+                <div class='input-field left hide'>
+                    <input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+                </div>
+
+            </div>
+            <!-- search -->
+        </div>
+    </section>
+
+    <div class='subview-left left'>
+
+        <div class='view-summary'>
+            <h5>Exceptions</h3>
+                <ul id='exception-collection' class='exception-collection'>
+
+                        <li class='exception displayed active'>
+                            <div class='exception-heading'>
+                                <span class='exception-name'>org.openqa.selenium.NoSuchElementException</span>
+                                <span class='exception-count right'><span class='label red lighten-1 white-text'>4</span></span>
+                            </div>
+                            <div class='exception-content hide'>
+                                <div class='exception-tests'>
+                                    <table class='bordered table-results'>
+                                        <thead>
+                                        <tr>
+                                            <th>Timestamp</th>
+                                            <th>TestName</th>
+                                            <th>Status</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                                    <tr>
+                                                        <td>Jul 27, 2020 10:19:57 AM</td>
+                                                        <td class='linked' test-id='49'>VF_packs.VF_Pack.Then Select Wallet >> Click Pay button for Paytm >> Paytm page should display</td>
+                                                        <td><pre><textarea>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/div[2]/div/div[3]/div/div[2]/div[3]/div/div/div/div[2]/div/div/div[3]/div/div/div/div/div/div[1]/div[2]/div/div/div/div[2]/div[2]"}
+  (Session info: chrome=84.0.4147.89)
+  (Driver info: chromedriver=2.35.528161 (5b82f2d2aae0ca24b877009200ced9065a772e73),platform=Windows NT 10.0.18363 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.11.0', revision: 'e59cfb3', time: '2018-03-11T20:26:55.152Z'
+System info: host: 'DESKTOP-N2CJ3IK', ip: '9.102.17.102', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_162'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.35.528161 (5b82f2d2aae0ca..., userDataDir: C:\WINDOWS\TEMP\scoped_dir1...}, cssSelectorsEnabled: true, databaseEnabled: false, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 84.0.4147.89, webStorageEnabled: true}
+Session ID: 6a6d26f9567358a3f05a2aa752fe5dfa
+*** Element info: {Using=xpath, value=/html/body/div[2]/div/div[3]/div/div[2]/div[3]/div/div/div/div[2]/div/div/div[3]/div/div/div/div/div/div[1]/div[2]/div/div/div/div[2]/div[2]}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:214)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:166)
+	at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:80)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:44)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:319)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:421)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:311)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at com.sun.proxy.$Proxy18.click(Unknown Source)
+	at com.online_Pack.VF_Pack_StepDef.select_Wallet_Click_Pay_button_for_Paytm_Paytm_page_should_display(VF_Pack_StepDef.java:1304)
+	at ?.Then Select Wallet >> Click Pay button for Paytm >> Paytm page should display(src/test/resources/VF_Pack/VF_packs.feature:69)
+</textarea></pre></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Jul 27, 2020 10:20:52 AM</td>
+                                                        <td class='linked' test-id='102'>CategorySpecificPage.Vfone_Pack.Then Select Wallet >> Click Pay button for Paytm >> Paytm page should display</td>
+                                                        <td><pre><textarea>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/div[2]/div/div[3]/div/div[2]/div[3]/div/div/div/div[2]/div/div/div[3]/div/div/div/div/div/div[1]/div[2]/div/div/div/div[2]/div[2]"}
+  (Session info: chrome=84.0.4147.89)
+  (Driver info: chromedriver=2.35.528161 (5b82f2d2aae0ca24b877009200ced9065a772e73),platform=Windows NT 10.0.18363 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.11.0', revision: 'e59cfb3', time: '2018-03-11T20:26:55.152Z'
+System info: host: 'DESKTOP-N2CJ3IK', ip: '9.102.17.102', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_162'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.35.528161 (5b82f2d2aae0ca..., userDataDir: C:\WINDOWS\TEMP\scoped_dir3...}, cssSelectorsEnabled: true, databaseEnabled: false, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 84.0.4147.89, webStorageEnabled: true}
+Session ID: 1faccf6d9e7c63235459861cd6ff3a12
+*** Element info: {Using=xpath, value=/html/body/div[2]/div/div[3]/div/div[2]/div[3]/div/div/div/div[2]/div/div/div[3]/div/div/div/div/div/div[1]/div[2]/div/div/div/div[2]/div[2]}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:214)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:166)
+	at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:80)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:44)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:319)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:421)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:311)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at com.sun.proxy.$Proxy18.click(Unknown Source)
+	at com.pack_category.CategorySpecificPageStep.select_Wallet_Click_Pay_button_for_Paytm_Paytm_page_should_display(CategorySpecificPageStep.java:1086)
+	at ?.Then Select Wallet >> Click Pay button for Paytm >> Paytm page should display(src/test/resources/Pack_categories/CategorySpecific.feature:48)
+</textarea></pre></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Jul 27, 2020 10:21:23 AM</td>
+                                                        <td class='linked' test-id='138'>PostPaid_Plans.PlansAutomation.PlansAutomation.Then Click Buy Plan for Plan from Me Section >> Selected Plan page should display</td>
+                                                        <td><pre><textarea>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//div[@class='edit goBackEdit']"}
+  (Session info: chrome=84.0.4147.89)
+  (Driver info: chromedriver=2.35.528161 (5b82f2d2aae0ca24b877009200ced9065a772e73),platform=Windows NT 10.0.18363 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.11.0', revision: 'e59cfb3', time: '2018-03-11T20:26:55.152Z'
+System info: host: 'DESKTOP-N2CJ3IK', ip: '9.102.17.102', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_162'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.35.528161 (5b82f2d2aae0ca..., userDataDir: C:\WINDOWS\TEMP\scoped_dir2...}, cssSelectorsEnabled: true, databaseEnabled: false, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 84.0.4147.89, webStorageEnabled: true}
+Session ID: 5a09a1ca85599470e7f488bdb35c996e
+*** Element info: {Using=xpath, value=//div[@class='edit goBackEdit']}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:214)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:166)
+	at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:80)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:44)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:319)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:421)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:311)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at com.sun.proxy.$Proxy18.isDisplayed(Unknown Source)
+	at com.PostPaidPlans.PostPaidPlansStep.click_Buy_Plan_for_Plan_from_Me_Section_Selected_Plan_page_should_display(PostPaidPlansStep.java:727)
+	at ?.Then Click Buy Plan for Plan from Me Section >> Selected Plan page should display(src/test/resources/PostPaidPlanVoda/PostPaidPlanVodafone.Feature:35)
+</textarea></pre></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Jul 27, 2020 10:24:43 AM</td>
+                                                        <td class='linked' test-id='196'>VodafoneBillPay.VFIdea_ORC.Then Enter Postpaid Number of Idea - Error message should display</td>
+                                                        <td><pre><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id='mobile']"}
+  (Session info: chrome=84.0.4147.89)
+  (Driver info: chromedriver=2.35.528161 (5b82f2d2aae0ca24b877009200ced9065a772e73),platform=Windows NT 10.0.18363 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.11.0', revision: 'e59cfb3', time: '2018-03-11T20:26:55.152Z'
+System info: host: 'DESKTOP-N2CJ3IK', ip: '9.102.17.102', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_162'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.35.528161 (5b82f2d2aae0ca..., userDataDir: C:\WINDOWS\TEMP\scoped_dir7...}, cssSelectorsEnabled: true, databaseEnabled: false, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 84.0.4147.89, webStorageEnabled: true}
+Session ID: 324447c4fb2753b497b13af675002127
+*** Element info: {Using=xpath, value=//*[@id='mobile']}
+	at sun.reflect.GeneratedConstructorAccessor21.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:214)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:166)
+	at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:80)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:44)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:319)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:421)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:311)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at com.sun.proxy.$Proxy18.clear(Unknown Source)
+	at com.voda.ideaOrc.VodaIdeaORCStep.enter_Postpaid_Number_of_Idea_Error_message_should_display(VodaIdeaORCStep.java:414)
+	at ?.Then Enter Postpaid Number of Idea - Error message should display(src/test/resources/VFIdeaORC/VF_ideaORC.feature:16)
+</pre></pre></td>
+                                                    </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </li>
+                </ul>
+        </div>
+    </div>
+
+    <div class='subview-right left'>
+        <div class='view-summary'>
+            <h5 class='exception-name'></h5>
+        </div>
+    </div>
+</div>
+<!-- exception view -->
+<div id='dashboard-view' class='view hide'>
+	<div class='card-panel transparent np-v'>
+		<h5>Dashboard</h5>
+
+		<div class='row'>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Features
+					<div class='panel-lead'>5</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Scenarios
+					<div class='panel-lead'>5</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Steps
+					<div class='panel-lead'>283</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Start
+					<div class='panel-lead'>Jul 27, 2020 10:18:33 AM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+			 		End
+			 		<div class='panel-lead'>Jul 27, 2020 10:24:44 AM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Time Taken
+					<div class='panel-lead'>371,133ms</div>
+				</div>
+			</div>
+			<div class='col s6'>
+				<div class='card-panel dashboard-categories'>
+					<span class='right label cyan white-text'>Categories</span><p>&nbsp;</p>
+					
+					<table>
+						<tr>
+							<th>Name</th>
+							<th>Passed</th>
+							<th>Failed</th>
+							<th>Others</th>
+							<th>Passed %</th>
+						</tr>
+						<tr>
+							<td>@VF_Packs</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>
+									0%
+							</td>
+						</tr>
+						<tr>
+							<td>@Prepaid_Pack_Chrome</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>
+									0%
+							</td>
+						</tr>
+						<tr>
+							<td>@VF_CategorySpecific</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>
+									0%
+							</td>
+						</tr>
+						<tr>
+							<td>@CategoryPage</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>
+									0%
+							</td>
+						</tr>
+						<tr>
+							<td>@Check_PostpaidPlans</td>
+							<td>0</td>
+							<td>2</td>
+							<td>0</td>
+							<td>
+									0%
+							</td>
+						</tr>
+						<tr>
+							<td>@Plans_Automation</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>
+									0%
+							</td>
+						</tr>
+						<tr>
+							<td>@VodafoneIdeaorc</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>
+									0%
+							</td>
+						</tr>
+						<tr>
+							<td>@Vodafone_ORC_Chrome</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>
+									0%
+							</td>
+						</tr>
+						<tr>
+							<td>@VodaFone_HomePage</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>
+									0%
+							</td>
+						</tr>
+						<tr>
+							<td>@HomePage_Chrome</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>
+									0%
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- dashboard view -->
+<!-- testrunner-logs view -->
+		</div>
+		<!-- container -->
+
+		<script>
+			var statusGroup = {
+				passParent: 0,
+				failParent: 4,
+				fatalParent: 0,
+				errorParent: 0,
+				warningParent: 0,
+				skipParent: 1,
+				exceptionsParent: 5,
+				
+				passChild: 0,
+				failChild: 4,
+				fatalChild: 0,
+				errorChild: 0,
+				warningChild: 0,
+				skipChild: 1,
+				infoChild: 0,
+				exceptionsChild: 5,
+				
+				passGrandChild: 113,
+				failGrandChild: 4,
+				fatalGrandChild: 0,
+				errorGrandChild: 0,
+				warningGrandChild: 0,
+				skipGrandChild: 166,
+				infoGrandChild: 0,
+				exceptionsGrandChild: 170,
+			};
+		</script>
+		
+			<script src='https://cdn.rawgit.com/anshooarora/extentreports-java/fca20fb7653aade98810546ab96a2a4360e3e712/dist/js/extent.js' type='text/javascript'></script>
+		
+		
+ 		<script type='text/javascript'>
+ 		</script>
+	</body>
+	
+</html>

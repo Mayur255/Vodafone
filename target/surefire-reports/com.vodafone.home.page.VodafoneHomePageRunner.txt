@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: com.vodafone.home.page.VodafoneHomePageRunner
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.075 sec <<< FAILURE! - in com.vodafone.home.page.VodafoneHomePageRunner
+com.vodafone.home.page.VodafoneHomePageRunner  Time elapsed: 0.075 sec  <<< ERROR!
+java.lang.NoClassDefFoundError: com/relevantcodes/extentreports/ExtentReports
+	at com.vodafone.home.page.VodafoneHomePageRunner.setup(VodafoneHomePageRunner.java:30)
+
+com.vodafone.home.page.VodafoneHomePageRunner  Time elapsed: 0.075 sec  <<< ERROR!
+java.lang.NoClassDefFoundError: com/relevantcodes/extentreports/ExtentReports
+	at com.vodafone.home.page.VodafoneHomePageRunner.teardown(VodafoneHomePageRunner.java:43)
+

@@ -1,0 +1,2787 @@
+package com.vodafone.home.page;
+
+import java.awt.Dimension;
+import java.io.File;
+import java.io.FileReader;
+import java.util.Properties;
+
+import org.apache.log4j.Logger;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.TimeoutException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import com.Testdata.Meta_function;
+import com.config.baseclass;
+import com.voda.PayBill.VodaPay_BillStepDef;
+
+import HTML_REPORTS.HTMLReportGenerator;
+import HTML_REPORTS.TakeScreenShot;
+import cucumber.api.PendingException;
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+
+public class VodafoneHomePageStep
+{
+	
+
+	Properties prop = new Properties();
+	public Properties OR;
+	public File file = null;
+	public FileReader filereader;
+	WebDriver driver;
+	public static int number = 1;
+
+	static int count = 1;
+	final static Logger log = Logger.getLogger(VodaPay_BillStepDef.class);
+	
+	@Given("^Load Vodafone Site >> Home Page should display$")
+	public void load_Vodafone_Site_Home_Page_should_display() throws Throwable {
+		
+			VodafoneHomePageObj vodahome=new VodafoneHomePageObj(driver);
+		// Chrome
+				String path = System.getProperty("user.dir") + "\\Driver\\chromedriver.exe";
+				System.setProperty("webdriver.chrome.driver", path);
+			
+				driver = new ChromeDriver();
+				System.out.println(" browser");
+
+				OR = new Properties();
+
+				file = new File(System.getProperty("user.dir") + "/src/test/java/com/Testdata/URL.properties");
+
+				filereader = new FileReader(file);
+
+				OR.load(filereader);
+
+				driver.get(OR.getProperty("Vodafone_HomePage"));
+
+				System.out.println(" Chrome Browser is opening ");
+
+				System.out.println("VodaFone Home page opened");
+				
+				driver.manage().window().maximize();
+
+				Thread.sleep(2000);
+
+				HTMLReportGenerator.StepDetails("Pass", (count++) + "- VodaFone Pay Bill page opened", "",
+
+						TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+				
+			}
+
+	@Then("^Verify Home Page >> Header should display$")
+	public void verify_Home_Page_Header_should_display() throws Throwable {
+	
+		VodafoneHomePageObj vodahome = new VodafoneHomePageObj(driver);
+	//	Meta_function fun1=new Meta_function();
+		
+		
+		
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+
+	try {
+	
+		Thread.sleep(2000);
+
+		wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.Home_pageHeder));
+		
+		boolean b = vodahome.Home_pageHeder.isDisplayed();
+		
+		if(b == true) {
+			
+			System.out.println("Verify Home Page >> Header should display");
+			
+			
+			HTMLReportGenerator.StepDetails("Pass", (count++) + "- Verify Home Page >> Header is displayed", "",
+
+					TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+			
+		}else {
+			
+			System.out.println("Verify Home Page >> Header should not display");
+			
+			HTMLReportGenerator.StepDetails("Fail", (count++) + "- Verify Home Page >> Header is not display", "",
+
+					TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+			
+		}
+	}catch(TimeoutException ex) {
+	
+		System.out.println("Locator not found issue");
+		
+		HTMLReportGenerator.StepDetails("Fail", (count++) + "- Locator not found issue", "",
+
+				TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+	  }
+	}
+
+	@Then("^Verify Home Page >> Footer should display$")
+	public void verify_Home_Page_Footer_should_display() throws Throwable {
+		
+        Thread.sleep(2000);
+		
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
+
+		jse.executeScript("window.scrollBy(0,5000)", "");
+		
+        VodafoneHomePageObj vodahome = new VodafoneHomePageObj(driver);
+		
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+
+	try {
+
+		wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.Home_footerHeder));
+		
+		boolean b = vodahome.Home_footerHeder.isDisplayed();
+		
+		if(b == true) {
+			
+			System.out.println("Verify Home Page >> Footer should display");
+			
+			HTMLReportGenerator.StepDetails("Pass", (count++) + "- Verify Home Page >> Footer is displayed", "",
+
+					TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+			
+		}else {
+			
+			System.out.println("Verify Home Page >> Footer should not display");
+			
+			HTMLReportGenerator.StepDetails("Fail", (count++) + "- Verify Home Page >> Footer should not display", "",
+
+					TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+			
+		}
+	}catch(TimeoutException ex) {
+	
+		System.out.println("Locator not found issue");
+		
+		HTMLReportGenerator.StepDetails("Fail", (count++) + "- Locator not found issue", "",
+
+				TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+	  }
+	   
+	}
+
+	@Then("^Verify Home Page >> Below Header -  Banner should display$")
+	public void verify_Home_Page_Below_Header_Banner_should_display() throws Throwable {
+		
+        Thread.sleep(2000);
+		
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
+
+		jse.executeScript("window.scrollBy(0,-3500)", "");
+		
+        VodafoneHomePageObj vodahome = new VodafoneHomePageObj(driver);
+		
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+
+	try {
+
+		wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.banner_image));
+		
+		boolean b = vodahome.banner_image.isDisplayed();
+		
+		if(b == true) {
+			
+			System.out.println("Verify Home Page >> Below Header -  Banner should display");
+			
+			HTMLReportGenerator.StepDetails("Pass", (count++) + "- Verify Home Page >> Below Header -  Banner is displayed", "",
+
+					TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+			
+		}else {
+			
+			System.out.println("Verify Home Page >> Below Header -  Banner should not display");
+			
+			HTMLReportGenerator.StepDetails("Fail", (count++) + "- Verify Home Page >> Below Header -  Banner should not display", "",
+
+					TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+			
+		}
+	}catch(TimeoutException ex) {
+	
+		System.out.println("Locator not found issue");
+		
+		HTMLReportGenerator.StepDetails("Fail", (count++) + "- Locator not found issue", "",
+
+				TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+	  }
+	   
+	}
+
+	@Then("^Verify Home Page >> Mobile number field should display$")
+	public void verify_Home_Page_Mobile_number_field_should_display() throws Throwable {
+		
+        VodafoneHomePageObj vodahome = new VodafoneHomePageObj(driver);
+		
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+
+	try {
+
+		wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.mobile_No));
+		
+		boolean b = vodahome.mobile_No.isDisplayed();
+		
+		if(b == true) {
+			
+			System.out.println("Verify Home Page >> Mobile number field should display");
+			
+			HTMLReportGenerator.StepDetails("Pass", (count++) + "- Verify Home Page >> Mobile number field is displayed", "",
+
+					TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+			
+		}else {
+			
+			System.out.println("Verify Home Page >> Mobile number field should not display");
+			
+			HTMLReportGenerator.StepDetails("Fail", (count++) + "- Verify Home Page >> Mobile number field should not display", "",
+
+					TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+			
+		}
+	}catch(TimeoutException ex) {
+	
+		System.out.println("Locator not found issue");
+		
+		HTMLReportGenerator.StepDetails("Fail", (count++) + "- Locator not found issue", "",
+
+				TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+	  }
+	   
+	}
+
+	@Then("^Verify Home Page >> Arrow \\(>\\) button should be disabled as number is not provided$")
+	public void verify_Home_Page_Arrow_button_should_be_disabled_as_number_is_not_provided() throws Throwable {
+		
+		 VodafoneHomePageObj vodahome = new VodafoneHomePageObj(driver);
+			
+			WebDriverWait wait = new WebDriverWait(driver, 30);
+
+		try {
+
+			wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.arrow_key));
+			
+			boolean b = vodahome.arrow_key.isEnabled();
+			
+			if(b == true) {
+				
+				System.out.println("Verify Home Page >> Arrow (>) button should be disabled as number is not provided");
+				
+				HTMLReportGenerator.StepDetails("Pass", (count++) + "- Verify Home Page >> Arrow (>) button is disabled as number is not provided", "",
+
+						TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+				
+			}else {
+				
+				System.out.println("Verify Home Page >> Arrow (>) button should be disabled as number is provided");
+				
+				HTMLReportGenerator.StepDetails("Fail", (count++) + "- Verify Home Page >> Arrow (>) button should be disabled as number is provided", "",
+
+						TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+				
+			}
+		}catch(TimeoutException ex) {
+		
+			System.out.println("Locator not found issue");
+			
+			HTMLReportGenerator.StepDetails("Fail", (count++) + "- Locator not found issue", "",
+
+					TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+		  }
+		   
+	}
+
+	@Then("^Enter mobile number less than ten digits - Error message should display in Red$")
+	public void enter_mobile_number_less_than_ten_digits_Error_message_should_display_in_Red() throws Throwable {
+		
+		VodafoneHomePageObj vodahome = new VodafoneHomePageObj(driver);
+		
+		WebDriverWait wait = new WebDriverWait(driver, 50);
+
+		try {
+			wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.mobile_No));
+
+			vodahome.mobile_No.sendKeys(OR.getProperty("LessThan"));
+
+			vodahome.mobile_No.sendKeys(Keys.BACK_SPACE);
+
+			wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.error_msg));
+
+			String error_msg = "Please enter 10 digit mobile number";
+
+			String error_msg1 = vodahome.error_msg.getText();
+
+			System.out.println("===" + error_msg1);
+
+			String color = vodahome.error_msg.getCssValue("color");
+
+			String color1 = "rgba(230, 0, 0, 1)";
+
+			System.out.println("============" + color);
+
+			boolean n1 = vodahome.error_msg.isDisplayed();
+
+			if (n1 == true) {
+
+				System.out.println("Error msg is displyed");
+
+				if (error_msg1.equalsIgnoreCase(error_msg) && color.equalsIgnoreCase(color1)) {
+
+					System.out.println("Correct Error msg is displyed in correct color");
+
+					HTMLReportGenerator.StepDetails("Pass", (count++)+ "Enter mobile number less than ten digits>> Correct Error msg is displyed in correct color", "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+					
+					HTMLReportGenerator.StepDetails("Pass", (count++)+ "Enter mobile number less than ten digits>> Error message is display in Red", "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+
+				} else {
+					
+					System.out.println("Incorrect Error msg is displyed in correct color");
+					HTMLReportGenerator.StepDetails("Fail",
+							(count++) + "-Enter mobile number less than ten digits>> Wrong Error msg is displyed in correct color", "",
+							TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+				}
+				
+			} else {
+
+				HTMLReportGenerator.StepDetails("Fail", (count++) + "-Enter mobile number less than ten digits>> Wrong Error msg is displyed in correct color",
+						"", TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+
+				System.out.println("Error msg is not displayed");
+			}
+
+		} catch (TimeoutException ex) {
+
+			System.out.println("Locator not found issue");
+
+			HTMLReportGenerator.StepDetails("Fail", (count++) + "- Locator not found issue", "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+		}
+	    
+	}
+
+	@Then("^Enter mobile number less than ten digits - Enter Mobile Number label and field border should display in Red$")
+	public void enter_mobile_number_less_than_ten_digits_Enter_Mobile_Number_label_and_field_border_should_display_in_Red() throws Throwable {
+   
+		VodafoneHomePageObj vodahome = new VodafoneHomePageObj(driver);
+		
+		vodahome.mobile_No.clear();
+
+		WebDriverWait wait = new WebDriverWait(driver, 50);
+
+		try {
+			wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.mobile_No));
+
+			vodahome.mobile_No.sendKeys(OR.getProperty("LessThan"));
+
+			vodahome.mobile_No.sendKeys(Keys.BACK_SPACE);
+
+			wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.error_msg));
+
+			String error_msg = "Please enter 10 digit mobile number";
+
+			String error_msg1 = vodahome.error_msg.getText();
+
+			System.out.println("===" + error_msg1);
+
+			String color = vodahome.error_msg.getCssValue("color");
+
+			String color1 = "rgba(230, 0, 0, 1)";
+
+			System.out.println("============" + color);
+
+			boolean n1 = vodahome.error_msg.isDisplayed();
+
+			if (n1 == true) {
+
+				System.out.println("Error msg is displyed");
+
+				if (error_msg1.equalsIgnoreCase(error_msg) && color.equalsIgnoreCase(color1)) {
+
+					System.out.println("Correct boder color is displyed in correct color");
+
+					HTMLReportGenerator.StepDetails("Pass", (count++)+ "- Enter mobile number less than ten digits - Enter Mobile Number label and field border is display in Red", "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+
+				} else {
+					
+					System.out.println("Incorect boder color display");
+					HTMLReportGenerator.StepDetails("Fail",
+							(count++) + "- Enter mobile number less than ten digits - Enter Mobile Number label and field border is not display in Red", "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+				}
+				
+			} else {
+
+				HTMLReportGenerator.StepDetails("Fail", (count++) + "- Correct Error msg is displyed in correct color",
+						"", TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+
+				System.out.println("Error msg is not displayed");
+			}
+
+		} catch (TimeoutException ex) {
+
+			System.out.println("Locator not found issue");
+
+			HTMLReportGenerator.StepDetails("Fail", (count++) + "- Locator not found issue", "",
+					TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+		}
+	}
+
+	@Then("^Enter Postpaid Number of Idea - error Message should display in red color$")
+	public void enter_Postpaid_Number_of_Idea_error_Message_should_display_in_red_color() throws Throwable {
+	
+		VodafoneHomePageObj vodahome = new VodafoneHomePageObj(driver);
+		
+		vodahome.mobile_No.clear();
+
+		WebDriverWait wait = new WebDriverWait(driver, 50);
+
+		try {
+			wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.mobile_No));
+
+			vodahome.mobile_No.sendKeys(OR.getProperty("prepaidIdeaNO"));
+			
+			System.out.println("Enter Postpaid Number of Idea ");
+			
+			wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.error_msg));
+
+			String error_msg = "You have entered Non-Vodafone Number. Please enter valid Vodafone number";
+
+			String error_msg1 = vodahome.error_msg.getText();
+
+			System.out.println("===" + error_msg1);
+
+			String color = vodahome.error_msg.getCssValue("color");
+
+			String color1 = "rgba(230, 0, 0, 1)";
+
+			System.out.println("============" + color);
+
+			boolean n1 = vodahome.error_msg.isDisplayed();
+
+			if (n1 == true) {
+
+				System.out.println("Error msg is displyed");
+
+				if (error_msg1.equalsIgnoreCase(error_msg) && color.equalsIgnoreCase(color1)) {
+
+					System.out.println("Enter Postpaid Number of Idea - error Message od display in red color");
+
+					HTMLReportGenerator.StepDetails("Pass", (count++)+ "- Enter Postpaid Number of Idea -correct error Message is display in red color", "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+
+				} else {
+					
+					System.out.println("Incorect boder color display");
+					HTMLReportGenerator.StepDetails("Fail",	(count++) + "- Enter Postpaid Number of Idea - Wrong error Message is display in red color", "",
+							TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+				}
+				
+			} else {
+
+				HTMLReportGenerator.StepDetails("Fail", (count++) + "- Correct Error msg is displyed in correct color",
+						"", TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+
+				System.out.println("Error msg is not displayed");
+			}
+
+		} catch (TimeoutException ex) {
+
+			System.out.println("Locator not found issue-^");
+
+			HTMLReportGenerator.StepDetails("Fail", (count++) + "- Locator not found issue-^", "",
+					TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+		}
+	}
+	/*@Then("^Click Dismiss >> Toast message should vanish$")
+	public void click_Dismiss_Toast_message_should_vanish() throws Throwable {
+		
+	   VodafoneHomePageObj vodahome = new VodafoneHomePageObj(driver);
+	   
+	   WebDriverWait wait = new WebDriverWait(driver, 50);
+	  	
+		wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.tost_dissmis));
+
+		vodahome.tost_dissmis.click();
+				
+		System.out.println("Click Dismiss >> Toast message should vanish");
+		
+		HTMLReportGenerator.StepDetails("Pass", (count++)
+
+				+ "- Click Dismiss >> Toast message should vanish", "",
+				TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+    
+	   }*/
+
+
+	@Then("^Enter NonIdea/NonVF number- error Message should display in red color$")
+	public void enter_NonIdea_NonVF_number_error_Message_should_display_in_red_color() throws Throwable {
+	    
+        VodafoneHomePageObj vodahome = new VodafoneHomePageObj(driver);
+		
+		vodahome.mobile_No.clear();
+
+		WebDriverWait wait = new WebDriverWait(driver, 50);
+
+		try {
+			wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.mobile_No));
+
+			vodahome.mobile_No.sendKeys(OR.getProperty("NonIdeaNo"));
+			
+			System.out.println("Enter Postpaid Number of Idea ");
+			wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.error_msg));
+
+			String error_msg = "You have entered Non-Vodafone Number. Please enter valid Vodafone number";
+
+			String error_msg1 = vodahome.error_msg.getText();
+
+			System.out.println("===" + error_msg1);
+
+			String color = vodahome.error_msg.getCssValue("color");
+
+			String color1 = "rgba(230, 0, 0, 1)";
+
+			System.out.println("============" + color);
+
+			boolean n1 = vodahome.error_msg.isDisplayed();
+
+			if (n1 == true) {
+
+				System.out.println("Error msg is displyed");
+
+				if (error_msg1.equalsIgnoreCase(error_msg) && color.equalsIgnoreCase(color1)) {
+
+					System.out.println("Correct boder color is displyed in correct color");
+
+					HTMLReportGenerator.StepDetails("Pass", (count++)+ "- Enter NonIdea/NonVF number- Correct error Message is display in red color", "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+
+				} else {
+					
+					System.out.println("Incorect boder color display");
+					HTMLReportGenerator.StepDetails("Fail",
+							(count++) + "- Wrong Error msg is displyed in correct color", "",
+							TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+				}
+				
+			} else {
+
+				HTMLReportGenerator.StepDetails("Fail", (count++) + "- Correct Error msg is displyed in correct color",
+						"", TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+
+				System.out.println("Error msg is not displayed");
+			}
+
+		} catch (TimeoutException ex) {
+
+			System.out.println("Locator not found issue");
+
+			HTMLReportGenerator.StepDetails("Fail", (count++) + "- Locator not found issue", "",
+					TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+		}
+	}
+
+	@Then("^Try to enter Mobile Number starting with (\\d+) to (\\d+) >> It should not allow$")
+	public void try_to_enter_Mobile_Number_starting_with_to_It_should_not_allow(int arg1, int arg2) throws Throwable {
+		
+		 VodafoneHomePageObj vodahome = new VodafoneHomePageObj(driver);
+		 
+		 vodahome.mobile_No.clear();
+
+			WebDriverWait wait = new WebDriverWait(driver, 40);
+
+		try {
+			wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.mobile_No));
+
+			vodahome.mobile_No.sendKeys(OR.getProperty("NuStartinZero"));
+
+			String typedValue1 = vodahome.mobile_No.getAttribute("value");
+
+			int size1 = typedValue1.length();
+
+			if (size1 == 0) {
+
+			System.out.println("Try to enter Mobile Number starting with 0 to 4 >> It should not allow");
+
+			HTMLReportGenerator.StepDetails("Pass",
+			(count++) + "Try to enter Mobile Number starting with 0 to 4 >> It should not allow", "",
+			TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+				}
+			} catch (TimeoutException ex) {
+
+				System.out.println("Try to enter Mobile Number starting with 0 to 4 >> It should allow");
+
+				HTMLReportGenerator.StepDetails("Fail",
+						(count++) + "Try to enter Mobile Number starting with 0 to 4 >> It should allow" + ex, "",
+						TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+
+			}
+	}
+
+	@Then("^Enter alphabets/Special characters in Mobile Number field- it should not allow$")
+	public void enter_alphabets_Special_characters_in_Mobile_Number_field_it_should_not_allow() throws Throwable {
+		
+		VodafoneHomePageObj vodahome = new VodafoneHomePageObj(driver);
+		 
+		 vodahome.mobile_No.clear();
+	   
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+
+		try {
+			wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.mobile_No));
+
+			vodahome.mobile_No.sendKeys(OR.getProperty("AlfabetSpecial"));
+
+			System.out.println("Enter alphabets/Special characters in Mobile Number field- it should not allow");
+
+			String typedValue1 = vodahome.mobile_No.getAttribute("value");
+
+			int size1 = typedValue1.length();
+
+			if (size1 == 0) {
+
+				System.out.println("Enter alphabets/Special characters in Mobile Number field- it should not allow");
+
+				HTMLReportGenerator.StepDetails("Pass",
+						(count++) + "-Enter alphabets/Special characters in Mobile Number field- it should not allow",
+						"", TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+			}
+		} catch (TimeoutException ex) {
+
+			System.out.println("Enter alphabets/Special characters in Mobile Number field- it should allow");
+
+			HTMLReportGenerator.StepDetails("Fail",
+					(count++) + "Enter alphabets/Special characters in Mobile Number field- it should allow" + ex, "",
+					TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+
+			Thread.sleep(7000);
+		}
+	}
+
+	@Then("^Enter Idea Prepaid Number >> error Message should display red color$")
+	public void enter_Idea_Prepaid_Number_error_Message_should_display_red_color() throws Throwable {
+	 
+		 VodafoneHomePageObj vodahome = new VodafoneHomePageObj(driver);
+			
+			vodahome.mobile_No.clear();
+
+			WebDriverWait wait = new WebDriverWait(driver, 50);
+
+			try {
+				wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.mobile_No));
+
+				vodahome.mobile_No.sendKeys(OR.getProperty("prepaidIdeaNO"));
+				
+				System.out.println("Enter Idea Prepaid Number >> Toast Message should display");
+				
+				wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.error_msg));
+
+				String error_msg = "You have entered Non-Vodafone Number. Please enter valid Vodafone number";
+
+				String error_msg1 = vodahome.error_msg.getText();
+
+				System.out.println("===" + error_msg1);
+
+				String color = vodahome.error_msg.getCssValue("color");
+
+				String color1 = "rgba(230, 0, 0, 1)";
+
+				System.out.println("============" + color);
+
+				boolean n1 = vodahome.error_msg.isDisplayed();
+
+				if (n1 == true) {
+
+					System.out.println("Error msg is displyed");
+
+					if (error_msg1.equalsIgnoreCase(error_msg) && color.equalsIgnoreCase(color1)) {
+
+						System.out.println("Correct boder color is displyed in correct color");
+
+						HTMLReportGenerator.StepDetails("Pass", (count++)
+
+						+ "- Enter Idea Prepaid Number >> error Message is display in red color", "",
+						TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+
+					} else {
+						
+						System.out.println("Incorect boder color display");
+						HTMLReportGenerator.StepDetails("Fail",
+								(count++) + "- Wrong Error msg is displyed in correct color", "",
+								TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+					}
+					
+				} else {
+
+					HTMLReportGenerator.StepDetails("Fail", (count++) + "- Wrong Error msg is displyed in correct color",
+							"", TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+
+					System.out.println("Error msg is not displayed");
+				}
+
+			} catch (TimeoutException ex) {
+
+				System.out.println("Locator not found issue");
+
+				HTMLReportGenerator.StepDetails("Fail", (count++) + "- Locator not found issue", "",
+						TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+			}
+	}
+
+	/*@Then("^Enter COCP number >> Toast message should display$")
+	public void enter_COCP_number_Toast_message_should_display() throws Throwable {
+		
+		VodafoneHomePageObj vodahome = new VodafoneHomePageObj(driver);
+		   
+	    WebDriverWait wait = new WebDriverWait(driver, 50);
+		  	
+		wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.tost_dissmis));
+
+		vodahome.tost_dissmis.click();
+					
+		System.out.println("Click Dismiss >> Toast message should vanish");
+			
+		HTMLReportGenerator.StepDetails("Pass", (count++)
+
+			+ "- Click Dismiss >> Toast message should vanish", "",
+			TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+	   
+	    }*/
+	/*@Then("^Enter COCP number >> Toast message should be display$")
+	public void enter_COCP_number_Toast_message_should_be_display() throws Throwable {
+		
+		VodafoneHomePageObj vodahome = new VodafoneHomePageObj(driver);
+		
+		vodahome.mobile_No.clear();
+
+		WebDriverWait wait = new WebDriverWait(driver, 50);
+
+		try {
+			wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.mobile_No));
+
+			vodahome.mobile_No.sendKeys(OR.getProperty("COCPNo"));
+			
+			System.out.println("Enter COCP number ");
+			
+			HTMLReportGenerator.StepDetails("Pass", (count++)
+
+					+ "- Enter COCP number ", "",
+					TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+			
+			Thread.sleep(2000);
+			
+			wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.tost_msg));
+
+			boolean n=vodahome.tost_msg.isDisplayed();
+			
+			if(n == true) {
+				
+				System.out.println("Toast Message should display");
+				
+				HTMLReportGenerator.StepDetails("Pass", (count++)
+
+				+ "- Toast Message should display", "",
+				TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+			
+	}else {
+		
+		System.out.println("Toast Message should not display");
+		HTMLReportGenerator.StepDetails("Fail", (count++)
+
+				+ "- Toast Message should not display", "",
+				TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+	 }
+	}catch(TimeoutException ex) {
+		
+		System.out.println("Toast Message should not display");
+		HTMLReportGenerator.StepDetails("Fail", (count++)
+				+ "- Toast Message should not display", "",
+				TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+		
+		}
+	
+	}
+*/
+	@Then("^Enter VF Postpaid Number >> Arrow \\(>\\) button should be enabled$")
+	public void enter_VF_Postpaid_Number_Arrow_button_should_be_enabled() throws Throwable {
+	 
+       VodafoneHomePageObj vodahome = new VodafoneHomePageObj(driver);
+		
+		vodahome.mobile_No.clear();
+
+		WebDriverWait wait = new WebDriverWait(driver, 50);
+
+		try {
+			wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.mobile_No));
+
+			vodahome.mobile_No.sendKeys(OR.getProperty("vodaPostpaidNo"));
+			
+			System.out.println("Enter VF Postpaid Number");
+			
+			wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.ArrowKey));
+			
+			HTMLReportGenerator.StepDetails("Pass", (count++)+ "- Enter Postpaid number", "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+
+
+		boolean b = vodahome.ArrowKey.isEnabled();
+		
+		if(b == true) {
+			
+			System.out.println("Arrow (>) button should be enabled");
+			
+			HTMLReportGenerator.StepDetails("Pass", (count++)+ "-Enter Postpaid number>> Arrow (>) button is enabled", "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+			
+		}else {
+			
+			System.out.println("Arrow (>) button should not be enabled");
+			
+			HTMLReportGenerator.StepDetails("Fail", (count++)
+
+					+ "-Arrow (>) button should not be enabled", "",
+					TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+			
+		}
+	}catch(TimeoutException ex) {
+		System.out.println("Arrow (>) button should not be enabled");
+		
+		HTMLReportGenerator.StepDetails("Fail", (count++)
+
+				+ "-Arrow (>) button should not be enabled", "",
+				TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+		
+	
+	 }
+	}
+
+	@Then("^Enter VF Postpaid Number >> Arrow \\(>\\) button should be black$")
+	public void enter_VF_Postpaid_Number_Arrow_button_should_be_black() throws Throwable {
+	    
+        VodafoneHomePageObj vodahome = new VodafoneHomePageObj(driver);
+		
+		vodahome.mobile_No.clear();
+
+		WebDriverWait wait = new WebDriverWait(driver, 50);
+
+		wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.mobile_No));
+
+			vodahome.mobile_No.sendKeys(OR.getProperty("vodaPostpaidNo"));
+			
+			System.out.println("Enter VF Postpaid Number");
+			
+			HTMLReportGenerator.StepDetails("Pass", (count++)
+
+					+ "- Enter VF Postpaid Number >> Arrow (>) button should be black", "",
+					TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+			
+	}
+
+	@Then("^Click arrow \\(>\\)Billpay page should display$")
+	public void click_arrow_Billpay_page_should_display() throws Throwable {
+		
+       VodafoneHomePageObj vodahome = new VodafoneHomePageObj(driver);
+	
+		WebDriverWait wait = new WebDriverWait(driver, 50);
+		
+      try {
+	   
+		wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.ArrowKey));
+		
+		vodahome.ArrowKey.click();
+		
+		System.out.println("Click on Array button");
+		
+	//	HTMLReportGenerator.StepDetails("Pass", (count++)+ "- Billpay page should display", "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+		
+		Thread.sleep(2000);
+		
+		wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.Billpay_Mobile));
+		
+		boolean b = vodahome.Billpay_Mobile.isDisplayed();
+		
+		if(b == true) {
+			
+			System.out.println("Billpay page should display");HTMLReportGenerator.StepDetails("Pass", (count++)+ "- Billpay page should display", "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+			
+		}else {
+			
+			System.out.println("Billpay page should not display");
+			
+			HTMLReportGenerator.StepDetails("Fail", (count++)
+
+					+ "- Billpay page should not display", "",
+					TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+			
+		}
+      }catch(TimeoutException ex){
+    	  System.out.println("Locator not found issue");
+    	  
+    	  HTMLReportGenerator.StepDetails("Fail", (count++)
+
+					+ "- Locator not found issue", "",
+					TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+      }
+	}
+
+	@Then("^Verify Billpay page >> Mobile number should be autopopulated with number entered on Homepage$")
+	public void verify_Billpay_page_Mobile_number_should_be_autopopulated_with_number_entered_on_Homepage() throws Throwable {
+		
+		  VodafoneHomePageObj vodahome = new VodafoneHomePageObj(driver);
+			
+			WebDriverWait wait = new WebDriverWait(driver, 50);
+			
+       try {
+    	   
+			wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.Billpay_Mobile));
+			
+			boolean b = vodahome.Billpay_Mobile.isDisplayed();
+			
+			if(b == true) {
+			
+			System.out.println("Verify Billpay page >> Mobile number should be autopopulated with number entered on Homepage");
+			
+			HTMLReportGenerator.StepDetails("Pass", (count++)
+
+					+ "- Verify Billpay page >> Mobile number should be autopopulated with number entered on Homepage", "",
+					TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+			}else {
+				
+				System.out.println("Verify Billpay page >> Mobile number should not be autopopulated with number entered on Homepage");
+				
+				HTMLReportGenerator.StepDetails("Fail", (count++)
+
+						+ "- Verify Billpay page >> Mobile number should not be autopopulated with number entered on Homepage", "",
+						TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+			}
+       }catch(TimeoutException ex){
+    	   
+    	   System.out.println("Locator not found issue");
+			
+			HTMLReportGenerator.StepDetails("Fail", (count++)
+
+					+ "- Locator not found issue", "",
+					TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+       }
+	}
+
+	@Then("^Verify Billpay page >> Amount field should be enabled$")
+	public void verify_Billpay_page_Amount_field_should_be_enabled() throws Throwable {
+		
+		
+		 VodafoneHomePageObj vodahome = new VodafoneHomePageObj(driver);
+			
+			WebDriverWait wait = new WebDriverWait(driver, 50);
+			
+    try {
+ 	   
+			wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.Billpay_Amount));
+			
+			boolean b = vodahome.Billpay_Amount.isEnabled();
+			
+			if(b == true) {
+			
+			System.out.println("Verify Billpay page >> Amount field should be enabled");
+			
+			HTMLReportGenerator.StepDetails("Pass", (count++)
+
+					+ "- Verify Billpay page >> Amount field should be enabled", "",
+					TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+			}else {
+				
+				System.out.println("Verify Billpay page >> Amount field should not be enabled");
+				
+				HTMLReportGenerator.StepDetails("Fail", (count++)
+
+						+ "- Verify Billpay page >> Amount field should not be enabled", "",
+						TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+			}
+    }catch(TimeoutException ex){
+ 	   
+ 	   System.out.println("Locator not found issue");
+			
+			HTMLReportGenerator.StepDetails("Fail", (count++)
+
+					+ "- Locator not found issue", "",
+					TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+      }
+	}
+
+	@Then("^Verify Billpay page >> Fetch your bill link should be enabled$")
+	public void verify_Billpay_page_Fetch_your_bill_link_should_be_enabled() throws Throwable {
+	   
+
+		 VodafoneHomePageObj vodahome = new VodafoneHomePageObj(driver);
+			
+			WebDriverWait wait = new WebDriverWait(driver, 50);
+			
+   try {
+	   
+			wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.Billpay_fechBill));
+			
+			boolean b = vodahome.Billpay_fechBill.isEnabled();
+			
+			if(b == true) {
+			
+			System.out.println("Verify Billpay page >> Fetch your bill link should be enabled");
+			
+			HTMLReportGenerator.StepDetails("Pass", (count++)
+
+					+ "- Verify Billpay page >> Fetch your bill link should be enabled", "",
+					TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+			}else {
+				
+				System.out.println("Verify Billpay page >> Fetch your bill link should not be enabled");
+				
+				HTMLReportGenerator.StepDetails("Fail", (count++)
+
+						+ "- Verify Billpay page >> Fetch your bill link should not 10be enabled", "",
+						TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+			}
+   }catch(TimeoutException ex){
+	   
+	   System.out.println("Locator not found issue");
+			
+			HTMLReportGenerator.StepDetails("Fail", (count++)
+
+					+ "- Locator not found issue", "",
+					TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+	 }
+	}
+	@Then("^Enter VF Prepaid Number >> Arrow \\(>\\) button should be enabled$")
+	public void enter_VF_Prepaid_Number_Arrow_button_should_be_enabled() throws Throwable {
+		
+		driver.get(OR.getProperty("Vodafone_HomePage"));
+		
+       VodafoneHomePageObj vodahome = new VodafoneHomePageObj(driver);
+		
+		vodahome.mobile_No.clear();
+
+		WebDriverWait wait = new WebDriverWait(driver, 50);
+
+		//try {
+			wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.mobile_No));
+
+			vodahome.mobile_No.sendKeys(OR.getProperty("vodafone_pre"));
+			
+			System.out.println("Enter VF Prepaid Number");
+			
+			HTMLReportGenerator.StepDetails("Pass", (count++)
+
+					+ "- Enter VF Prepaid Number", "",
+					TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+			
+			Thread.sleep(2000);
+			
+			wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.ArrowKey));
+			
+		boolean b = vodahome.ArrowKey.isEnabled();
+		
+		if(b == true) {
+			
+			System.out.println("Arrow(>) button should be enabled");
+			
+			HTMLReportGenerator.StepDetails("Pass", (count++)+ "- Arrow(>) button should be enabled", "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+			
+			
+		}else {
+			
+			System.out.println("Arrow(>) button should not be enabled");
+			
+			HTMLReportGenerator.StepDetails("Pass", (count++)+ "- Arrow(>) button should not be enabled", "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+		}
+	}
+
+	@Then("^Enter VF Prepaid Number >> Arrow \\(>\\) button should be black$")
+	public void enter_VF_Prepaid_Number_Arrow_button_should_be_black() throws Throwable {
+		
+        VodafoneHomePageObj vodahome = new VodafoneHomePageObj(driver);
+		
+		vodahome.mobile_No.clear();
+
+		WebDriverWait wait = new WebDriverWait(driver, 50);
+
+		//try {
+			wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.mobile_No));
+
+			vodahome.mobile_No.sendKeys(OR.getProperty("vodafone_pre"));
+			
+			System.out.println("Enter VF Prepaid Number");
+			
+			Thread.sleep(2000);
+			
+			wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.ArrowKey));
+			
+		boolean b = vodahome.ArrowKey.isEnabled();
+		
+		if(b == true) {
+			
+			System.out.println("Enter VF Prepaid Number >> Arrow (>) button should be black");
+			
+			HTMLReportGenerator.StepDetails("Pass", (count++)
+
+					+ "- Enter VF Prepaid Number >> Arrow (>) button should be black", "",
+					TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+			
+			
+		}else {
+			
+			System.out.println("Enter VF Prepaid Number >> Arrow (>) button should not be black");
+			
+			HTMLReportGenerator.StepDetails("Fail", (count++)
+
+					+ "- Enter VF Prepaid Number >> Arrow (>) button should not be black", "",
+					TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+		}
+	}
+
+	@Then("^Click arrow \\(>\\)Recharge page should display$")
+	public void click_arrow_Recharge_page_should_display() throws Throwable {
+		
+		 VodafoneHomePageObj vodahome = new VodafoneHomePageObj(driver);
+			
+			WebDriverWait wait = new WebDriverWait(driver, 50);
+try {
+	
+			wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.ArrowKey));
+			
+			vodahome.ArrowKey.click();
+			
+			System.out.println("Click arrow(>)Recharge page should display");
+			
+	/*		HTMLReportGenerator.StepDetails("Pass", (count++)
+
+					+ "- Click arrow (>)Recharge page should display", "",
+					TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+			*/
+			Thread.sleep(2000);
+			
+			wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.ORC_number));
+			
+			boolean b = vodahome.ORC_number.isDisplayed();
+			
+			if(b == true) {
+				
+				System.out.println("Click arrow (>)Recharge page should display");
+				
+				HTMLReportGenerator.StepDetails("Pass", (count++)+ "-Click arrow (>)Recharge page is displayed", "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+				
+			}else {
+				
+				System.out.println("Click arrow (>)Recharge page should not display");
+				
+				HTMLReportGenerator.StepDetails("Fail", (count++)
+
+						+ "- Billpay page should not display", "",
+						TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+				
+			}
+			
+}catch(TimeoutException ex){
+	
+	System.out.println("Locator not found issue");
+	HTMLReportGenerator.StepDetails("Fail", (count++)
+
+			+ "-Locator not found issue", "",
+			TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+	
+   }
+	}
+
+	@Then("^Verify Recharge page >> Mobile number should be autopopulated with number entered on Homepage$")
+	public void verify_Recharge_page_Mobile_number_should_be_autopopulated_with_number_entered_on_Homepage() throws Throwable {
+		 VodafoneHomePageObj vodahome = new VodafoneHomePageObj(driver);
+			
+			WebDriverWait wait = new WebDriverWait(driver, 50);
+			
+    try {
+ 	   
+			wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.Billpay_Mobile));
+			
+			boolean b = vodahome.Billpay_Mobile.isDisplayed();
+			
+			if(b == true) {
+			
+			System.out.println("Verify Recharge page >> Mobile number should be autopopulated with number entered on Homepage");
+			
+			HTMLReportGenerator.StepDetails("Pass", (count++)
+
+					+ "- Verify Recharge page>> Mobile number should be autopopulated with number entered on Homepage", "",
+					TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+			}else {
+				
+				System.out.println("Verify Recharge page >> Mobile number should not be autopopulated with number entered on Homepage");
+				
+				HTMLReportGenerator.StepDetails("Fail", (count++)
+
+						+ "- Verify Recharge page >> Mobile number should not be autopopulated with number entered on Homepage", "",
+						TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+			}
+    }catch(TimeoutException ex){
+ 	   
+ 	   System.out.println("Locator not found issue");
+			
+			HTMLReportGenerator.StepDetails("Fail", (count++)
+
+					+ "- Locator not found issue", "",
+					TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+    }
+	}
+
+	@Then("^Verify Recharge page >> Amount field should be enabled$")
+	public void verify_Recharge_page_Amount_field_should_be_enabled() throws Throwable {
+		
+		 VodafoneHomePageObj vodahome = new VodafoneHomePageObj(driver);
+			
+			WebDriverWait wait = new WebDriverWait(driver, 50);
+		
+          try {
+	   
+			wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.Billpay_Amount));
+			
+			boolean b = vodahome.Billpay_Amount.isEnabled();
+			
+			if(b == true) {
+		
+			System.out.println("Verify Recharge page  >> Amount field should be enabled");
+			
+			HTMLReportGenerator.StepDetails("Pass", (count++)+ "- Verify Recharge page >> Amount field is be enabled", "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+			}else {
+				
+				System.out.println("Verify Recharge page >> Amount field should not be enabled");
+				
+				HTMLReportGenerator.StepDetails("Fail", (count++)
+
+						+ "- Verify Recharge page >> Amount field should not be enabled", "",
+						TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+			}
+       }catch(TimeoutException ex){
+	   
+	   System.out.println("Locator not found issue");
+			
+			HTMLReportGenerator.StepDetails("Fail", (count++)+ "- Locator not found issue", "",
+					TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+   }
+	}
+
+	@Then("^Verify Recharge page >> Fetch last recharge link should be enabled$")
+	public void verify_Recharge_page_Fetch_last_recharge_link_should_be_enabled() throws Throwable {
+	    
+		VodafoneHomePageObj vodahome = new VodafoneHomePageObj(driver);
+		
+		WebDriverWait wait = new WebDriverWait(driver, 50);
+		
+      try {
+   
+		wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.recharge_fechlastRecharge));
+		
+		boolean b = vodahome.recharge_fechlastRecharge.isEnabled();
+		
+		if(b == true) {
+		
+		System.out.println("Verify Recharge page  >> Fetch last recharge link should be enabled");
+		
+		HTMLReportGenerator.StepDetails("Pass", (count++)
+
+				+ "- Verify Recharge page >> Fetch last recharge link should be enabled", "",
+				TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+		}else {
+			
+			System.out.println("Verify Recharge page >> Fetch last recharge link should not be enabled");
+			
+			HTMLReportGenerator.StepDetails("Fail", (count++)
+
+					+ "- Verify Recharge page >> Fetch last recharge link should not be enabled", "",
+					TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+		}
+   }catch(TimeoutException ex){
+   
+   System.out.println("Locator not found issue");
+		
+		HTMLReportGenerator.StepDetails("Fail", (count++)
+
+				+ "- Locator not found issue", "",
+				TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+}
+	}
+
+	@Then("^Verify Recharge page >> Pack should display for respective number$")
+	public void verify_Recharge_page_Pack_should_display_for_respective_number() throws Throwable {
+		
+        VodafoneHomePageObj vodahome = new VodafoneHomePageObj(driver);
+       
+		WebDriverWait wait = new WebDriverWait(driver, 50);
+		
+      try {
+   
+		wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.recharge_RecomenedPack));
+		
+		boolean b= vodahome.recharge_RecomenedPack.isDisplayed();
+		if(b == true) {
+			
+			System.out.println("Verify Recharge page >> Pack should display for respective number");
+			
+			HTMLReportGenerator.StepDetails("Pass", (count++)
+
+					+ "-Verify Recharge page >> Pack should display for respective number", "",
+					TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+			
+		}else {
+			
+		System.out.println("Verify Recharge page >> Pack should not display for respective number");
+		
+		HTMLReportGenerator.StepDetails("Fail", (count++)
+
+				+ "- Verify Recharge page >> Pack should not display for respective number", "",
+				TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+		}
+      }catch(TimeoutException ex){
+    	  
+    	  System.out.println("Verify Recharge page >> Pack should not display for respective number");
+    	  HTMLReportGenerator.StepDetails("Fail", (count++)	+ "- Verify Recharge page >> Pack should display for respective number", "",
+  				TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+      }
+	}
+
+	@Then("^Verify Home Page >> Quicklinks should display below Mobile number field$")
+	public void verify_Home_Page_Quicklinks_should_display_below_Mobile_number_field() throws Throwable {
+		
+		driver.get(OR.getProperty("Vodafone_HomePage"));
+		
+		  VodafoneHomePageObj vodahome = new VodafoneHomePageObj(driver);
+	       
+			WebDriverWait wait = new WebDriverWait(driver, 50);
+			
+	      try {
+	   
+			wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.Home_quicklink));
+			
+			JavascriptExecutor jse = (JavascriptExecutor) driver;
+
+			jse.executeScript("window.scrollBy(0,500)", "");
+			
+			boolean b= vodahome.Home_quicklink.isDisplayed();
+			if(b == true) {
+				
+				System.out.println("Verify Home Page >> Quicklinks should display below Mobile number field");
+				
+				HTMLReportGenerator.StepDetails("Pass", (count++)
+
+						+ "-Verify Home Page >> Quicklinks should display below Mobile number field", "",
+						TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+				
+			}else {
+				
+			System.out.println("Verify Home Page >> Quicklinks should not display below Mobile number field");
+			
+			HTMLReportGenerator.StepDetails("Fail", (count++)
+
+					+ "- Verify Home Page >> Quicklinks should not display below Mobile number field", "",
+					TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+			}
+	      }catch(TimeoutException ex){
+	    	  
+	    	  System.out.println("Locator not found issue-Q");
+	    	  HTMLReportGenerator.StepDetails("Fail", (count++)
+
+	  				+ "- Locator not found issue-Q", "",
+	  				TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+	      }
+		
+	}
+
+	@Then("^Verify Home Page >> Banners should display below Quicklinks$")
+	public void verify_Home_Page_Banners_should_display_below_Quicklinks() throws Throwable {
+		
+		driver.get(OR.getProperty("Vodafone_HomePage"));
+		
+		  VodafoneHomePageObj vodahome = new VodafoneHomePageObj(driver);
+	       
+			WebDriverWait wait = new WebDriverWait(driver, 50);
+			
+	      try {
+	   
+			wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.Home_quicklink));
+			
+			JavascriptExecutor jse = (JavascriptExecutor) driver;
+
+			jse.executeScript("window.scrollBy(0,180)", "");
+			
+			
+			boolean b= vodahome.Home_quicklink.isDisplayed();
+			if(b == true) {
+				
+				System.out.println("Verify Home Page >> Banners should display below Quicklinks");
+				
+				HTMLReportGenerator.StepDetails("Pass", (count++)
+
+						+ "-Verify Home Page >> Banners should display below Quicklinks", "",
+						TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+				
+			}else {
+				
+			System.out.println("Verify Home Page >> Banners should not display below Quicklinks");
+			
+			HTMLReportGenerator.StepDetails("Fail", (count++)
+
+					+ "- Verify Home Page >> Banners should not display below Quicklinks", "",
+					TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+			}
+	      }catch(TimeoutException ex){
+	    	  
+	    	  System.out.println("Locator not found issue-B");
+	    	  HTMLReportGenerator.StepDetails("Fail", (count++)
+
+	  				+ "- Locator not found issue-B", "",
+	  				TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+	      }
+	}
+
+	@Then("^Verify Home Page >> Loaded Benefits on VodafoneIdea section should display$")
+	public void verify_Home_Page_Loaded_Benefits_on_VodafoneIdea_section_should_display() throws Throwable {
+		
+       Thread.sleep(2000);
+		
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
+
+		jse.executeScript("window.scrollBy(0,350)", "");
+		
+		 VodafoneHomePageObj vodahome = new VodafoneHomePageObj(driver);
+	       
+			WebDriverWait wait = new WebDriverWait(driver, 50);
+			
+	      try {
+	   
+			wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.Loadedbenifit_voda));
+			
+			boolean b= vodahome.Loadedbenifit_voda.isDisplayed();
+			if(b == true) {
+				
+				System.out.println("Verify Home Page >> Loaded Benefits on VodafoneIdea section should display");
+				
+				HTMLReportGenerator.StepDetails("Pass", (count++)
+
+						+ "-Verify Home Page >> Loaded Benefits on VodafoneIdea section should display", "",
+						TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+				
+			}else {
+				
+			System.out.println("Verify Home Page >> Loaded Benefits on VodafoneIdea section not should display");
+			
+			HTMLReportGenerator.StepDetails("Fail", (count++)
+
+					+ "- Verify Home Page >> Loaded Benefits on VodafoneIdea section should not display", "",
+					TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+			}
+	      }catch(TimeoutException ex){
+	    	  
+	    	  System.out.println("Locator not found issue-L");
+	    	  HTMLReportGenerator.StepDetails("Fail", (count++)
+
+	  				+ "- Locator not found issue-L", "",
+	  				TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+	      }
+	}
+
+	@Then("^Verify Home Page >> Trending Now should display$")
+	public void verify_Home_Page_Trending_Now_should_display() throws Throwable {
+	    
+		 VodafoneHomePageObj vodahome = new VodafoneHomePageObj(driver);
+	       
+			WebDriverWait wait = new WebDriverWait(driver, 50);
+			
+	      try {
+	   
+			wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.exclusive_voda));
+			
+			JavascriptExecutor jse = (JavascriptExecutor) driver;
+
+			jse.executeScript("window.scrollBy(0,400)", "");
+			boolean b= vodahome.exclusive_voda.isDisplayed();
+			if(b == true) {
+				
+				System.out.println("Verify Home Page >> Trending Now should display");
+				
+				HTMLReportGenerator.StepDetails("Pass", (count++)
+
+						+ "-Verify Home Page >> Trending Now should display", "",
+						TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+				
+				
+				
+			}else {
+				
+			System.out.println("Verify Home Page >> Trending Now should not display");
+			
+			HTMLReportGenerator.StepDetails("Fail", (count++)
+
+					+ "- Verify Home Page >> Trending Now should not display", "",
+					TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+			}
+	      }catch(TimeoutException ex){
+	    	  
+	    	  System.out.println("Locator not found issue-S");
+	    	  HTMLReportGenerator.StepDetails("Fail", (count++)+ "- Locator not found issue-S", "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+	      }
+	}
+
+	@Then("^Verify Home Page >> Important Things to Know should display$")
+	public void verify_Home_Page_Important_Things_to_Know_should_display() throws Throwable {
+	    
+	}
+
+	@Then("^On page load >> Imortant Things to Know should display collapsed$")
+	public void on_page_load_Imortant_Things_to_Know_should_display_collapsed() throws Throwable {
+	   
+	}
+
+	@Then("^Click Arrow for Important Things to Know >> Page should autoscroll$")
+	public void click_Arrow_for_Important_Things_to_Know_Page_should_autoscroll() throws Throwable {
+	  
+	}
+
+	@Then("^Verify page >> Focus should go on Imp Things to know section$")
+	public void verify_page_Focus_should_go_on_Imp_Things_to_know_section() throws Throwable {
+	   
+	}
+
+	@Then("^Verify page >> Imp Things to Know section should expand$")
+	public void verify_page_Imp_Things_to_Know_section_should_expand() throws Throwable {
+	   
+	}
+
+	@Then("^Click Arrow for Important Things to Know >> Page should collapse$")
+	public void click_Arrow_for_Important_Things_to_Know_Page_should_collapse() throws Throwable {
+	    
+	}
+	
+	@Then("^Verify Top banner pixel\\.$")
+	public void verify_Top_banner_pixel() throws Throwable {
+	    
+	VodafoneHomePageObj vodahome = new VodafoneHomePageObj(driver);
+	link_test1 img=new link_test1();
+		
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+
+	try {
+		driver.navigate().refresh();
+
+		wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.banner_radio_btn1));
+		
+		
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
+
+		jse.executeScript("window.scrollBy(0,-250)", "");
+		Thread.sleep(1000);
+		vodahome.banner_radio_btn1.click();
+		Thread.sleep(500);
+		int width= vodahome.banner_image1.getSize().getWidth();
+		int Height= vodahome.banner_image1.getSize().getHeight();
+		
+		System.out.println(width+"=="+Height);
+		
+		int expected_height=398;
+		int expected_width=1263;
+		
+		if(width==expected_width && Height==expected_height)
+		{
+		
+		HTMLReportGenerator.StepDetails("Pass",  (count++)+ "-Correct Pixel is displayed:- Pixel of 1st banner is "+"Width="+width+" Height="+Height, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+	      
+		}
+		else
+		{
+			HTMLReportGenerator.StepDetails("INFO",  (count++)+ "-Wrong Pixel is displayed:- Pixel of 1st banner is "+"Width="+width+" Height="+Height, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+
+		}
+		
+		Thread.sleep(1000);
+		
+		String Image_extension=vodahome.banner_image1.getAttribute("style");
+		
+		System.out.println("+++++++++++++++"+Image_extension);
+        System.out.println("File extension is: "+img.link_test1(Image_extension));
+		HTMLReportGenerator.StepDetails("INFO",  (count++)+ "-Banner Image"+Image_extension+" extension is:- "+img.link_test1(Image_extension), "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+
+
+		
+		
+	}catch (Exception e) {
+		 System.out.println("Banner Locator not found issue-S"+e);
+	   	  HTMLReportGenerator.StepDetails("Fail", (count++)+ "-Banner Locator not found issue"+e, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+	     
+	}
+	}
+	@Then("^Verify Top second banner pixel\\.$")
+	public void verify_Top_second_banner_pixel() throws Throwable {
+		VodafoneHomePageObj vodahome = new VodafoneHomePageObj(driver);
+		
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+
+	try {
+		
+
+		wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.banner_radio_btn1));
+		
+		
+		vodahome.banner_radio_btn2.click();
+		Thread.sleep(500);
+		
+
+		String s=vodahome.banner_image2.getText();
+		
+		System.out.println("+++++++++++++++"+s);
+
+		int width= vodahome.banner_image2.getSize().getWidth();
+		int Height= vodahome.banner_image2.getSize().getHeight();
+		
+		System.out.println(width+"=="+Height);
+		HTMLReportGenerator.StepDetails("INFO",  (count++)+ "- 2nd banner text is= "+s, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+
+		int expected_height=398;
+		int expected_width=1263;
+		
+		if(width==expected_width && Height==expected_height)
+		{
+		HTMLReportGenerator.StepDetails("Pass",  (count++)+ "-Correct Pixel is displayed:-  Pixel of 2nd banner is "+"Width="+width+" Height="+Height, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+	      
+		}
+		else
+		{
+			HTMLReportGenerator.StepDetails("INFO",  (count++)+ "-Wrong Pixel is displayed:- Pixel of 2nd banner is "+"Width="+width+" Height="+Height, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+
+		}
+		
+		
+		Thread.sleep(1000);
+		
+		link_test1 img=new link_test1();
+		String Image_extension=vodahome.banner_image1.getAttribute("style");
+		
+		System.out.println("+++++++++++++++"+Image_extension);
+        System.out.println("File extension is: "+img.link_test1(Image_extension));
+		HTMLReportGenerator.StepDetails("INFO",  (count++)+ "-Banner Image"+Image_extension+" extension is:- "+img.link_test1(Image_extension), "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+
+
+
+		
+		
+		
+	}catch (Exception e) {
+		 System.out.println("Banner Locator not found issue-S"+e);
+	   	  HTMLReportGenerator.StepDetails("Fail", (count++)+ "-Banner Locator not found issue"+e, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+	     
+	}
+	}
+
+	@Then("^Verify Top thrid banner pixel\\.$")
+	public void verify_Top_thrid_banner_pixel() throws Throwable {
+VodafoneHomePageObj vodahome = new VodafoneHomePageObj(driver);
+		
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+
+	try {
+		
+
+		wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.banner_radio_btn1));
+		
+		
+		vodahome.banner_radio_btn3.click();
+		Thread.sleep(500);
+		
+
+		String s=vodahome.banner_image1.getText();
+		
+		System.out.println("+++++++++++++++"+s);
+
+		int width= vodahome.banner_image3.getSize().getWidth();
+		int Height= vodahome.banner_image3.getSize().getHeight();
+		
+		System.out.println(width+"=="+Height);
+		HTMLReportGenerator.StepDetails("INFO",  (count++)+ "- 3rd banner text is= "+s, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+
+
+		int expected_height=398;
+		int expected_width=1263;
+		
+		if(width==expected_width && Height==expected_height)
+		{
+		HTMLReportGenerator.StepDetails("Pass",  (count++)+ "-Correct Pixel is displayed:- Pixel of 3rd banner is "+"Width="+width+" Height="+Height, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+	      
+		}
+		else
+		{
+			HTMLReportGenerator.StepDetails("INFO",  (count++)+ "-Wrong Pixel is displayed:- Pixel of 3rd banner is "+"Width="+width+" Height="+Height, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+
+		}
+		
+		Thread.sleep(1000);
+		
+		link_test1 img=new link_test1();
+		String Image_extension=vodahome.banner_image1.getAttribute("style");
+		
+		System.out.println("+++++++++++++++"+Image_extension);
+        System.out.println("File extension is: "+img.link_test1(Image_extension));
+		HTMLReportGenerator.StepDetails("INFO",  (count++)+ "-Banner Image"+Image_extension+" extension is:- "+img.link_test1(Image_extension), "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+
+
+		
+		
+	}catch (Exception e) {
+		 System.out.println("Banner Locator not found issue-S"+e);
+	   	  HTMLReportGenerator.StepDetails("Fail", (count++)+ "-Banner Locator not found issue"+e, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+	     
+	}
+	}
+
+	@Then("^Verify Top fourth banner pixel\\.$")
+	public void verify_Top_fourth_banner_pixel() throws Throwable {
+VodafoneHomePageObj vodahome = new VodafoneHomePageObj(driver);
+		
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+
+	try {
+		
+
+		wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.banner_radio_btn1));
+		
+		
+		vodahome.banner_radio_btn4.click();
+		Thread.sleep(500);
+		
+
+		String s=vodahome.banner_image4.getText();
+		
+		System.out.println("+++++++++++++++"+s);
+
+		int width= vodahome.banner_image4.getSize().getWidth();
+		int Height= vodahome.banner_image4.getSize().getHeight();
+		
+		System.out.println(width+"=="+Height);
+		HTMLReportGenerator.StepDetails("INFO",  (count++)+ "- 4th banner text is= "+s, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+
+
+		int expected_height=398;
+		int expected_width=1263;
+		
+		if(width==expected_width && Height==expected_height)
+		{
+		HTMLReportGenerator.StepDetails("Pass",  (count++)+ "-Correct Pixel is displayed:-  Pixel of 4th banner is "+"Width="+width+" Height="+Height, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+	      
+		}
+		else
+		{
+			HTMLReportGenerator.StepDetails("INFO",  (count++)+ "- Wrong Pixel is displayed:- Pixel of 4th banner is "+"Width="+width+" Height="+Height, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+
+		}	      
+		
+		
+		Thread.sleep(1000);
+		link_test1 img=new link_test1();
+		String Image_extension=vodahome.banner_image1.getAttribute("style");
+		
+		System.out.println("+++++++++++++++"+Image_extension);
+        System.out.println("File extension is: "+img.link_test1(Image_extension));
+		HTMLReportGenerator.StepDetails("INFO",  (count++)+ "-Banner Image"+Image_extension+" extension is:- "+img.link_test1(Image_extension), "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+
+
+		
+		
+		
+	}catch (Exception e) {
+		 System.out.println("Banner Locator not found issue-S"+e);
+	   	  HTMLReportGenerator.StepDetails("Fail", (count++)+ "-Banner Locator not found issue"+e, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+	     
+	}
+	}
+
+	@Then("^Verify Top fifth banner pixel\\.$")
+	public void verify_Top_fifth_banner_pixel() throws Throwable {
+
+		VodafoneHomePageObj vodahome = new VodafoneHomePageObj(driver);
+		
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+
+	try {
+		
+
+		wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.banner_radio_btn1));
+		
+		
+		vodahome.banner_radio_btn5.click();
+		Thread.sleep(500);
+		
+
+		String s=vodahome.banner_image5.getText();
+		
+		System.out.println("+++++++++++++++"+s);
+
+		int width= vodahome.banner_image5.getSize().getWidth();
+		int Height= vodahome.banner_image5.getSize().getHeight();
+		
+		System.out.println(width+"=="+Height);
+		
+		HTMLReportGenerator.StepDetails("INFO",  (count++)+ "- 5th banner text is= "+s, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+
+		
+		int expected_height=398;
+		int expected_width=1263;
+		
+		if(width==expected_width && Height==expected_height)
+		{
+		HTMLReportGenerator.StepDetails("Pass",  (count++)+ "-Correct Pixel is displayed:-  Pixel of 5th banner is "+"Width="+width+" Height="+Height, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+	      
+		}
+		else
+		{
+			HTMLReportGenerator.StepDetails("INFO",  (count++)+ "- Wrong Pixel is displayed:- Pixel of 5th banner is "+"Width="+width+" Height="+Height, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+
+		}	      
+		
+		Thread.sleep(1000);
+		link_test1 img=new link_test1();
+		String Image_extension=vodahome.banner_image1.getAttribute("style");
+		
+		System.out.println("+++++++++++++++"+Image_extension);
+        System.out.println("File extension is: "+img.link_test1(Image_extension));
+		HTMLReportGenerator.StepDetails("INFO",  (count++)+ "-Banner Image"+Image_extension+" extension is:- "+img.link_test1(Image_extension), "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+
+
+			
+	}catch (Exception e) {
+		 System.out.println("Banner Locator not found issue-S"+e);
+   	  HTMLReportGenerator.StepDetails("Fail", (count++)+ "-Banner Locator not found issue"+e, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+     
+	}
+	}
+	
+
+@Then("^Verify Buy postpaid sim icon pixel\\.$")
+public void verify_Buy_postpaid_sim_icon_pixel() throws Throwable {
+	
+	VodafoneHomePageObj vodahome = new VodafoneHomePageObj(driver);
+
+	WebDriverWait wait = new WebDriverWait(driver, 30);
+
+	try {
+	
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
+
+		jse.executeScript("window.scrollBy(0,500)", "");
+		Thread.sleep(1000);
+
+	wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.Buy_postpaid_sim_icon));
+	
+	
+	int width= vodahome.Buy_postpaid_sim_icon.getSize().getWidth();
+	int Height= vodahome.Buy_postpaid_sim_icon.getSize().getHeight();
+	
+	System.out.println(width+"=="+Height);
+	
+
+	int expected_height=72;
+	int expected_width=72;
+	
+	if(width==expected_width && Height==expected_height)
+	{
+	HTMLReportGenerator.StepDetails("Pass",  (count++)+ "-Correct Pixel is displayed on Buy Postpaid Sim icon:- Pixel of icon is "+"Width="+width+" Height="+Height, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+      
+	}
+	else
+	{
+		HTMLReportGenerator.StepDetails("INFO",  (count++)+ "- Wrong Pixel is displayed on Buy Postpaid Sim icon:- Pixel of icon is "+"Width="+width+" Height="+Height, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+
+	}	      
+	
+		
+		
+}catch (Exception e) {
+	 System.out.println("Icon Locator not found issue-S"+e);
+	  HTMLReportGenerator.StepDetails("Fail", (count++)+ "-Icon Locator not found issue"+e, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+ 
+}
+}
+
+@Then("^Verify Buy prepaid sim icon pixel\\.$")
+public void verify_Buy_prepaid_sim_icon_pixel() throws Throwable {
+	VodafoneHomePageObj vodahome = new VodafoneHomePageObj(driver);
+
+	WebDriverWait wait = new WebDriverWait(driver, 30);
+
+	try {
+	
+
+	wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.Buy_postpaid_sim_icon));
+	
+	
+	int width= vodahome.Buy_prepaid_sim_icon.getSize().getWidth();
+	int Height= vodahome.Buy_prepaid_sim_icon.getSize().getHeight();
+	
+	System.out.println(width+"=="+Height);
+	
+
+	int expected_height=72;
+	int expected_width=72;
+	
+	if(width==expected_width && Height==expected_height)
+	{
+	HTMLReportGenerator.StepDetails("Pass",  (count++)+ "-Correct Pixel is displayed on Buy Prepaid Sim icon:- Pixel of icon is "+"Width="+width+" Height="+Height, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+      
+	}
+	else
+	{
+		HTMLReportGenerator.StepDetails("INFO",  (count++)+ "- Wrong Pixel is displayed on Buy Prepaid Sim icon:- Pixel of icon is "+"Width="+width+" Height="+Height, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+
+	}	      
+	
+	
+		
+}catch (Exception e) {
+	 System.out.println("Icon Locator not found issue-S"+e);
+	  HTMLReportGenerator.StepDetails("Fail", (count++)+ "-Icon Locator not found issue"+e, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+ 
+}
+}
+
+@Then("^Verify IR icon pixel\\.$")
+public void verify_IR_icon_pixel() throws Throwable {
+	VodafoneHomePageObj vodahome = new VodafoneHomePageObj(driver);
+
+	WebDriverWait wait = new WebDriverWait(driver, 30);
+
+	try {
+	
+
+	wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.Buy_postpaid_sim_icon));
+	
+	
+	int width= vodahome.International_roaming_icon.getSize().getWidth();
+	int Height= vodahome.International_roaming_icon.getSize().getHeight();
+	
+	System.out.println(width+"=="+Height);
+	
+
+	int expected_height=72;
+	int expected_width=72;
+	
+	if(width==expected_width && Height==expected_height)
+	{
+	HTMLReportGenerator.StepDetails("Pass",  (count++)+ "-Correct Pixel is displayed on International Roamoing icon:- Pixel of icon is "+"Width="+width+" Height="+Height, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+      
+	}
+	else
+	{
+		HTMLReportGenerator.StepDetails("INFO",  (count++)+ "- Wrong Pixel is displayed on International Roamoing icon:- Pixel of icon is "+"Width="+width+" Height="+Height, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+
+	}	
+	
+	
+
+		
+}catch (Exception e) {
+	 System.out.println("Icon Locator not found issue-S"+e);
+	  HTMLReportGenerator.StepDetails("Fail", (count++)+ "-Icon Locator not found issue"+e, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+ 
+}
+}
+
+@Then("^Verify Vodafone play icon pixel\\.$")
+public void verify_Vodafone_play_icon_pixel() throws Throwable {
+	VodafoneHomePageObj vodahome = new VodafoneHomePageObj(driver);
+
+	WebDriverWait wait = new WebDriverWait(driver, 30);
+
+	try {
+	
+
+	wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.Buy_postpaid_sim_icon));
+	
+	
+	int width= vodahome.Vodafone_play_icon.getSize().getWidth();
+	int Height= vodahome.Vodafone_play_icon.getSize().getHeight();
+	
+	System.out.println(width+"=="+Height);
+	
+
+	int expected_height=72;
+	int expected_width=72;
+	
+	if(width==expected_width && Height==expected_height)
+	{
+	HTMLReportGenerator.StepDetails("Pass",  (count++)+ "-Correct Pixel is displayed on VF Play icon:- Pixel of icon is "+"Width="+width+" Height="+Height, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+      
+	}
+	else
+	{
+		HTMLReportGenerator.StepDetails("INFO",  (count++)+ "- Wrong Pixel is displayed on VF Play icon:- Pixel of icon is "+"Width="+width+" Height="+Height, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+
+	}	
+	}catch (Exception e) {
+		 System.out.println("Icon Locator not found issue-S"+e);
+		  HTMLReportGenerator.StepDetails("Fail", (count++)+ "-Icon Locator not found issue"+e, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+	 
+	}
+	
+}
+
+@Then("^Verify Help and support_icon pixel\\.$")
+public void verify_Help_and_support_icon_pixel() throws Throwable {
+	VodafoneHomePageObj vodahome = new VodafoneHomePageObj(driver);
+
+	WebDriverWait wait = new WebDriverWait(driver, 30);
+
+	try {
+	
+
+	wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.Buy_postpaid_sim_icon));
+	
+	
+	int width= vodahome.Help_and_support_icon.getSize().getWidth();
+	int Height= vodahome.Help_and_support_icon.getSize().getHeight();
+	
+	System.out.println(width+"=="+Height);
+	
+
+	int expected_height=72;
+	int expected_width=72;
+	
+	if(width==expected_width && Height==expected_height)
+	{
+	HTMLReportGenerator.StepDetails("Pass",  (count++)+ "-Correct Pixel is displayed on Help & Support icon:- Pixel of icon is "+"Width="+width+" Height="+Height, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+      
+	}
+	else
+	{
+		HTMLReportGenerator.StepDetails("INFO",  (count++)+ "- Wrong Pixel is displayed on Help & Support icon:- Pixel of icon is "+"Width="+width+" Height="+Height, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+
+	}	
+	}catch (Exception e) {
+		 System.out.println("Icon Locator not found issue-S"+e);
+		  HTMLReportGenerator.StepDetails("Fail", (count++)+ "-Icon Locator not found issue"+e, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+	 
+	}
+}
+
+@Then("^Verify four banner icon one pixel\\.$")
+public void verify_four_banner_icon_one_pixel() throws Throwable {
+	VodafoneHomePageObj vodahome = new VodafoneHomePageObj(driver);
+
+	WebDriverWait wait = new WebDriverWait(driver, 30);
+
+	try {
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
+
+		jse.executeScript("window.scrollBy(0,180)", "");
+		Thread.sleep(1000);
+
+	wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.Buy_postpaid_sim_icon));
+	
+	
+	int width= vodahome.icon1_with_text.getSize().getWidth();
+	int Height= vodahome.icon1_with_text.getSize().getHeight();
+	
+	System.out.println(width+"=="+Height);
+	
+
+	int expected_height=112;
+	int expected_width=112;
+	
+	if(width==expected_width && Height==expected_height)
+	{
+	HTMLReportGenerator.StepDetails("Pass",  (count++)+ "-Correct Pixel is displayed on banner icon first:- Pixel of icon is "+"Width="+width+" Height="+Height, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+      
+	}
+	else
+	{
+		HTMLReportGenerator.StepDetails("INFO",  (count++)+ "- Wrong Pixel is displayed on banner icon first:- Pixel of icon is "+"Width="+width+" Height="+Height, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+
+	}	
+	}catch (Exception e) {
+		 System.out.println("Icon Locator not found issue-S"+e);
+		  HTMLReportGenerator.StepDetails("Fail", (count++)+ "-Icon Locator not found issue"+e, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+	 
+	}
+}
+
+@Then("^Verify four banner icon two pixel\\.$")
+public void verify_four_banner_icon_two_pixel() throws Throwable {
+	VodafoneHomePageObj vodahome = new VodafoneHomePageObj(driver);
+
+	WebDriverWait wait = new WebDriverWait(driver, 30);
+
+	try {
+	
+
+	wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.Buy_postpaid_sim_icon));
+	
+	
+	int width= vodahome.icon2_with_text.getSize().getWidth();
+	int Height= vodahome.icon2_with_text.getSize().getHeight();
+	
+	System.out.println(width+"=="+Height);
+	
+
+	int expected_height=112;
+	int expected_width=112;
+	
+	if(width==expected_width && Height==expected_height)
+	{
+	HTMLReportGenerator.StepDetails("Pass",  (count++)+ "-Correct Pixel is displayed on banner icon Second:- Pixel of icon is "+"Width="+width+" Height="+Height, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+      
+	}
+	else
+	{
+		HTMLReportGenerator.StepDetails("INFO",  (count++)+ "- Wrong Pixel is displayed on banner icon Second:- Pixel of icon is "+"Width="+width+" Height="+Height, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+
+	}	
+	}catch (Exception e) {
+		 System.out.println("Icon Locator not found issue-S"+e);
+		  HTMLReportGenerator.StepDetails("Fail", (count++)+ "-Icon Locator not found issue"+e, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+	 
+	}
+}
+
+@Then("^Verify four banner icon three pixel\\.$")
+public void verify_four_banner_icon_three_pixel() throws Throwable {
+	VodafoneHomePageObj vodahome = new VodafoneHomePageObj(driver);
+
+	WebDriverWait wait = new WebDriverWait(driver, 30);
+
+	try {
+	
+
+	wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.Buy_postpaid_sim_icon));
+	
+	
+	int width= vodahome.icon3_with_text.getSize().getWidth();
+	int Height= vodahome.icon3_with_text.getSize().getHeight();
+	
+	System.out.println(width+"=="+Height);
+	
+
+	int expected_height=112;
+	int expected_width=112;
+	
+	if(width==expected_width && Height==expected_height)
+	{
+	HTMLReportGenerator.StepDetails("Pass",  (count++)+ "-Correct Pixel is displayed on banner icon thrird:- Pixel of icon is "+"Width="+width+" Height="+Height, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+      
+	}
+	else
+	{
+		HTMLReportGenerator.StepDetails("INFO",  (count++)+ "- Wrong Pixel is displayed on banner icon thrird:- Pixel of icon is "+"Width="+width+" Height="+Height, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+
+	}	
+	}catch (Exception e) {
+		 System.out.println("Icon Locator not found issue-S"+e);
+		  HTMLReportGenerator.StepDetails("Fail", (count++)+ "-Icon Locator not found issue"+e, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+	 
+	}
+}
+
+@Then("^Verify four banner icon four pixel\\.$")
+public void verify_four_banner_icon_four_pixel() throws Throwable {
+	VodafoneHomePageObj vodahome = new VodafoneHomePageObj(driver);
+
+	WebDriverWait wait = new WebDriverWait(driver, 30);
+
+	try {
+	
+
+	wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.Buy_postpaid_sim_icon));
+	
+	
+	int width= vodahome.icon4_with_text.getSize().getWidth();
+	int Height= vodahome.icon4_with_text.getSize().getHeight();
+	
+	System.out.println(width+"=="+Height);
+	
+
+	int expected_height=112;
+	int expected_width=112;
+	
+	if(width==expected_width && Height==expected_height)
+	{
+	HTMLReportGenerator.StepDetails("Pass",  (count++)+ "-Correct Pixel is displayed on banner icon fourth:- Pixel of icon is "+"Width="+width+" Height="+Height, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+      
+	}
+	else
+	{
+		HTMLReportGenerator.StepDetails("INFO",  (count++)+ "- Wrong Pixel is displayed on banner icon fourth:- Pixel of icon is "+"Width="+width+" Height="+Height, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+
+	}	
+	}catch (Exception e) {
+		 System.out.println("Icon Locator not found issue-S"+e);
+		  HTMLReportGenerator.StepDetails("Fail", (count++)+ "-Icon Locator not found issue"+e, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+	 
+	}
+}
+
+@Then("^Verify Loaded benefits icon one pixel\\.$")
+public void verify_Loaded_benefits_icon_one_pixel() throws Throwable {
+	VodafoneHomePageObj vodahome = new VodafoneHomePageObj(driver);
+
+	WebDriverWait wait = new WebDriverWait(driver, 30);
+
+	try {
+	
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
+
+		jse.executeScript("window.scrollBy(0,350)", "");
+		Thread.sleep(1000);
+	wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.Buy_postpaid_sim_icon));
+	
+	
+	int width= vodahome.Loaded_benefit_icon1.getSize().getWidth();
+	int Height= vodahome.Loaded_benefit_icon1.getSize().getHeight();
+	
+	System.out.println(width+"=="+Height);
+	
+
+	int expected_height=64;
+	int expected_width=64;
+	
+	if(width==expected_width && Height==expected_height)
+	{
+		HTMLReportGenerator.StepDetails("Pass",  (count++)+ "-Correct Pixel is displayed on Loaded benefits icon 1st:- Pixel of icon is "+"Width="+width+" Height="+Height, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+      
+	}
+	else
+	{
+		HTMLReportGenerator.StepDetails("INFO",  (count++)+ "- Wrong Pixel is displayed on Loaded benefits icon 1st:- Pixel of icon is "+"Width="+width+" Height="+Height, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+
+	}	
+	}catch (Exception e) {
+		 System.out.println("Icon Locator not found issue-S"+e);
+		  HTMLReportGenerator.StepDetails("Fail", (count++)+ "-Icon Locator not found issue"+e, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+	 
+	}
+}
+
+@Then("^Verify Loaded benefits icon two pixel\\.$")
+public void verify_Loaded_benefits_icon_two_pixel() throws Throwable {
+	VodafoneHomePageObj vodahome = new VodafoneHomePageObj(driver);
+
+	WebDriverWait wait = new WebDriverWait(driver, 30);
+
+	try {
+	
+
+	wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.Buy_postpaid_sim_icon));
+	
+	
+	int width= vodahome.Loaded_benefit_icon2.getSize().getWidth();
+	int Height= vodahome.Loaded_benefit_icon2.getSize().getHeight();
+	
+	System.out.println(width+"=="+Height);
+	
+
+	int expected_height=64;
+	int expected_width=64;
+	
+	if(width==expected_width && Height==expected_height)
+	{
+		HTMLReportGenerator.StepDetails("Pass",  (count++)+ "-Correct Pixel is displayed on Loaded benefits icon 2nd:- Pixel of icon is "+"Width="+width+" Height="+Height, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+      
+	}
+	else
+	{
+		HTMLReportGenerator.StepDetails("INFO",  (count++)+ "- Wrong Pixel is displayed on Loaded benefits icon 2nd:- Pixel of icon is "+"Width="+width+" Height="+Height, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+
+	}	
+	}catch (Exception e) {
+		 System.out.println("Icon Locator not found issue-S"+e);
+		  HTMLReportGenerator.StepDetails("Fail", (count++)+ "-Icon Locator not found issue"+e, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+	 
+	}
+}
+
+@Then("^Verify Loaded benefits icon three pixel\\.$")
+public void verify_Loaded_benefits_icon_three_pixel() throws Throwable {
+	VodafoneHomePageObj vodahome = new VodafoneHomePageObj(driver);
+
+	WebDriverWait wait = new WebDriverWait(driver, 30);
+
+	try {
+	
+
+	wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.Buy_postpaid_sim_icon));
+	
+	
+	int width= vodahome.Loaded_benefit_icon3.getSize().getWidth();
+	int Height= vodahome.Loaded_benefit_icon3.getSize().getHeight();
+	
+	System.out.println(width+"=="+Height);
+	
+
+	int expected_height=64;
+	int expected_width=64;
+	
+	if(width==expected_width && Height==expected_height)
+	{
+		HTMLReportGenerator.StepDetails("Pass",  (count++)+ "-Correct Pixel is displayed on Loaded benefits icon 3rd:- Pixel of icon is "+"Width="+width+" Height="+Height, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+      
+	}
+	else
+	{
+		HTMLReportGenerator.StepDetails("INFO",  (count++)+ "- Wrong Pixel is displayed on Loaded benefits icon 3rd:- Pixel of icon is "+"Width="+width+" Height="+Height, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+
+	}	
+	}catch (Exception e) {
+		 System.out.println("Icon Locator not found issue-S"+e);
+		  HTMLReportGenerator.StepDetails("Fail", (count++)+ "-Icon Locator not found issue"+e, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+	 
+	}
+}
+
+@Then("^Verify Loaded benefits icon four pixel\\.$")
+public void verify_Loaded_benefits_icon_four_pixel() throws Throwable {
+	VodafoneHomePageObj vodahome = new VodafoneHomePageObj(driver);
+
+	WebDriverWait wait = new WebDriverWait(driver, 30);
+
+	try {
+	
+
+	wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.Buy_postpaid_sim_icon));
+	
+	
+	int width= vodahome.Loaded_benefit_icon4.getSize().getWidth();
+	int Height= vodahome.Loaded_benefit_icon4.getSize().getHeight();
+	
+	System.out.println(width+"=="+Height);
+	
+
+	int expected_height=64;
+	int expected_width=64;
+	
+	if(width==expected_width && Height==expected_height)
+	{
+		HTMLReportGenerator.StepDetails("Pass",  (count++)+ "-Correct Pixel is displayed on Loaded benefits icon 4th:- Pixel of icon is "+"Width="+width+" Height="+Height, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+      
+	}
+	else
+	{
+		HTMLReportGenerator.StepDetails("INFO",  (count++)+ "- Wrong Pixel is displayed on Loaded benefits icon 4th:- Pixel of icon is "+"Width="+width+" Height="+Height, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+
+	}	
+	}catch (Exception e) {
+		 System.out.println("Icon Locator not found issue-S"+e);
+		  HTMLReportGenerator.StepDetails("Fail", (count++)+ "-Icon Locator not found issue"+e, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+	 
+	}
+}
+
+@Then("^Verify Loaded benefits icon five pixel\\.$")
+public void verify_Loaded_benefits_icon_five_pixel() throws Throwable {
+	VodafoneHomePageObj vodahome = new VodafoneHomePageObj(driver);
+
+	WebDriverWait wait = new WebDriverWait(driver, 30);
+
+	try {
+	
+
+	wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.Buy_postpaid_sim_icon));
+	
+	
+	int width= vodahome.Loaded_benefit_icon5.getSize().getWidth();
+	int Height= vodahome.Loaded_benefit_icon5.getSize().getHeight();
+	
+	System.out.println(width+"=="+Height);
+	
+
+	int expected_height=64;
+	int expected_width=64;
+	
+	if(width==expected_width && Height==expected_height)
+	{
+		HTMLReportGenerator.StepDetails("Pass",  (count++)+ "-Correct Pixel is displayed on Loaded benefits icon 5th:- Pixel of icon is "+"Width="+width+" Height="+Height, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+      
+	}
+	else
+	{
+		HTMLReportGenerator.StepDetails("INFO",  (count++)+ "- Wrong Pixel is displayed on Loaded benefits icon 5th:- Pixel of icon is "+"Width="+width+" Height="+Height, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+
+	}	
+	}catch (Exception e) {
+		 System.out.println("Icon Locator not found issue-S"+e);
+		  HTMLReportGenerator.StepDetails("Fail", (count++)+ "-Icon Locator not found issue"+e, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+	 
+	}
+}
+
+@Then("^Verify Loaded benefits icon_six pixel\\.$")
+public void verify_Loaded_benefits_icon_six_pixel() throws Throwable {
+	VodafoneHomePageObj vodahome = new VodafoneHomePageObj(driver);
+
+	WebDriverWait wait = new WebDriverWait(driver, 30);
+
+	try {
+	
+
+	wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.Buy_postpaid_sim_icon));
+	
+	
+	int width= vodahome.Loaded_benefit_icon6.getSize().getWidth();
+	int Height= vodahome.Loaded_benefit_icon6.getSize().getHeight();
+	
+	System.out.println(width+"=="+Height);
+	
+
+	int expected_height=64;
+	int expected_width=64;
+	
+	if(width==expected_width && Height==expected_height)
+	{
+		HTMLReportGenerator.StepDetails("Pass",  (count++)+ "-Correct Pixel is displayed on Loaded benefits icon 6th:- Pixel of icon is "+"Width="+width+" Height="+Height, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+      
+	}
+	else
+	{
+		HTMLReportGenerator.StepDetails("INFO",  (count++)+ "- Wrong Pixel is displayed on Loaded benefits icon 6th:- Pixel of icon is "+"Width="+width+" Height="+Height, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+
+	}	
+	}catch (Exception e) {
+		 System.out.println("Icon Locator not found issue-S"+e);
+		  HTMLReportGenerator.StepDetails("Fail", (count++)+ "-Icon Locator not found issue"+e, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+	 
+	}
+}
+
+@Then("^Verify Vodafone exclusive banner image one pixel\\.$")
+public void verify_Vodafone_exclusive_banner_image_one_pixel() throws Throwable {
+	
+	VodafoneHomePageObj vodahome = new VodafoneHomePageObj(driver);
+	
+	WebDriverWait wait = new WebDriverWait(driver, 30);
+
+try {
+	
+	JavascriptExecutor jse = (JavascriptExecutor) driver;
+
+	jse.executeScript("window.scrollBy(0,400)", "");
+
+	wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.exclusive_treats_slide_control1));
+	
+	
+	vodahome.exclusive_treats_slide_control1.click();
+	Thread.sleep(500);
+	
+
+	int width= vodahome.exclusive_treats_image01.getSize().getWidth();
+	int Height= vodahome.exclusive_treats_image01.getSize().getHeight();
+	
+	System.out.println(width+"=="+Height);
+	
+	
+	int expected_height=171;
+	int expected_width=350;
+	
+	if(width==expected_width && Height==expected_height)
+	{
+	HTMLReportGenerator.StepDetails("Pass",  (count++)+ "-Correct Pixel is displayed:-  Pixel of exclusive treats first banner image is "+"Width="+width+" Height="+Height, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+      
+	}
+	else
+	{
+		HTMLReportGenerator.StepDetails("INFO",  (count++)+ "- Wrong Pixel is displayed:- Pixel of exclusive treats first banner image is "+"Width="+width+" Height="+Height, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+
+	}	      
+	
+	Thread.sleep(1000);
+		
+}catch (Exception e) {
+	 System.out.println("Banner Locator not found issue-S"+e);
+	  HTMLReportGenerator.StepDetails("Fail", (count++)+ "-Banner Locator not found issue"+e, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+ 
+}
+   
+}
+
+@Then("^Verify Vodafone exclusive banner image two pixel\\.$")
+public void verify_Vodafone_exclusive_banner_image_two_pixel() throws Throwable {
+	VodafoneHomePageObj vodahome = new VodafoneHomePageObj(driver);
+	
+	WebDriverWait wait = new WebDriverWait(driver, 30);
+
+try {
+	
+
+	wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.exclusive_treats_slide_control1));
+	
+	
+	vodahome.exclusive_treats_slide_control2.click();
+	Thread.sleep(500);
+	
+
+	int width= vodahome.exclusive_treats_image02.getSize().getWidth();
+	int Height= vodahome.exclusive_treats_image02.getSize().getHeight();
+	
+	System.out.println(width+"=="+Height);
+	
+	
+	int expected_height=171;
+	int expected_width=350;
+	
+	if(width==expected_width && Height==expected_height)
+	{
+	HTMLReportGenerator.StepDetails("Pass",  (count++)+ "-Correct Pixel is displayed:-  Pixel of exclusive treats second banner image is "+"Width="+width+" Height="+Height, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+      
+	}
+	else
+	{
+		HTMLReportGenerator.StepDetails("INFO",  (count++)+ "- Wrong Pixel is displayed:- Pixel of exclusive treats second banner image is "+"Width="+width+" Height="+Height, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+
+	}	      
+	
+	Thread.sleep(1000);
+		
+}catch (Exception e) {
+	 System.out.println("Banner Locator not found issue-S"+e);
+	  HTMLReportGenerator.StepDetails("Fail", (count++)+ "-Banner Locator not found issue"+e, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+ 
+}
+}
+
+@Then("^Verify Vodafone exclusive banner image three pixel\\.$")
+public void verify_Vodafone_exclusive_banner_image_three_pixel() throws Throwable {
+	VodafoneHomePageObj vodahome = new VodafoneHomePageObj(driver);
+	
+	WebDriverWait wait = new WebDriverWait(driver, 30);
+
+try {
+	
+
+	wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.exclusive_treats_slide_control1));
+	
+	
+	vodahome.exclusive_treats_slide_control3.click();
+	Thread.sleep(500);
+	
+
+	int width= vodahome.exclusive_treats_image03.getSize().getWidth();
+	int Height= vodahome.exclusive_treats_image03.getSize().getHeight();
+	
+	System.out.println(width+"=="+Height);
+	
+	
+	int expected_height=171;
+	int expected_width=350;
+	
+	if(width==expected_width && Height==expected_height)
+	{
+	HTMLReportGenerator.StepDetails("Pass",  (count++)+ "-Correct Pixel is displayed:-  Pixel of exclusive treats third banner image is "+"Width="+width+" Height="+Height, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+      
+	}
+	else
+	{
+		HTMLReportGenerator.StepDetails("INFO",  (count++)+ "- Wrong Pixel is displayed:- Pixel of exclusive treats third banner image is "+"Width="+width+" Height="+Height, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+
+	}	      
+	
+	Thread.sleep(1000);
+		
+}catch (Exception e) {
+	 System.out.println("Banner Locator not found issue-S"+e);
+	  HTMLReportGenerator.StepDetails("Fail", (count++)+ "-Banner Locator not found issue"+e, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+ 
+}
+}
+
+@Then("^Verify Vodafone exclusive banner image four pixel\\.$")
+public void verify_Vodafone_exclusive_banner_image_four_pixel() throws Throwable {
+VodafoneHomePageObj vodahome = new VodafoneHomePageObj(driver);
+	
+	WebDriverWait wait = new WebDriverWait(driver, 30);
+
+try {
+	
+
+	wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.exclusive_treats_slide_control1));
+	
+	
+	vodahome.exclusive_treats_slide_control4.click();
+	Thread.sleep(500);
+	
+
+	int width= vodahome.exclusive_treats_image04.getSize().getWidth();
+	int Height= vodahome.exclusive_treats_image04.getSize().getHeight();
+	
+	System.out.println(width+"=="+Height);
+	
+	
+	int expected_height=171;
+	int expected_width=350;
+	
+	if(width==expected_width && Height==expected_height)
+	{
+	HTMLReportGenerator.StepDetails("Pass",  (count++)+ "-Correct Pixel is displayed:-  Pixel of exclusive treats fourth banner image is "+"Width="+width+" Height="+Height, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+      
+	}
+	else
+	{
+		HTMLReportGenerator.StepDetails("INFO",  (count++)+ "- Wrong Pixel is displayed:- Pixel of exclusive treats fourth banner image is "+"Width="+width+" Height="+Height, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+
+	}	      
+	
+	Thread.sleep(1000);
+		
+}catch (Exception e) {
+	 System.out.println("Banner Locator not found issue-S"+e);
+	  HTMLReportGenerator.StepDetails("Fail", (count++)+ "-Banner Locator not found issue"+e, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+ 
+}
+}
+
+@Then("^Verify Vodafone exclusive banner image five pixel\\.$")
+public void verify_Vodafone_exclusive_banner_image_five_pixel() throws Throwable {
+VodafoneHomePageObj vodahome = new VodafoneHomePageObj(driver);
+	
+	WebDriverWait wait = new WebDriverWait(driver, 30);
+
+try {
+	
+
+	wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.exclusive_treats_slide_control1));
+	
+	
+	vodahome.exclusive_treats_slide_control5.click();
+	Thread.sleep(500);
+	
+
+	int width= vodahome.exclusive_treats_image05.getSize().getWidth();
+	int Height= vodahome.exclusive_treats_image05.getSize().getHeight();
+	
+	System.out.println(width+"=="+Height);
+	
+	
+	int expected_height=171;
+	int expected_width=350;
+	
+	if(width==expected_width && Height==expected_height)
+	{
+	HTMLReportGenerator.StepDetails("Pass",  (count++)+ "-Correct Pixel is displayed:-  Pixel of exclusive treats fifth banner image is "+"Width="+width+" Height="+Height, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+      
+	}
+	else
+	{
+		HTMLReportGenerator.StepDetails("INFO",  (count++)+ "- Wrong Pixel is displayed:- Pixel of exclusive treats Fifth banner image is "+"Width="+width+" Height="+Height, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+
+	}	      
+	
+	Thread.sleep(1000);
+		
+}catch (Exception e) {
+	 System.out.println("Banner Locator not found issue-S"+e);
+	  HTMLReportGenerator.StepDetails("Fail", (count++)+ "-Banner Locator not found issue"+e, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+ 
+}
+}
+
+@Then("^Verify Vodafone exclusive banner image six pixel\\.$")
+public void verify_Vodafone_exclusive_banner_image_six_pixel() throws Throwable {
+VodafoneHomePageObj vodahome = new VodafoneHomePageObj(driver);
+	
+	WebDriverWait wait = new WebDriverWait(driver, 30);
+
+try {
+	
+
+	wait.until(ExpectedConditions.visibilityOfAllElements(vodahome.exclusive_treats_slide_control1));
+	
+	
+	vodahome.exclusive_treats_slide_control6.click();
+	Thread.sleep(500);
+	
+
+	int width= vodahome.exclusive_treats_image06.getSize().getWidth();
+	int Height= vodahome.exclusive_treats_image06.getSize().getHeight();
+	
+	System.out.println(width+"=="+Height);
+	
+	
+	int expected_height=171;
+	int expected_width=350;
+	
+	if(width==expected_width && Height==expected_height)
+	{
+	HTMLReportGenerator.StepDetails("Pass",  (count++)+ "-Correct Pixel is displayed:-  Pixel of exclusive treats sixth banner image is "+"Width="+width+" Height="+Height, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+      
+	}
+	else
+	{
+		HTMLReportGenerator.StepDetails("INFO",  (count++)+ "- Wrong Pixel is displayed:- Pixel of exclusive treats sixth banner image is "+"Width="+width+" Height="+Height, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+
+	}	      
+	
+	Thread.sleep(1000);
+		
+}catch (Exception e) {
+	 System.out.println("Banner Locator not found issue-S"+e);
+	  HTMLReportGenerator.StepDetails("Fail", (count++)+ "-Banner Locator not found issue"+e, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+ 
+}
+
+
+
+}
+
+@Then("^Verify the displayed Meta description, Meta viewport, Meta template$")
+public void verify_the_displayed_Meta_description_Meta_viewport_Meta_template() throws Throwable {
+
+	WebElement meta_dec=driver.findElement(By.xpath("//meta[@name='description']"));
+	WebElement meta_viewport=driver.findElement(By.xpath("//meta[@name='viewport']"));
+	WebElement meta_template=driver.findElement(By.xpath("//meta[@name='template']"));
+
+	boolean b1 =meta_dec.isDisplayed();
+	System.out.println(b1);
+	boolean b2= meta_viewport.isDisplayed();
+	
+	boolean b3= meta_template.isDisplayed();
+	
+	if(meta_dec!= null)
+	{
+		String s=meta_dec.getText();
+		System.out.println("Meta description is displayed and text is"+s);
+		HTMLReportGenerator.StepDetails("Pass",  (count++)+ "-Meta description is displayed"+s, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+
+		
+	}else
+	{
+		System.out.println("Meta description is not displayed");
+		HTMLReportGenerator.StepDetails("INFO",  (count++)+ "-Meta description is not displayed", "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+
+	}
+	
+	if(meta_viewport!=null)
+	{
+		String s2=meta_viewport.getText();
+		System.out.println("Meta viewport is displayed and text is:-"+s2);
+		HTMLReportGenerator.StepDetails("Pass",  (count++)+ "-Meta viewport is displayed:"+s2, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+
+	}
+	else
+	{
+		System.out.println("Meta viewport is not displayed");
+		HTMLReportGenerator.StepDetails("INFO",  (count++)+ "-Meta viewport is not displayed", "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+
+	}
+	
+
+	if(meta_template!=null)
+	{
+		String s3=meta_template.getText();
+		System.out.println("Meta template is displayed and text is:-"+s3);
+		HTMLReportGenerator.StepDetails("Pass",  (count++)+ "-Meta template is displayed -"+s3, "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+
+	}
+	else
+	{
+		System.out.println("Meta template is not displayed");
+		HTMLReportGenerator.StepDetails("INFO",  (count++)+ "-Meta template is not displayed", "",TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+
+	}
+}
+
+}

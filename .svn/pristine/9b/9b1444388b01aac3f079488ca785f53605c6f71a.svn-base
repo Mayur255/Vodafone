@@ -1,0 +1,166 @@
+@VodaFPayBill
+Feature: VodafoneBillPay 
+
+@Voda_IdeaPayBill
+
+Scenario Outline: Voda fone BillPay
+
+Given Pay Bill page should open properly
+Then Verify mobilenumber field is enabled on page load
+#Then Verify Amount field should not allow to enter data on page load
+#Then Verify Pay Button should not active on page load
+#Then Verify on page Fetch last recharge hyper link should be disabled 
+#Then Verify text PayBillsOnline for your postpaid number should display on page load
+#Then Verify - Setup AutoPay section - SetUp Now button should display
+#Then Verify - Inactive Number section - Get a New Connection button should display
+#Then On Page load - When valid Postpaid Number is not provided >>New Connection and Postpaid Packs links should display in orange
+#Then Enter mobile number less than ten digits - Error message should display in Red
+#Then Enter mobile number less than ten digits - Enter Mobile Number label and field border should display in Red
+#Then Enter Prepaid Number of Idea - Error message should display in red color
+#Then Enter Prepaid Number of Idea - Enter Mobile Number label and field border should display in Red
+#Then Enter Prepaid Number of VF- Error message should display in Red
+#Then Enter Prepaid Number of VF - Enter Mobile Number label and field border should display in Red
+#Then Enter NonIdea/NonVF number- Toast Message should display
+#Then Click Dismiss >> Toast message should vanish
+#Then Enter Idea COCP number- Toast Message should display
+#Then Enter VF COCP number- Toast Message should display
+#Then Click Dismiss >> Toast message should vanish
+#Then Try to enter Mobile Number starting with 0 to 4 >> It should not allow
+#Then Enter alphabets/Special characters in Mobile Number field- it should not allow
+#Then Enter Idea Postpaid Number >> Toast Message should display
+#Then Click Dismiss >> Toast message should vanish
+#Then Enter VF Postpaid Number >> Amount field should be enabled
+#Then Enter VF Postpaid Number >>  Fetch your bill link should be enabled
+#Then Enter VF Postpaid Number >>  New Connection and Postpaid Packs links should NOT display
+#Then Enter amount >> Pay Now button should be enabled
+#Then Using Cross icon remove Mobile Number >> Amount, Fetch Your Bill and Pay Now button should be disabled
+#Then Go to Bill Pay page >>Enter the Vodafone postpaid number>> Enter amount in integer - It should allow only 10 digits
+#Then Go to Bill Pay page >>Enter the Vodafone postpaid number>> Enter amount in decimals - It should allow only 13 digits including decimal point
+#Then On page load >> Imortant Things to Know should display collapsed
+#Then Click Arrow for Important Things to Know >> Page should autoscroll
+#Then Verify page >> Focus should go on Imp Things to know section
+#Then Verify page >> Imp Things to Know section should expand
+#Then Click Arrow for Important Things to Know >> Page should collapse
+#Then Click SetUp Now button >> My Number popup should display
+#Then Focus should be on Number field on popup load
+#Then Submit button should be disabled on popup load
+#Then Enter mobile number less than ten digits - Error message should display in Red color
+#Then Enter mobile number less than ten digits - Enter Mobile Number label and field border should display in Red color
+#Then Enter Prepaid Number of Idea - Error message should display in red 
+#Then Enter Prepaid Number of Idea - Enter Mobile Number label and field border should display in Red color
+#Then Enter Prepaid Number of VF- Error message should display in Red color
+#Then Enter Prepaid Number of VF - Enter Mobile Number label and field border should display in Red color
+#Then Enter NonIdea/NonVF number- Error message should display in Red 
+#Then Enter NonIdea/NonVF number - Enter Mobile Number label and field border should display in Red color
+#Then Try to enter Mobile Number starting with 0 to 4 >> Its should not allow
+#Then Enter alphabets/Special characters in Mobile Number field- its should not allow
+#Then Click Esc button of keyboard >> Popup should be close
+#Then Click on SetUp Now button >> My Number popup should displayed
+#Then Click Cross button on popup >> Popup should closed
+#Then Click SetUp Now button >> My Number popup should displayed
+#Then Enter Idea Postpaid Number >> Error message should display in Red
+#Then Enter Idea Postpaid Number >> Enter Mobile Number label and field border should display in Red
+#Then Enter VF Postpaid Number >> Submit button should be enable
+#Then Click Cross button in Mobile Number field >> Number should be deleted and Submit button should be disabled
+#Then Enter Idea Postpaid Number and click Submit >> Idea page should open in same tab.
+#Then Click setUp now button >> My Number popup should display
+#Then Enter VF Postpaid Number and click Submit >> VF page should open in same tab.
+#Then Click Get a New Connection button >> My Number popup should display
+#Then Focus should be go on Number field on popup load
+#Then Submit Button should be disabled on popup load
+#Then Enter mobile number less than ten digits >> Error message should display in Red color
+#Then Enter mobile number less than ten digits >> Enter Mobile Number label and field border should display in Red color
+#Then Enter Prepaid Number of Idea >> Error message should display in red
+#Then Enter Prepaid Number of Idea >> Enter Mobile Number label and field border should display in Red color
+#Then Enter Prepaid Number of VF >> Error message should display in Red
+#Then Enter Prepaid Number of VF >> Enter Mobile Number label and field border should display in Red color
+#Then Try to enter Mobile Number starting with 0 to 4 -It should not allows
+#Then Enter alphabets/Special characters in Mobile Number field- it should not allows
+#Then Click Esc button of keyboard >> Popup should close
+#Then Click Get New Connection button >> My Number popup should display
+#Then Enter NonIdea/NonVF number- Submit button should be enabled
+#Then Click Submit >> Idea Disconnected Number Bill Payment page should display
+#Then Click Get New Connection button >> My Number popup should display
+#Then Enter Idea Postpaid Active Number >> Submit button should be disabled
+#Then Enter Idea Postpaid InActive Number >> Submit button should be enabled
+#Then Enter VF Postpaid Active Number >> Submit button should be disabled
+#Then Enter VF Postpaid InActive Number >> Submit button should be enabled
+#Then Click Submit >> VF Inactive page should display 
+#Then Enter Idea Postpaid Number and click Fetch Your Bill link >> Fetch Bill Amount popup should open
+#Then Click Esc button of keyboard >> Popup should closed
+#Then Enter VF Postpaid Number and click Fetch Your Bill link >> Fetch Bill Amount popup should open
+#Then On Fetch Bill Amount >> Focus should be on first entry field by default on load
+#Then On Fetch Bill Amount >> Confirm button should be disabled by default on load
+#Then Click Resend OTP first time >> OTP has been resend to your registered mobile number, you have 3 more attempts message should display
+#Then Click Resend OTP second time >> OTP has been resend to your registered mobile number, you have 2 more attempts message should display
+#Then Click Resend OTP third time >> OTP has been resend to your registered mobile number, you have 1 more attempts message should display
+#Then Click Resend OTP fourth time >> Popup should close automatically and focus should go on landing page
+#Then Enter Idea Postpaid Number and click FetchYourBill link >> Fetch Bill Amount popup should open
+#Then Enter 4 digits in OTP field >> Confirm button should be enabled
+#Then Enter invalid OTP once and Click Confirm >> Proper error message should display in Red
+#Then Enter invalid OTP twice and Click Confirm >> Proper error message should display in Red
+#Then Enter invalid OTP thrice and Click Confirm >> Proper error message should display in Red
+#Then Enter invalid OTP fourth time and Click Confirm >> Proper error message should display in Red
+#Then Enter VF Postpaid Number and click Fetch Your Bill link >> Fetch Bill Amount popup should open
+#Then Enter valid OTP and Click Confirm >> Positive Outstanding Amount should display in Amount field
+#Then Bill Details should display below Pay Now button
+#Then Enter VF Postpaid Number having negative OS and click Fetch Your Bill link >> Fetch Bill Amount popup should open
+#Then Enter valid OTP and Click Confirm >> Proper message should display and Pay Now button should be disabled
+#Then Bill Details should display below Pay Now button
+#Then Enter VF Postpaid Number having Zero OS and click Fetch Your Bill link >> Fetch Bill Amount popup should open
+#Then Enter valid OTP and Click Confirm >> Proper message should display and Pay Now button should be disabled
+#Then Bill Details should display below Pay Now button
+#Then Enter VF Postpaid Number for which bill is not available and click Fetch Your Bill link >> Fetch Bill Amount popup should open
+#Then Enter valid OTP and Click Confirm >> Proper message should display and Pay Now button should be disabled
+#Then Enter Idea Postpaid Number n Amount and click Pay >> Idea Payment Gateway screen should display
+#Then Click on Netbanking >> Netbanking page should open
+#Then Cancel the transaction >> Payment Failure Page should display
+#Then Verify Failure Page >> Oops page with payment failure text should display
+#Then Verify Failure Page >> Mobile Number field should display provided Idea Number
+#Then Verify Failure Page >> Amount field should Not display
+#Then Verify Failure Page >> Transaction Id should display
+#Then Verify Failure Page >> Account Id should display
+#Then Verify Failure Page >> Date & Time should display
+#Then Verify Failure Page >> Download Receipt link should display
+#Then Verify Failure Page >> Reason for Failure section should display
+#Then Verify Failure Page >> Try Again button should display
+#Then Verify Failure Page >> Need Help link in orange color should display
+#Then Click Try Again >> Idea Payment Gateway screen should display
+#Then Enter VF Postpaid Number n Amount and click Pay >> VF Payment Gateway screen should display
+#Then Click on cancel button>> Just pay cancel page should display
+#Then Click on Try Again button>> VF Payment Gateway screen should display
+#Then Select Dummy bank>> Click on Pay Securely button>> and Cancel payment >>VF Payment Gateway screen should display
+Then Enter VF Postpaid Number>> Enter Amount (5551)  and click Pay >> VF Payment Gateway screen should display>> Select Dummy bank
+Then Enter Transaction password (nb1221)>> click on submit button>> Unsuccessfull page should display
+Then Verify Failure Page >> Oops page with payment failure text should be display
+Then Verify Failure Page >> Mobile Number field should be display provided Idea Number
+Then Verify Failure Page >> Amount field should Not be display
+Then Verify Failure Page >> Transaction Id should be display
+Then Verify Failure Page >> Account Id should be display
+Then Verify Failure Page >> Date & Time should be display
+Then Verify Failure Page >> Download Receipt link should be display
+Then Verify Failure Page >> Reason for Failure section should be display
+Then Verify Failure Page >> Try Again button should be display
+Then Verify Failure Page >> Need Help link in orange color should be display
+Then Click Try Again >> Idea Payment Gateway screen should be display
+Then Enter VF Postpaid Number n Amount and click Pay >> VF Payment Gateway screen should be display
+Then Click on Netbanking >> select Dummy bank mode>> Successful payment
+#Then Verify Thank you Page >> Thank you with payment Successfull text should be display
+#Then Verify Thank you Page >> Mobile Number field should display provided Idea Number
+#Then Verify Thank you Page >> Amount field should display
+#Then Verify Thank you Page >> Transaction Id should display
+#Then Verify Thank you Page >> Account Id should display
+#Then Verify Thank you Page >> Date & Time should display
+#Then Verify Thank you Page >> Download Receipt link should display
+#Then Verify Thank you Page >> 'Set up autopay' and 'Red together' sections should displayed
+#Then Verify Thank you Page >> Banner should display
+#Then Verify Thank you Page >> Important Things to Know should display
+#Then Verify Thank you Page>> Click on Download Receipt link>> Download PDF of the the receipt in the predefined format
+#Then Click SetUp Now button >> Page should redirect to Idea page
+#Then Click New Connection button >> New Connection page should display
+
+
+Examples: 
+    
+      | MobileNumber | Amount |
+      |   4000004689 |  50.00 |

@@ -1,0 +1,55 @@
+@VodaFone_HomePage
+
+Feature: Vodafone Home Page featurefile
+
+@Voda_HomePage
+
+Scenario: Voda fone BillPay
+
+Given Load Vodafone Site >> Home Page should display
+Then Verify Home Page >> Header should display
+Then Verify Home Page >> Footer should display
+Then Verify Home Page >> Below Header -  Banner should display
+Then Verify Home Page >> Mobile number field should display
+Then Verify Home Page >> Arrow (>) button should be disabled as number is not provided
+Then Enter mobile number less than ten digits - Error message should display in Red
+Then Enter mobile number less than ten digits - Enter Mobile Number label and field border should display in Red
+Then Enter Postpaid Number of Idea - error Message should display in red color
+#Then Click Dismiss >> Toast message should vanish
+Then Enter NonIdea/NonVF number- error Message should display in red color
+#Then Click Dismiss >> Toast message should vanish
+Then Try to enter Mobile Number starting with 0 to 4 >> It should not allow
+Then Enter alphabets/Special characters in Mobile Number field- it should not allow
+Then Enter Idea Prepaid Number >> error Message should display red color
+#Then Click Dismiss >> Toast message should vanish
+#Then Enter COCP number >> Toast message should be display
+#Then Click Dismiss >> Toast message should vanish
+
+Then Enter VF Postpaid Number >> Arrow (>) button should be enabled
+Then Enter VF Postpaid Number >> Arrow (>) button should be black
+Then Click arrow (>)Billpay page should display
+Then Verify Billpay page >> Mobile number should be autopopulated with number entered on Homepage
+Then Verify Billpay page >> Amount field should be enabled
+Then Verify Billpay page >> Fetch your bill link should be enabled
+Then Enter VF Prepaid Number >> Arrow (>) button should be enabled
+Then Enter VF Prepaid Number >> Arrow (>) button should be black
+Then Click arrow (>)Recharge page should display
+
+#Then Verify Recharge page >> Mobile number should be autopopulated with number entered on Homepage
+#Then Verify Recharge page >> Amount field should be enabled
+#Then Verify Recharge page >> Fetch last recharge link should be enabled
+#Then Verify Recharge page >> Pack should display for respective number
+#Then Verify Home Page >> Quicklinks should display below Mobile number field
+
+Then Verify Home Page >> Banners should display below Quicklinks
+Then Verify Home Page >> Loaded Benefits on VodafoneIdea section should display
+Then Verify Home Page >> Trending Now should display
+
+#Then Verify Home Page >> Important Things to Know should display
+#Then On page load >> Imortant Things to Know should display collapsed
+#Then Click Arrow for Important Things to Know >> Page should autoscroll
+#Then Verify page >> Focus should go on Imp Things to know section
+#Then Verify page >> Imp Things to Know section should expand
+#Then Click Arrow for Important Things to Know >> Page should collapse
+
+

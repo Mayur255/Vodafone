@@ -1,0 +1,715 @@
+package com.voda.ideaOrc;
+
+import java.io.File;
+import java.io.FileReader;
+import java.util.Properties;
+
+import org.apache.log4j.Logger;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.TimeoutException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import com.config.baseclass;
+import com.voda.PayBill.VodaPay_BillStepDef;
+import com.voda.PayBill.VodafBillPayObj;
+
+import HTML_REPORTS.HTMLReportGenerator;
+import HTML_REPORTS.TakeScreenShot;
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+
+public class VodaIdeaORCStep {
+	
+	Properties prop = new Properties();
+
+	public Properties OR;
+
+	public File file = null;
+
+	public FileReader filereader;
+
+	WebDriver driver;
+	public static int number = 1;
+
+	static int count = 1;
+	final static Logger log = Logger.getLogger(VodaPay_BillStepDef.class);
+
+	@Given("^Recharge page should open properly$")
+	public void recharge_page_should_open_properly() throws Throwable {
+		
+		String path = System.getProperty("user.dir") + "\\Driver\\geckodriver.exe";
+		System.setProperty("webdriver.gecko.driver", path);
+
+		FirefoxProfile profile = new FirefoxProfile();
+
+	//	profile.setPreference("network.proxy.type", ProxyType.AUTODETECT.ordinal());
+
+		FirefoxOptions options = new FirefoxOptions();
+
+		options.setProfile(profile);
+
+		driver = new FirefoxDriver(options);
+
+		System.out.println(" browser");
+
+		OR = new Properties();
+
+		file = new File(System.getProperty("user.dir") + "/src/test/java/com/Testdata/URL.properties");
+
+		filereader = new FileReader(file);
+
+		OR.load(filereader);
+
+		driver.get(OR.getProperty("VodaFone_ORC"));
+
+		System.out.println(" Browser Firefox is opening ");
+
+		System.out.println("VodaFone Pay Bill page opened");
+
+		Thread.sleep(5000);
+
+		HTMLReportGenerator.StepDetails("Pass", (count++) + "- VodaFone Pay Bill page opened", "",
+
+				TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+
+		driver.manage().deleteAllCookies();
+	    
+	}
+
+	@Then("^Verify mobilenumber field is enabled on page load$")
+	public void verify_mobilenumber_field_is_enabled_on_page_load() throws Throwable {
+		
+		VILIdeaORCObj vilideaObject = new VILIdeaORCObj(driver);
+		
+		WebDriverWait wait=new WebDriverWait(driver, 30);
+		
+		  try {
+			  
+	 wait.until(ExpectedConditions.visibilityOfAllElements(vilideaObject.MobileNo));
+	 
+	 boolean b = vilideaObject.MobileNo.isEnabled();
+	 
+	 if(b == true) {
+		 
+		 System.out.println("Verify mobilenumber field is enabled on page load");
+		 
+		 HTMLReportGenerator.StepDetails("Pass", (count++)+":-Verify mobilenumber field is enabled on page load", "", TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver) ); 
+	
+	 }else {
+		 
+		 System.out.println("Verify mobilenumber field is not enabled on page load");
+		 
+		 HTMLReportGenerator.StepDetails("Fail", (count++)+":-Verify mobilenumber field is not enabled on page load", "", TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver) );
+		
+	    }
+		  }catch(TimeoutException ex){
+			  
+		System.out.println("Verify mobilenumber field is not enabled on page load");
+				 
+	    HTMLReportGenerator.StepDetails("Fail", (count++)+":-Verify mobilenumber field is not enabled on page load", "", TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver) );
+				
+	 }
+	}
+
+	@Then("^Verify Amount field should not allow to enter data on page load$")
+	public void verify_Amount_field_should_not_allow_to_enter_data_on_page_load() throws Throwable {
+		
+   VILIdeaORCObj vilideaObject = new VILIdeaORCObj(driver);
+		
+		WebDriverWait wait=new WebDriverWait(driver, 30);
+		
+		  try {
+			  
+	 wait.until(ExpectedConditions.visibilityOfAllElements(vilideaObject.AmountBill));
+	 
+	 boolean b = vilideaObject.AmountBill.isDisplayed();
+	 
+	 if(b == true) {
+		 
+		 System.out.println("Verify Amount field should not allow to enter data on page load");
+		 
+		 HTMLReportGenerator.StepDetails("Pass", (count++)+":-Verify Amount field should not allow to enter data on page load", "", TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver) ); 
+	
+	 }else {
+		 
+		 System.out.println("Verify Amount field should  allow to enter data on page load");
+		 
+		 HTMLReportGenerator.StepDetails("Fail", (count++)+":-Verify Amount field should allow to enter data on page load", "", TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver) );
+		
+	    }
+		  }catch(TimeoutException ex){
+			  
+		System.out.println("Locator not found issue");
+				 
+	    HTMLReportGenerator.StepDetails("Fail", (count++)+":-Locator not found issue", "", TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver) );
+				
+	 }
+	    
+	}
+
+	@Then("^Verify on page Fetch last recharge hyper link should be disabled$")
+	public void verify_on_page_Fetch_last_recharge_hyper_link_should_be_disabled() throws Throwable {
+		
+       VILIdeaORCObj vilideaObject = new VILIdeaORCObj(driver);
+		
+		WebDriverWait wait=new WebDriverWait(driver, 30);
+		
+	try {
+			  
+	 wait.until(ExpectedConditions.visibilityOfAllElements(vilideaObject.Fetch_lastRechage));
+	 
+	 boolean b = vilideaObject.Fetch_lastRechage.isDisplayed();
+	 
+	 if(b == true) {
+		 
+		 System.out.println("Verify on page Fetch last recharge hyper link should be disabled");
+		 
+		 HTMLReportGenerator.StepDetails("Pass", (count++)+":-Verify on page Fetch last recharge hyper link should be disabled", "", TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver) ); 
+	
+	 }else {
+		 
+		 System.out.println("Verify on page Fetch last recharge hyper link should not be disabled");
+		 
+		 HTMLReportGenerator.StepDetails("Fail", (count++)+":-Verify on page Fetch last recharge hyper link should not be disabled", "", TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver) );
+		
+	    }
+		  }catch(TimeoutException ex){
+			  
+		System.out.println("Locator not found issue");
+				 
+	    HTMLReportGenerator.StepDetails("Fail", (count++)+":-Locator not found issue", "", TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver) );
+				
+	 }
+	    
+	}
+
+	@Then("^Verify text Lets Do a Recharge should display on page load$")
+	public void verify_text_Lets_Do_a_Recharge_should_display_on_page_load() throws Throwable {
+		
+       VILIdeaORCObj vilideaObject = new VILIdeaORCObj(driver);
+		
+		WebDriverWait wait=new WebDriverWait(driver, 30);
+		
+	try {
+			  
+	 wait.until(ExpectedConditions.visibilityOfAllElements(vilideaObject.Lets_doRechage));
+	 
+	 boolean b = vilideaObject.Lets_doRechage.isDisplayed();
+	 
+	 if(b == true) {
+		 
+		 System.out.println("Verify text Lets Do a Recharge should display on page load");
+		 
+		 HTMLReportGenerator.StepDetails("Pass", (count++)+":-Verify text Lets Do a Recharge should display on page load", "", TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver) ); 
+	
+	 }else {
+		 
+		 System.out.println("Verify text Lets Do a Recharge should not display on page load");
+		 
+		 HTMLReportGenerator.StepDetails("Fail", (count++)+":-Verify text Lets Do a Recharge should not display on page load", "", TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver) );
+		
+	    }
+		  }catch(TimeoutException ex){
+			  
+		System.out.println("Locator not found issue");
+				 
+	    HTMLReportGenerator.StepDetails("Fail", (count++)+":-Locator not found issue", "", TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver) );
+				
+	 }
+	    
+	}
+
+	@Then("^Verify banner should display on page load$")
+	public void verify_banner_should_display_on_page_load() throws Throwable {
+		
+		 VILIdeaORCObj vilideaObject = new VILIdeaORCObj(driver);
+			
+			WebDriverWait wait=new WebDriverWait(driver, 30);
+			
+		try {
+				  
+		 wait.until(ExpectedConditions.visibilityOfAllElements(vilideaObject.Banner_doRechage));
+		 
+		 boolean b = vilideaObject.Banner_doRechage.isDisplayed();
+		 
+		 if(b == true) {
+			 
+			 System.out.println("Verify banner should display on page load");
+			 
+			 HTMLReportGenerator.StepDetails("Pass", (count++)+":-Verify banner should display on page load", "", TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver) ); 
+		
+		 }else {
+			 
+			 System.out.println("Verify banner should not display on page load");
+			 
+			 HTMLReportGenerator.StepDetails("Fail", (count++)+":-Verify banner should not display on page load", "", TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver) );
+			
+		    }
+			  }catch(TimeoutException ex){
+				  
+			System.out.println("Locator not found issue");
+					 
+		    HTMLReportGenerator.StepDetails("Fail", (count++)+":-Locator not found issue", "", TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver) );
+					
+		 }
+		}
+	@Then("^Enter mobile number less than ten digits - Error message should display in Red$")
+	public void enter_mobile_number_less_than_ten_digits_Error_message_should_display_in_Red() throws Throwable {
+		
+		VILIdeaORCObj vilideaObject = new VILIdeaORCObj(driver);
+	
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+
+		try {
+			
+			wait.until(ExpectedConditions.visibilityOfAllElements(vilideaObject.MobileNo));
+
+			vilideaObject.MobileNo.sendKeys(OR.getProperty("mless_Thanten"));
+
+			vilideaObject.MobileNo.sendKeys(Keys.BACK_SPACE);
+
+			wait.until(ExpectedConditions.visibilityOfAllElements(vilideaObject.LesTha_Error));
+
+			String error_msg = "Please enter 10 digit mobile number";
+
+			String error_msg1 = vilideaObject.LesTha_Error.getText();
+
+			System.out.println("===" + error_msg1);
+
+			String color = vilideaObject.LesTha_Error.getCssValue("color");
+
+			String color1 = "rgb(153, 0, 0)";
+
+			System.out.println("============" + color);
+
+			boolean n1 = vilideaObject.LesTha_Error.isDisplayed();
+
+			if (n1 == true) {
+
+				System.out.println("Error msg is displyed");
+
+				if (error_msg1.equalsIgnoreCase(error_msg) && color.equalsIgnoreCase(color1)) {
+
+					System.out.println("Correct Error msg is displyed in correct color");
+
+					HTMLReportGenerator.StepDetails("Pass", (count++)
+
+							+ "- Correct Error msg is displyed in correct color", "",
+							TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+
+				} else {
+					System.out.println("Incorrect Error msg is displyed in correct color");
+					HTMLReportGenerator.StepDetails("Pass",
+							(count++) + "- Correct Error msg is displyed in correct color", "",
+							TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+
+				}
+			} else {
+
+				HTMLReportGenerator.StepDetails("Fail", (count++) + "- Correct Error msg is displyed in correct color",
+						"", TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+
+				System.out.println("Error msg is not displayed");
+			}
+
+		} catch (TimeoutException ex) {
+
+			System.out.println("Locator not found issue");
+
+			HTMLReportGenerator.StepDetails("Fail", (count++) + "- Locator not found issue", "",
+					TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+		}
+	}
+
+	@Then("^Enter mobile number less than ten digits - Enter Mobile Number label and field border should display in Red$")
+	public void enter_mobile_number_less_than_ten_digits_Enter_Mobile_Number_label_and_field_border_should_display_in_Red() throws Throwable {
+	    
+		VILIdeaORCObj vilideaObject = new VILIdeaORCObj(driver);
+
+		vilideaObject.MobileNo.clear();
+
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+
+		try {
+
+			wait.until(ExpectedConditions.visibilityOfAllElements(vilideaObject.MobileNo));
+
+			vilideaObject.MobileNo.sendKeys(OR.getProperty("prepaidIdeaNO"));
+			
+			vilideaObject.MobileNo.sendKeys(Keys.BACK_SPACE);
+
+			wait.until(ExpectedConditions.visibilityOfAllElements(vilideaObject.LebelFieldBoder));
+
+			String error_msg = "Please enter 10 digit mobile number";
+
+			String error_msg1 = vilideaObject.LebelFieldBoder.getText();
+
+			System.out.println("===" + error_msg1);
+
+			String color = vilideaObject.LebelFieldBoder.getCssValue("color");
+
+			String color1 = "rgb(153, 0, 0)";
+
+			System.out.println("============" + color);
+
+			boolean n1 = vilideaObject.LebelFieldBoder.isDisplayed();
+
+			if (n1 == true) {
+
+			System.out.println("Enter Mobile Number label and field border should display in Red");
+
+			if (error_msg1.equalsIgnoreCase(error_msg) && color.equalsIgnoreCase(color1)) {
+
+			System.out.println("Enter Mobile Number label and field border should display in Red");
+
+			HTMLReportGenerator.StepDetails("Pass", (count++)
+
+			+ "- Enter Mobile Number label and field border should display in Red", "",
+			TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+
+			} else {
+
+			System.out.println("Enter Mobile Number label and field border should not display in Red");
+
+					HTMLReportGenerator.StepDetails("Pass",
+
+							(count++) + "- Enter Mobile Number label and field border should not display in Red", "",
+							TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+
+				}
+			} else {
+
+				HTMLReportGenerator.StepDetails("Fail", (count++) + "- Enter Mobile Number label and field border should not display in Red",
+						"", TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+
+				System.out.println("Error msg is not displayed");
+			}
+
+		} catch (TimeoutException ex) {
+
+			System.out.println("Locator not found issue---V");
+
+			HTMLReportGenerator.StepDetails("Fail", (count++) + "- Locator not found issue", "",
+					TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+		}
+	}
+
+	@Then("^Enter Postpaid Number of Idea - Toast message should display$")
+	public void enter_Postpaid_Number_of_Idea_Toast_message_should_display() throws Throwable {
+	    
+		VILIdeaORCObj vilideaObject = new VILIdeaORCObj(driver);
+
+		vilideaObject.MobileNo.clear();
+
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		
+    try {
+    	
+  		wait.until(ExpectedConditions.visibilityOfAllElements(vilideaObject.MobileNo));
+
+			vilideaObject.MobileNo.sendKeys(OR.getProperty("IdeaPostpaidNo"));
+			
+			Thread.sleep(2000);
+			
+	wait.until(ExpectedConditions.visibilityOfAllElements(vilideaObject.ideaPostpaid_toastmsg));
+	
+	boolean b = vilideaObject.ideaPostpaid_toastmsg.isDisplayed();
+	
+	if(b == true) {
+		
+		System.out.println("Toast message should display");
+		
+		HTMLReportGenerator.StepDetails("Pass", (count++) + "- Toast message should display", "",
+				TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+	}else {
+		
+		System.out.println("Toast message should not display");
+		
+		HTMLReportGenerator.StepDetails("Fail", (count++) + "- Toast message should not display", "",
+				TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+	}
+    }catch(TimeoutException ex){
+    	
+    	System.out.println("Locator not found issue");
+    	
+    	HTMLReportGenerator.StepDetails("Fail", (count++) + "- Locator not found issue", "",
+				TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+    }
+}
+
+	@Then("^Enter Postpaid Number of VF- Toast message should display$")
+	public void enter_Postpaid_Number_of_VF_Toast_message_should_display() throws Throwable {
+	    
+		VILIdeaORCObj vilideaObject = new VILIdeaORCObj(driver);
+
+		vilideaObject.MobileNo.clear();
+
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		
+    try {
+    	
+  		wait.until(ExpectedConditions.visibilityOfAllElements(vilideaObject.MobileNo));
+
+			vilideaObject.MobileNo.sendKeys(OR.getProperty("vodaPostpaidNo"));
+			
+			Thread.sleep(2000);
+			
+	wait.until(ExpectedConditions.visibilityOfAllElements(vilideaObject.ideaPostpaid_toastmsg));
+	
+	boolean b = vilideaObject.ideaPostpaid_toastmsg.isDisplayed();
+	
+	if(b == true) {
+		
+		System.out.println("Toast message should display");
+		
+		HTMLReportGenerator.StepDetails("Pass", (count++) + "- Toast message should display", "",
+				TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+	}else {
+		
+		System.out.println("Toast message should not display");
+		
+		HTMLReportGenerator.StepDetails("Fail", (count++) + "- Toast message should not display", "",
+				TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+	}
+    }catch(TimeoutException ex){
+    	
+    	System.out.println("Locator not found issue");
+    	
+    	HTMLReportGenerator.StepDetails("Fail", (count++) + "- Locator not found issue", "",
+				TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+    }
+	}
+	
+	@Then("^Go to Recharge page >>Enter the VF prepaid number>> Enter amount in integer - It should not allow$")
+	public void go_to_Recharge_page_Enter_the_VF_prepaid_number_Enter_amount_in_integer_It_should_not_allow() throws Throwable {
+	   
+		VILIdeaORCObj vilideaObject = new VILIdeaORCObj(driver);
+
+		vilideaObject.MobileNo.clear();
+
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+	try {
+	
+  		wait.until(ExpectedConditions.visibilityOfAllElements(vilideaObject.MobileNo));
+
+		vilideaObject.MobileNo.sendKeys(OR.getProperty("Vodafone_prePaidNo"));
+			
+		System.out.println("Enter the VF prepaid number");
+		
+		HTMLReportGenerator.StepDetails("Paid", (count++) + "- Enter the VF prepaid number", "",
+				TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+			
+	 Thread.sleep(3000);
+	 
+	 wait.until(ExpectedConditions.visibilityOfAllElements(vilideaObject.AmountBill));
+
+		vilideaObject.AmountBill.sendKeys(OR.getProperty("integerAmount"));
+		
+		System.out.println("Enter amount in integer - It should not allow");
+		
+		HTMLReportGenerator.StepDetails("Paid", (count++) + "- Enter amount in integer - It should not allow", "",
+				TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+			
+	 
+	}catch(TimeoutException ex){
+		
+		System.out.println("Locator not found issue");
+		
+		HTMLReportGenerator.StepDetails("Fail", (count++) + "- Locator not found issue", "",
+				TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+	 }
+	}
+
+	@Then("^Go to Recharge page >>Enter the Vodafone/Idea preoaidpaid number>> Enter amount in integer - It should allow only (\\d+) digits$")
+	public void go_to_Recharge_page_Enter_the_Vodafone_Idea_preoaidpaid_number_Enter_amount_in_integer_It_should_allow_only_digits(int arg1) throws Throwable {
+	    
+		VILIdeaORCObj vilideaObject = new VILIdeaORCObj(driver);
+
+		vilideaObject.MobileNo.clear();
+try {
+	
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+	
+  		wait.until(ExpectedConditions.visibilityOfAllElements(vilideaObject.MobileNo));
+
+		vilideaObject.MobileNo.sendKeys(OR.getProperty("vodaPostpaidNo"));
+			
+		System.out.println("Enter the VF prepaid number");
+		
+		Thread.sleep(2000);
+		
+		HTMLReportGenerator.StepDetails("Pass", (count++) + "- Enter the VF prepaid number", "",
+				TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+		
+	
+	
+	 VILIdeaORCObj vilideaObject1 = new VILIdeaORCObj(driver);
+
+		//vilideaObject1.AmountBill.clear();
+		
+		WebDriverWait waitq = new WebDriverWait(driver, 30);
+		
+	 waitq.until(ExpectedConditions.visibilityOfAllElements(vilideaObject1.AmountBill));
+
+		vilideaObject1.AmountBill.sendKeys(OR.getProperty("fiveDigitAmount"));
+		
+		System.out.println("Enter amount in integer - It should allow only 5 digits");
+		
+		HTMLReportGenerator.StepDetails("Pass", (count++) + "- Enter amount in integer - It should allow only 5 digits", "",
+				TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+	
+}catch(TimeoutException ex){
+	
+	System.out.println("Locator not found issue");
+	
+	HTMLReportGenerator.StepDetails("Fail", (count++) + "- Locator not found issue", "",
+			TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+}
+}
+	@Then("^Enter VF Prepaid Number >> Enter amount = (\\d+) >> Packs with Mrp starting as (\\d+) should display$")
+	public void enter_VF_Prepaid_Number_Enter_amount_Packs_with_Mrp_starting_as_should_display(int arg1, int arg2) throws Throwable {
+	    
+		VILIdeaORCObj vilideaObject = new VILIdeaORCObj(driver);
+
+		vilideaObject.MobileNo.clear();
+
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		
+	try {
+		
+  		wait.until(ExpectedConditions.visibilityOfAllElements(vilideaObject.MobileNo));
+
+		vilideaObject.MobileNo.sendKeys(OR.getProperty("Vodafone_prePaidNo"));
+			
+		System.out.println("Enter the VF prepaid number");
+		
+		HTMLReportGenerator.StepDetails("Pass", (count++) + "- Enter the VF prepaid number", "",
+				TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+	
+		
+		Thread.sleep(2000);
+		
+		VILIdeaORCObj vilideaObject1 = new VILIdeaORCObj(driver);
+
+		vilideaObject1.AmountBill.clear();
+
+		WebDriverWait wait1 = new WebDriverWait(driver, 30);
+		
+	 wait1.until(ExpectedConditions.visibilityOfAllElements(vilideaObject.AmountBill));
+
+		vilideaObject.AmountBill.sendKeys(OR.getProperty("amount_rs"));
+		
+		System.out.println("Enter VF Prepaid Number >> Enter amount = 1 >> Packs with Mrp starting as 1 should display");
+		
+		HTMLReportGenerator.StepDetails("Pass", (count++) + "- Enter VF Prepaid Number >> Enter amount = 1 >> Packs with Mrp starting as 1 should display", "",
+				TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+
+	}catch(TimeoutException ex){
+		
+		System.out.println("Locator not found issue");
+		
+		HTMLReportGenerator.StepDetails("Fail", (count++) + "-Locator not found issue", "",
+				TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+
+	}
+ }
+	@Then("^Enter VF Prepaid Number >> Enter amount = (\\d+) >> Pack categories should not display$")
+	public void enter_VF_Prepaid_Number_Enter_amount_Pack_categories_should_not_display(int arg1) throws Throwable {
+	    
+		VILIdeaORCObj vilideaObject = new VILIdeaORCObj(driver);
+
+		vilideaObject.MobileNo.clear();
+
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		
+	try {
+		
+  		wait.until(ExpectedConditions.visibilityOfAllElements(vilideaObject.MobileNo));
+
+		vilideaObject.MobileNo.sendKeys(OR.getProperty("vodaNo"));
+			
+		System.out.println("Enter the VF prepaid number");
+		
+		HTMLReportGenerator.StepDetails("Pass", (count++) + "- Enter the VF prepaid number", "",
+				TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+	
+		
+		Thread.sleep(2000);
+		
+		VILIdeaORCObj vilideaObject1 = new VILIdeaORCObj(driver);
+
+		vilideaObject1.AmountBill.clear();
+
+		WebDriverWait wait1 = new WebDriverWait(driver, 30);
+		
+	 wait1.until(ExpectedConditions.visibilityOfAllElements(vilideaObject.AmountBill));
+
+		vilideaObject.AmountBill.sendKeys(OR.getProperty("amount_rs"));
+		
+		System.out.println("Pack categories should not display");
+		
+		HTMLReportGenerator.StepDetails("Pass", (count++) + "- Pack categories should not display", "",
+				TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+
+	}catch(TimeoutException ex){
+		
+		System.out.println("Locator not found issue");
+		
+		HTMLReportGenerator.StepDetails("Fail", (count++) + "-Locator not found issue", "",
+				TakeScreenShot.TakeScreenShot(baseclass.Get_ImageFilePath(), driver));
+
+	  }
+	}
+
+	@Then("^Now enter amount = (\\d+) >> Packs with Mrp starting as (\\d+) should display$")
+	public void now_enter_amount_Packs_with_Mrp_starting_as_should_display(int arg1, int arg2) throws Throwable {
+		
+	    
+	}
+
+	@Then("^Enter amount = (\\d+) >> Error message should display in Red$")
+	public void enter_amount_Error_message_should_display_in_Red(int arg1) throws Throwable {
+	    
+	}
+
+	@Then("^Enter amount = (\\d+) >> Enter Recharge Amount label and field border should display in Red$")
+	public void enter_amount_Enter_Recharge_Amount_label_and_field_border_should_display_in_Red(int arg1) throws Throwable {
+	   
+	}
+
+	@Then("^Enter amount = (\\d+) >> Packs categories section should display$")
+	public void enter_amount_Packs_categories_section_should_display(int arg1) throws Throwable {
+	   
+	}
+	@Then("^On page load >> Important Things to Know should display collapsed$")
+	public void on_page_load_Important_Things_to_Know_should_display_collapsed() throws Throwable {
+	    
+	}
+
+	@Then("^Click Arrow for Important Things to Know >> Page should autoscroll$")
+	public void click_Arrow_for_Important_Things_to_Know_Page_should_autoscroll() throws Throwable {
+	    
+	}
+
+	@Then("^Verify page >> Focus should go on Imp Things to know section$")
+	public void verify_page_Focus_should_go_on_Imp_Things_to_know_section() throws Throwable {
+	    
+	}
+
+	@Then("^Verify page >> Imp Things to Know section should expand$")
+	public void verify_page_Imp_Things_to_Know_section_should_expand() throws Throwable {
+	    
+	}
+
+	@Then("^Click Arrow for Important Things to Know >> Page should collapse$")
+	public void click_Arrow_for_Important_Things_to_Know_Page_should_collapse() throws Throwable {
+	   
+	}
+
+
+}

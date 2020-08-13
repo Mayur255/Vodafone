@@ -1,0 +1,50 @@
+package com.online_Pack;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.PageFactory;
+
+public class VF_Pack_Object {
+
+	
+public VF_Pack_Object(WebDriver driver) {
+		
+		PageFactory.initElements(driver,this);
+	}
+	
+	@FindBy(how=How.XPATH, using="")
+	public WebElement MobileNo;
+	
+	@FindBy(how=How.XPATH, using="//span[@class='selected-circle']")
+	public WebElement Circle;
+	
+	@FindBy(how=How.XPATH, using="//div[@class='nav nav-tabs navmb']")
+	public WebElement packs_categories;
+	
+	@FindBy(how=How.XPATH, using="//a[@class='nav-item nav-link packsMaincat showmorefull active']")
+	public WebElement unlimited_categories;
+	
+	@FindBy(how=How.XPATH, using="//a[@class='nav-item nav-link packsMaincat passive'][1]")
+	public WebElement talktime_categories;
+	
+	@FindBy(how=How.XPATH, using="//a[@class='nav-item nav-link packsMaincat passive'][2]")
+	public WebElement internet_categories;
+	
+	@FindBy(how=How.XPATH, using="//div[@class='tab-pane fade show active']/div/div[1]/div/div[1]/div[1]/h4")
+	public WebElement pack_amount;
+	
+	
+	@FindBy(how=How.XPATH, using="//div[@class='tab-pane fade show active']/div/div[1]/div/div[2]/div/div[1]")
+	public WebElement pack_talktime;
+	
+	@FindBy(how=How.XPATH, using="//div[@class='tab-pane fade show active']/div/div[1]/div/div[2]/div/div[2]")
+	public WebElement pack_data;
+	
+	@FindBy(how=How.XPATH, using="//div[@class='tab-pane fade show active']/div/div[1]/div/div[2]/div/div[3]")
+	public WebElement pack_validity;
+	
+	
+	
+}

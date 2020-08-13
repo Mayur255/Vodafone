@@ -1,0 +1,594 @@
+[
+  {
+    "line": 3,
+    "elements": [
+      {
+        "comments": [
+          {
+            "line": 5,
+            "value": "#@Voda_HomePage"
+          }
+        ],
+        "line": 8,
+        "name": "Voda fone Homepage",
+        "description": "",
+        "id": "vodafone-home-page-featurefile;voda-fone-homepage",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 9984446300,
+              "error_message": "org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//*[@id\u003d\u0027close\u0027]\"}\n  (Session info: chrome\u003d84.0.4147.89)\n  (Driver info: chromedriver\u003d2.35.528161 (5b82f2d2aae0ca24b877009200ced9065a772e73),platform\u003dWindows NT 10.0.18363 x86_64) (WARNING: The server did not provide any stacktrace information)\nCommand duration or timeout: 0 milliseconds\nFor documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html\nBuild info: version: \u00273.11.0\u0027, revision: \u0027e59cfb3\u0027, time: \u00272018-03-11T20:26:55.152Z\u0027\nSystem info: host: \u0027DESKTOP-N2CJ3IK\u0027, ip: \u00279.199.37.154\u0027, os.name: \u0027Windows 10\u0027, os.arch: \u0027amd64\u0027, os.version: \u002710.0\u0027, java.version: \u00271.8.0_162\u0027\nDriver info: org.openqa.selenium.chrome.ChromeDriver\nCapabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.35.528161 (5b82f2d2aae0ca..., userDataDir: C:\\Users\\MAYURD~1\\AppData\\L...}, cssSelectorsEnabled: true, databaseEnabled: false, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 84.0.4147.89, webStorageEnabled: true}\nSession ID: 38cfbc4985e61472bcc5deac0d61669a\n*** Element info: {Using\u003dxpath, value\u003d//*[@id\u003d\u0027close\u0027]}\r\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\r\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)\r\n\tat sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)\r\n\tat java.lang.reflect.Constructor.newInstance(Unknown Source)\r\n\tat org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:214)\r\n\tat org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:166)\r\n\tat org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)\r\n\tat org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:80)\r\n\tat org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:44)\r\n\tat org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)\r\n\tat org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:319)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:421)\r\n\tat org.openqa.selenium.By$ByXPath.findElement(By.java:361)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:311)\r\n\tat com.vodafone.home.page.VodafoneHomePageStep.load_Vodafone_Site_Home_Page_should_display(VodafoneHomePageStep.java:91)\r\n\tat ✽.Given Load Vodafone Site \u003e\u003e Home Page should display(src/test/resources/Vodafone_Site/Vodafone.feature:10)\r\n",
+              "status": "failed"
+            },
+            "line": 10,
+            "name": "Load Vodafone Site \u003e\u003e Home Page should display",
+            "match": {
+              "location": "VodafoneHomePageStep.load_Vodafone_Site_Home_Page_should_display()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 11,
+            "name": "Verify Home Page \u003e\u003e Header should display",
+            "match": {
+              "location": "VodafoneHomePageStep.verify_Home_Page_Header_should_display()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 13,
+            "name": "Verify Home Page \u003e\u003e Footer should display",
+            "match": {
+              "location": "VodafoneHomePageStep.verify_Home_Page_Footer_should_display()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 14,
+            "name": "Verify Home Page \u003e\u003e Below Header -  Banner should display",
+            "match": {
+              "location": "VodafoneHomePageStep.verify_Home_Page_Below_Header_Banner_should_display()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 15,
+            "name": "Verify Home Page \u003e\u003e Mobile number field should display",
+            "match": {
+              "location": "VodafoneHomePageStep.verify_Home_Page_Mobile_number_field_should_display()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 16,
+            "name": "Verify Home Page \u003e\u003e Arrow (\u003e) button should be disabled as number is not provided",
+            "match": {
+              "location": "VodafoneHomePageStep.verify_Home_Page_Arrow_button_should_be_disabled_as_number_is_not_provided()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "comments": [
+              {
+                "line": 17,
+                "value": "#Then Enter mobile number less than ten digits - Error message should display in Red1"
+              },
+              {
+                "line": 18,
+                "value": "#Then Enter mobile number less than ten digits - Enter Mobile Number label and field border should display in Red"
+              },
+              {
+                "line": 19,
+                "value": "#Then Enter Postpaid Number of Idea - error Message should display in red color"
+              },
+              {
+                "line": 20,
+                "value": "#Then Enter NonIdea/NonVF number- error Message should display in red color"
+              }
+            ],
+            "line": 21,
+            "name": "Try to enter Mobile Number starting with 0 to 4 \u003e\u003e It should not allow1",
+            "match": {
+              "arguments": [
+                {
+                  "val": "0",
+                  "offset": 41
+                },
+                {
+                  "val": "4",
+                  "offset": 46
+                }
+              ],
+              "location": "VodafoneHomePageStep.try_to_enter_Mobile_Number_starting_with_to_It_should_not_allow1(int,int)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 22,
+            "name": "Enter alphabets/Special characters in Mobile Number field- it should not allow1",
+            "match": {
+              "location": "VodafoneHomePageStep.enter_alphabets_Special_characters_in_Mobile_Number_field_it_should_not_allow1()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "comments": [
+              {
+                "line": 23,
+                "value": "#Then Enter Idea Prepaid Number \u003e\u003e error Message should display red color"
+              },
+              {
+                "line": 24,
+                "value": "#Then Enter COCP number \u003e\u003e Arrow (\u003e) button should be enabled"
+              },
+              {
+                "line": 27,
+                "value": "#Then Enter VF Postpaid Number \u003e\u003e Arrow (\u003e) button should be enabled"
+              },
+              {
+                "line": 28,
+                "value": "#Then Load Home Page \u003e\u003e Mobile Number should be autopopulated with VF Postpaid Number entered earlier"
+              },
+              {
+                "line": 29,
+                "value": "#Then Enter VF Postpaid Number \u003e\u003e Arrow (\u003e) button should be black"
+              },
+              {
+                "line": 30,
+                "value": "#Then Click arrow (\u003e)Billpay page should display"
+              }
+            ],
+            "line": 31,
+            "name": "Click on Pay Bill button",
+            "match": {
+              "location": "VodafoneHomePageStep.click_on_Pay_Bill_button()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 32,
+            "name": "Enter VF Postpaid Number \u003e\u003e Arrow (\u003e) button should be black",
+            "match": {
+              "location": "VodafoneHomePageStep.enter_VF_Postpaid_Number_Arrow_button_should_be_black()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 33,
+            "name": "Verify Billpay page \u003e\u003e Mobile number should be autopopulated with number entered on Homepage",
+            "match": {
+              "location": "VodafoneHomePageStep.verify_Billpay_page_Mobile_number_should_be_autopopulated_with_number_entered_on_Homepage()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 34,
+            "name": "Verify Billpay page \u003e\u003e Amount field should be enabled",
+            "match": {
+              "location": "VodafoneHomePageStep.verify_Billpay_page_Amount_field_should_be_enabled()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 35,
+            "name": "Verify Billpay page \u003e\u003e Fetch your bill link should be enabled",
+            "match": {
+              "location": "VodafoneHomePageStep.verify_Billpay_page_Fetch_your_bill_link_should_be_enabled()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 37,
+            "name": "Click on Recharge button",
+            "match": {
+              "location": "VodafoneHomePageStep.click_on_Recharge_button()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 38,
+            "name": "Enter VF Prepaid Number \u003e\u003e Arrow (\u003e) button should be enabled",
+            "match": {
+              "location": "VodafoneHomePageStep.enter_VF_Prepaid_Number_Arrow_button_should_be_enabled()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "comments": [
+              {
+                "line": 39,
+                "value": "#Then Load Home Page \u003e\u003e Mobile Number should be autopopulated with VF Prepaid Number entered earlier"
+              },
+              {
+                "line": 41,
+                "value": "#Then Enter VF Prepaid Number \u003e\u003e Arrow (\u003e) button should be black"
+              },
+              {
+                "line": 42,
+                "value": "#Then Click arrow (\u003e)Recharge page should display"
+              },
+              {
+                "line": 44,
+                "value": "#Then Verify Recharge page \u003e\u003e Mobile number should be autopopulated with number entered on Homepage"
+              },
+              {
+                "line": 45,
+                "value": "#Then Verify Recharge page \u003e\u003e Amount field should be enabled"
+              },
+              {
+                "line": 46,
+                "value": "#Then Verify Recharge page \u003e\u003e Fetch last recharge link should be enabled"
+              }
+            ],
+            "line": 47,
+            "name": "Verify Recharge page \u003e\u003e Pack should display for respective number",
+            "match": {
+              "location": "VodafoneHomePageStep.verify_Recharge_page_Pack_should_display_for_respective_number()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 48,
+            "name": "Verify Home Page \u003e\u003e Quicklinks should display below Mobile number field",
+            "match": {
+              "location": "VodafoneHomePageStep.verify_Home_Page_Quicklinks_should_display_below_Mobile_number_field()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 51,
+            "name": "Verify Home Page \u003e\u003e Banners should display below Quicklinks",
+            "match": {
+              "location": "VodafoneHomePageStep.verify_Home_Page_Banners_should_display_below_Quicklinks()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 52,
+            "name": "Verify Home Page \u003e\u003e Loaded Benefits on VodafoneIdea section should display",
+            "match": {
+              "location": "VodafoneHomePageStep.verify_Home_Page_Loaded_Benefits_on_VodafoneIdea_section_should_display()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 53,
+            "name": "Verify Home Page \u003e\u003e Trending Now should display",
+            "match": {
+              "location": "VodafoneHomePageStep.verify_Home_Page_Trending_Now_should_display()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 54,
+            "name": "Verify Top banner pixel.",
+            "match": {
+              "location": "VodafoneHomePageStep.verify_Top_banner_pixel()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 55,
+            "name": "Verify Top second banner pixel.",
+            "match": {
+              "location": "VodafoneHomePageStep.verify_Top_second_banner_pixel()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 56,
+            "name": "Verify Top thrid banner pixel.",
+            "match": {
+              "location": "VodafoneHomePageStep.verify_Top_thrid_banner_pixel()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 57,
+            "name": "Verify Top fourth banner pixel.",
+            "match": {
+              "location": "VodafoneHomePageStep.verify_Top_fourth_banner_pixel()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 58,
+            "name": "Verify Top fifth banner pixel.",
+            "match": {
+              "location": "VodafoneHomePageStep.verify_Top_fifth_banner_pixel()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 60,
+            "name": "Verify Buy postpaid sim icon pixel.",
+            "match": {
+              "location": "VodafoneHomePageStep.verify_Buy_postpaid_sim_icon_pixel()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 61,
+            "name": "Verify Buy prepaid sim icon pixel.",
+            "match": {
+              "location": "VodafoneHomePageStep.verify_Buy_prepaid_sim_icon_pixel()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 62,
+            "name": "Verify IR icon pixel.",
+            "match": {
+              "location": "VodafoneHomePageStep.verify_IR_icon_pixel()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 63,
+            "name": "Verify Vodafone play icon pixel.",
+            "match": {
+              "location": "VodafoneHomePageStep.verify_Vodafone_play_icon_pixel()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 64,
+            "name": "Verify Help and support_icon pixel.",
+            "match": {
+              "location": "VodafoneHomePageStep.verify_Help_and_support_icon_pixel()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 66,
+            "name": "Verify four banner icon one pixel.",
+            "match": {
+              "location": "VodafoneHomePageStep.verify_four_banner_icon_one_pixel()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 67,
+            "name": "Verify four banner icon two pixel.",
+            "match": {
+              "location": "VodafoneHomePageStep.verify_four_banner_icon_two_pixel()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 68,
+            "name": "Verify four banner icon three pixel.",
+            "match": {
+              "location": "VodafoneHomePageStep.verify_four_banner_icon_three_pixel()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 69,
+            "name": "Verify four banner icon four pixel.",
+            "match": {
+              "location": "VodafoneHomePageStep.verify_four_banner_icon_four_pixel()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "comments": [
+              {
+                "line": 71,
+                "value": "#Then Verify Loaded benefits icon one pixel."
+              },
+              {
+                "line": 72,
+                "value": "#Then Verify Loaded benefits icon two pixel."
+              },
+              {
+                "line": 73,
+                "value": "#Then Verify Loaded benefits icon three pixel."
+              },
+              {
+                "line": 74,
+                "value": "#Then Verify Loaded benefits icon four pixel."
+              },
+              {
+                "line": 75,
+                "value": "#Then Verify Loaded benefits icon five pixel."
+              },
+              {
+                "line": 76,
+                "value": "#Then Verify Loaded benefits icon_six pixel."
+              }
+            ],
+            "line": 78,
+            "name": "Verify Vodafone exclusive banner image one pixel.",
+            "match": {
+              "location": "VodafoneHomePageStep.verify_Vodafone_exclusive_banner_image_one_pixel()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 79,
+            "name": "Verify Vodafone exclusive banner image two pixel.",
+            "match": {
+              "location": "VodafoneHomePageStep.verify_Vodafone_exclusive_banner_image_two_pixel()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 80,
+            "name": "Verify Vodafone exclusive banner image three pixel.",
+            "match": {
+              "location": "VodafoneHomePageStep.verify_Vodafone_exclusive_banner_image_three_pixel()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 81,
+            "name": "Verify Vodafone exclusive banner image four pixel.",
+            "match": {
+              "location": "VodafoneHomePageStep.verify_Vodafone_exclusive_banner_image_four_pixel()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 82,
+            "name": "Verify Vodafone exclusive banner image five pixel.",
+            "match": {
+              "location": "VodafoneHomePageStep.verify_Vodafone_exclusive_banner_image_five_pixel()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "comments": [
+              {
+                "line": 83,
+                "value": "#Then Verify Vodafone exclusive banner image six pixel."
+              }
+            ],
+            "line": 84,
+            "name": "Verify the displayed Meta description, Meta viewport, Meta template",
+            "match": {
+              "location": "VodafoneHomePageStep.verify_the_displayed_Meta_description_Meta_viewport_Meta_template()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 6,
+            "name": "@HomePage_Chrome"
+          }
+        ]
+      }
+    ],
+    "name": "Vodafone Home Page featurefile",
+    "description": "",
+    "id": "vodafone-home-page-featurefile",
+    "keyword": "Feature",
+    "uri": "src/test/resources/Vodafone_Site/Vodafone.feature",
+    "tags": [
+      {
+        "line": 1,
+        "name": "@VodaFone_HomePage"
+      }
+    ]
+  }
+]

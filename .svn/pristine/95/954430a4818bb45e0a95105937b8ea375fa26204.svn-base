@@ -1,0 +1,37 @@
+@VodafoneIdeaorc
+Feature: VodafoneBillPay 
+
+@Voda_IdeaORC
+
+Scenario Outline: VFIdea_ORC
+
+Given Recharge page should open properly
+Then Verify mobilenumber field is enabled on page load
+Then Verify Amount field should not allow to enter data on page load
+Then Verify on page Fetch last recharge hyper link should be disabled
+Then Verify text Lets Do a Recharge should display on page load
+Then Verify banner should display on page load
+Then Enter mobile number less than ten digits - Error message should display in Red
+Then Enter mobile number less than ten digits - Enter Mobile Number label and field border should display in Red
+Then Enter Postpaid Number of Idea - Toast message should display
+#Then Enter Postpaid Number of Idea - Enter Mobile Number label and field border should display in Red
+Then Enter Postpaid Number of VF- Toast message should display 
+#Then Enter Postpaid Number of VF - Enter Mobile Number label and field border should display in Red
+Then Go to Recharge page >>Enter the VF prepaid number>> Enter amount in integer - It should not allow
+Then Go to Recharge page >>Enter the Vodafone/Idea preoaidpaid number>> Enter amount in integer - It should allow only 5 digits
+Then Enter VF Prepaid Number >> Enter amount = 1 >> Packs with Mrp starting as 1 should display
+Then Enter VF Prepaid Number >> Enter amount = 1 >> Pack categories should not display
+Then Now enter amount = 12 >> Packs with Mrp starting as 12 should display
+Then Enter amount = 99999 >> Error message should display in Red
+Then Enter amount = 99999 >> Enter Recharge Amount label and field border should display in Red
+Then Enter amount = 99999 >> Packs categories section should display
+Then On page load >> Important Things to Know should display collapsed
+Then Click Arrow for Important Things to Know >> Page should autoscroll
+Then Verify page >> Focus should go on Imp Things to know section
+Then Verify page >> Imp Things to Know section should expand
+Then Click Arrow for Important Things to Know >> Page should collapse
+
+Examples: 
+    
+      | MobileNumber | Amount |
+      |   9962281584 |  50.00 |

@@ -1,0 +1,50 @@
+package com.online_Pack;
+
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
+import org.junit.runner.RunWith;
+
+import HTML_REPORTS.HTMLReportGenerator;
+import cucumber.api.CucumberOptions;
+import cucumber.api.junit.Cucumber;
+
+@RunWith(Cucumber.class)
+
+@CucumberOptions(features = "src/test/resources/VF_Pack/VF_packs.feature", glue = "com.online_Pack", 
+
+tags = {"@Packs"},plugin = {
+		
+		"com.cucumber.listener.ExtentCucumberFormatter:target/cucumber-reports/Vodafone_Packs.html",
+		
+		"json:target/cucumber-reports/Cucumber.json"}, monochrome = true)
+
+
+public class VF_Pack_Runner {
+	
+
+	@BeforeClass
+	
+	public static void setup() {
+	
+	 System.out.println("Ran the before");
+		
+	  try {
+		
+	 HTMLReportGenerator.TestSuiteStart("C:\\screenshots\\SIT_Reports\\Automation_Reports.html", "VF_Pack");
+			
+	 HTMLReportGenerator.TestCaseStart("Voda_Pack", "Voda_Pack");
+			
+	  } catch (Exception ex) {
+			// TODO Auto-generated catch block
+			ex.printStackTrace();
+		}
+    }
+	@AfterClass
+	public static void teardown() {
+		System.out.println("Run the after");
+		HTMLReportGenerator.TestCaseEnd();
+		HTMLReportGenerator.TestSuiteEnd();
+
+}
+
+}

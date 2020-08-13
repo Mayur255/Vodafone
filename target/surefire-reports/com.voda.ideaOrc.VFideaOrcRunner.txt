@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: com.voda.ideaOrc.VFideaOrcRunner
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.044 sec <<< FAILURE! - in com.voda.ideaOrc.VFideaOrcRunner
+com.voda.ideaOrc.VFideaOrcRunner  Time elapsed: 0.038 sec  <<< ERROR!
+java.lang.NoClassDefFoundError: com/relevantcodes/extentreports/ExtentReports
+	at com.voda.ideaOrc.VFideaOrcRunner.setup(VFideaOrcRunner.java:29)
+
+com.voda.ideaOrc.VFideaOrcRunner  Time elapsed: 0.039 sec  <<< ERROR!
+java.lang.NoClassDefFoundError: com/relevantcodes/extentreports/ExtentReports
+	at com.voda.ideaOrc.VFideaOrcRunner.teardown(VFideaOrcRunner.java:42)
+

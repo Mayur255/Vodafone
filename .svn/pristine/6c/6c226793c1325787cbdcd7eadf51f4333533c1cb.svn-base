@@ -1,0 +1,74 @@
+
+
+@VF_Packs
+Feature: VF_packs
+
+
+  @Packs
+  Scenario: VF_Pack
+  
+Given Launch the browser
+When Enter URL  
+Then Prepaid Pack page should open properly
+Then Verify Page >> Circle should display
+Then Verify Page >> By default Mumbai circle should display
+Then Verify Page >> Pack categories should display
+Then Verify Pack categories >> Unlimited, Talktime, Internet should display
+Then Verify Pack details >> Pack Mrp should display
+Then Verify Pack details >> Validity should display
+Then If Talktime details available >> It should display for Unlimited category pack
+Then If Data details available >> It should display for Unlimited category pack
+#Then SMS Details should not display in pack details section
+#Then If Nontelco benefits are available then max two should display in pack details section
+Then Select Internet category >> Only Data and Validity fields should display
+Then Select Talktime category >> Only Talktime and Validity fields should display
+Then On page load >> Imortant Things to Know should display collapsed
+Then Click Arrow for Important Things to Know >> Page should autoscroll
+Then Verify page >> Focus should go on Imp Things to know section
+Then Verify page >> Imp Things to Know section should expand
+Then Click Arrow for Important Things to Know >> Page should collapse
+Then If Pack count is five or less than five >> Load More link should not display
+Then If pack count is more than five >> Load More link should display
+Then Click Load More >> Verify packs >>All available packs should display
+Then Click Load More >> Verify page >> Load More link should not display
+Then Click Know More for any pack >> Popup should open
+Then Click Esc >> Popup should close
+Then Click Know More for any pack >> Popup should open
+Then Click Cross on popup >> Popup should close
+Then Verify Know More details >> Pack Mrp should display
+Then Verify Know More details >> Below Mrp -  Data and SMS details should display
+Then Verify Know More details >> If non telco benefits are available then all benefits should display
+Then Verify Know More details >> If non telco benefits are Not available then benefits should Not display
+Then Verify Know More details >> Buy Pack should display
+Then Click Buy Pack >> Seleced Pack page should display
+Then Verify Selected Pack page >> Edit should display next to Selected Pack
+Then Verify Selected Pack page >> Pack Mrp displayed on landing page for respective Pack should display
+Then Verify Selected Pack page >> Below Mobile Number Details section should display
+Then Verify Mobile Number details section >> Focus should be on Mobile Number field
+Then Verify Mobile Number details section >> Confirm should be disabled
+Then Verify Page >> Imp Things to Know Section should display
+Then Enter mobile number less than ten digits - Error message should display in Red
+Then Enter mobile number less than ten digits - Enter Mobile Number label and field border should display in Red
+Then Enter NonIdea/NonVF number- Toast Message should display
+Then Click Dismiss >> Toast message should vanish
+Then Enter Prepaid Number of Idea - Toast Message should display
+Then Click Dismiss >> Toast message should vanish
+Then Enter Postpaid Number of Idea - Toast Message should display
+Then Click Dismiss >> Toast message should vanish
+Then Try to enter Mobile Number starting with 0 to 4 >> It should not allow
+Then Enter alphabets/Special characters in Mobile Number field- it should not allow
+Then Select Circle >> DL - DL circle packs should display
+Then For DL circle >> Select Talktime >> Click Buy Pack for Rs 10 pack
+Then Enter MH circleVF  number >> Confirm should be enabled as Rs 10 pack is available for MH circle
+Then Click Edit >> Click Buy Pack for Rs 139 Pack
+Then Click Buy Pack >> Enter MH circle VF number >> Error message should display in Red
+Then Click Buy Pack >> Enter MH circle VF number >> Enter Mobile Number label and field border should display in Red
+Then For DL circle >> Enter DL Circle VF number >> Confirm should be enabled
+Then Click Confirm >> VF Payment Gateway should display
+Then Click Cancel >> VF oops page should display
+Then Verify OOPs page >> Mobile number should display
+Then Verify OOPs page >> Payment Amount as Pack Mrp should display
+Then Verify OOPs page >> Trasaction Id should display
+Then Click Try Again >> VF Payment Gateway page should display
+
+    

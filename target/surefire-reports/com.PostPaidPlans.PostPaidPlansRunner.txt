@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: com.PostPaidPlans.PostPaidPlansRunner
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.037 sec <<< FAILURE! - in com.PostPaidPlans.PostPaidPlansRunner
+com.PostPaidPlans.PostPaidPlansRunner  Time elapsed: 0.035 sec  <<< ERROR!
+java.lang.NoClassDefFoundError: com/relevantcodes/extentreports/ExtentReports
+	at com.PostPaidPlans.PostPaidPlansRunner.setup(PostPaidPlansRunner.java:32)
+
+com.PostPaidPlans.PostPaidPlansRunner  Time elapsed: 0.035 sec  <<< ERROR!
+java.lang.NoClassDefFoundError: com/relevantcodes/extentreports/ExtentReports
+	at com.PostPaidPlans.PostPaidPlansRunner.teardown(PostPaidPlansRunner.java:45)
+
